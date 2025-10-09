@@ -1,0 +1,14 @@
+/* body {
+  --list-edit-offset: 0.5em;
+  --list-indent: 2em;
+  --list-spacing: 0.3em;
+} */
+
+/***************************************************************
+                     Normalize
+***************************************************************/
+/* (1) Text wrapping in editing mode ------------------ */
+.HyperMD-list-line {
+  word-break: break-word;
+  text-wrap: pretty;
+}

@@ -1,0 +1,118 @@
+/* Option 1: <figcaption>...<figcaption> */
+figcaption {
+  color: var(--text-muted);
+  font-size: var(--font-smaller);
+  font-style: italic;
+  line-height: 1.5;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  padding-left: 12px;
+  padding-right: 12px;
+  align-items: baseline;
+  justify-content: center;
+}
+
+/* Option 2: Callouts */
+.callout[data-callout^="figure"] {
+  padding: .5em;
+  margin: .5em;
+
+  & .callout-icon {
+    display: none;
+  }
+
+  & .callout-title {
+    padding: 0;
+    margin: 0;
+  }
+
+  & .callout-content {
+    --callout-content-background: rgba(0, 0, 0, 0);
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.callout[data-callout^="figure-right"] {
+  float: right;
+  width: 50%;
+}
+
+.callout[data-callout^="figure-left"] {
+  float: left;
+  width: 50%;
+}
+
+/* Option 3: Table */
+/* ====== image captions (embed images only) ====== */
+/* add alt-text of images as caption */
+.workspace-leaf-content p>.image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"], [alt$=".svg"])::after {
+  content: attr(alt);
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 1rem;
+  font-size: 90%;
+  line-height: 1.5;
+  text-align: center;
+  display: block;
+}
+
+.workspace-leaf-content[data-type=markdown] .view-content thead tr:has(img, pre) {
+  background: none;
+}
+
+.workspace-leaf-content[data-type=markdown] .view-content thead:has(img)+tbody td {
+  --table-text-size: var(--font-smaller);
+  --table-text-color: var(--text-muted);
+}
+
+.workspace-leaf-content[data-type=markdown] .view-content thead:has(img, pre)+tbody tr:first-child td {
+  text-align: center;
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: var(--font-smaller);
+}
+
+.markdown-preview-view thead:has(img)+tbody {
+  --table-border-width: 0;
+  & tr:first-child td {
+    padding: 4px;
+  }
+  & td {
+    padding-top: 0px;
+  }
+}
+
+/* image in preview */
+.markdown-preview-view thead tr:first-child th {
+  padding: 4px;
+}
+
+/* shrink-wrap to image + text */
+body:not(.table-width-obsidian-default) .markdown-preview-view table:has(thead > tr:first-child img[alt*="figure"]) {
+  display: inline-table;
+  width: auto !important;
+}
+
+/* default center */
+.markdown-preview-view .el-table:has(thead > tr:first-child img[alt*="figure"]) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* float table to the right */
+.markdown-preview-view .el-table:has(thead > tr:first-child img[alt*="figure-right"]) {
+  float: right;
+  margin-left: 1em;
+}
+
+/* float table to the left */
+.markdown-preview-view .el-table:has(thead > tr:first-child img[alt*="figure-left"]) {
+  float: left;
+  margin-right: 1em;
+}

@@ -1,0 +1,456 @@
+/***************************************************************
+  Colors
+***************************************************************/
+/* App variables */
+body {
+  --table-text-size: calc(var(--font-text-size) * 0.875);
+  --table-border-width: 1px;
+  --table-selection: var(--text-selection);
+  --table-selection-border-color: var(--text-accent);
+  --table-selection-border-width: 0px;
+  --table-selection-border-radius: 0px;
+  --table-drag-handle-background-active: var(--text-selection);
+  --table-drag-handle-color-active: var(--text-accent);
+  --table-add-button-border-width: 0px;
+}
+
+/* colors */
+.theme-light {
+  --table-border-color: #e7e7e7;
+}
+
+.theme-dark {
+  --table-border-color: #333C4A;
+}
+
+/***************************************************************
+  Hide table header if empty in reading view
+***************************************************************/
+/* Make table-header-border-width also apply to the bottom border
+   of the header row (th) */
+thead tr>th {
+  border-bottom-width: var(--table-header-border-width);
+}
+
+/** Hide table header if empty in reading view **/
+.markdown-preview-view table>thead:not(:has(th:not(:empty))) {
+  display: none;
+}
+
+/***************************************************************
+  Style table header if it contains code blocks
+***************************************************************/
+.cm-html-embed thead th:has(pre),
+.markdown-rendered thead th:has(pre) {
+  --table-header-weight: 400;
+  padding-block: 0;
+}
+
+/***************************************************************
+  Adjust table & cell padding
+***************************************************************/
+body {
+  /* left padding of first column */
+  --table-edge-cell-padding-first: 8px;
+  /* right padding of last column */
+  --table-edge-cell-padding-last: 8px;
+  /* padding of inner cells */
+  --table-cell-padding: 4px 8px;
+  /* the drag handle */
+  --table-drag-space: 16px;
+  --table-drag-padding: var(--table-drag-space);
+}
+
+/* Add spacing above and below tables in reading view */
+/* .markdown-preview-view .markdown-preview-sizer>div:has(table) {
+  margin-block: var(--p-spacing);
+} */
+
+/* smaller padding above/below table in reading view */
+.markdown-reading-view table {
+  --p-spacing: 0.5rem
+}
+
+/* table-cell-padding */
+.markdown-preview-view td,
+.markdown-preview-view th,
+.markdown-source-view.mod-cm6 td,
+.markdown-source-view.mod-cm6 th {
+  padding: var(--table-cell-padding)
+}
+
+.markdown-preview-view thead tr:first-child th,
+.markdown-preview-view th,
+.markdown-source-view.mod-cm6 .dataview.table-view-table thead.table-view-thead tr th,
+.table-view-table>thead>tr>th {
+  padding: var(--table-cell-padding)
+}
+
+.markdown-source-view.mod-cm6 .cm-table-widget .table-cell-wrapper {
+  padding: var(--table-cell-padding)
+}
+
+/* table-edge-cell-padding-first */
+.cm-html-embed thead tr>th:first-child,
+.markdown-rendered thead tr>th:first-child,
+.markdown-preview-view th:first-child,
+.markdown-source-view.mod-cm6 .dataview.table-view-table thead.table-view-thead tr th:first-child,
+.table-view-table>thead>tr>th:first-child {
+  padding-inline-start: var(--table-edge-cell-padding-first)
+}
+
+.markdown-preview-view td:first-child,
+.markdown-preview-view th:first-child,
+.markdown-source-view.mod-cm6 td:first-child,
+.markdown-source-view.mod-cm6 th:first-child {
+  padding-inline-start: var(--table-edge-cell-padding-first)
+}
+
+.markdown-preview-view td:first-child .table-cell-wrapper,
+.markdown-preview-view th:first-child .table-cell-wrapper,
+.markdown-source-view.mod-cm6 td:first-child .table-cell-wrapper,
+.markdown-source-view.mod-cm6 th:first-child .table-cell-wrapper {
+  padding-inline-start: 0
+}
+
+/* table-edge-cell-padding-last */
+.markdown-preview-view th:last-child,
+.markdown-source-view.mod-cm6 .dataview.table-view-table thead.table-view-thead tr th:last-child,
+.table-view-table>thead>tr>th:last-child {
+  padding-inline-end: var(--table-edge-cell-padding-last)
+}
+
+.markdown-preview-view td:last-child,
+.markdown-preview-view th:last-child,
+.markdown-source-view.mod-cm6 td:last-child,
+.markdown-source-view.mod-cm6 th:last-child {
+  padding-inline-end: var(--table-edge-cell-padding-last)
+}
+
+.markdown-preview-view td:last-child .table-cell-wrapper,
+.markdown-preview-view th:last-child .table-cell-wrapper,
+.markdown-source-view.mod-cm6 td:last-child .table-cell-wrapper,
+.markdown-source-view.mod-cm6 th:last-child .table-cell-wrapper {
+  padding-inline-end: 0
+}
+
+.cm-embed-block.cm-table-widget.markdown-rendered {
+  padding: var(--table-drag-padding);
+  overscroll-behavior-x: none
+}
+
+.is-mobile .cm-embed-block.cm-table-widget.markdown-rendered {
+  padding-bottom: 40px
+}
+
+
+/***************************************************************
+  CSS classes for styling tables
+***************************************************************/
+/* Table Condensed ------------------------------------ */
+.table-condensed {
+  --table-header-border-width: 0;
+  --table-column-first-border-width: 0;
+  --table-column-last-border-width: 0;
+  --table-row-last-border-width: 0;
+  --table-edge-cell-padding-first: 0;
+  --table-edge-cell-padding-last: 0;
+  --table-cell-padding: 4px 10px;
+}
+
+/* Table Highlight ------------------------------------ 
+   Highlighted text in tables highlights entire cell
+*/
+.table-highlight .cm-html-embed tbody tr>td:has(mark),
+.table-highlight .markdown-rendered tbody tr>td:has(mark) {
+  background-color: var(--text-highlight-bg) !important;
+
+  & mark {
+    background-color: transparent !important;
+  }
+}
+
+/* Table Header Column ------------------------------------
+   Make the first column the header instead of the first row
+*/
+.theme-light .table-header-col.markdown-rendered td:first-child {
+  background-color: transparent;
+  background: var(--table-header-background-light);
+  font-weight: var(--table-header-weight);
+}
+
+.theme-dark .table-header-col.markdown-rendered td:first-child {
+  background-color: transparent;
+  background: var(--table-header-background-dark);
+  font-weight: var(--table-header-weight);
+}
+
+/* Fit column width to text */
+.col-1-fit td:first-child {
+  width: 0%;
+  white-space: nowrap;
+}
+
+/***************************************************************
+  Helper Classes
+***************************************************************/
+/* CSS variables ------------------------------------ */
+body {
+  --background-table-rows: var(--background-secondary);
+  --table-column-alt-reverse-background: var(--table-background);
+}
+
+.theme-light {
+  --background-table-rows: #f8f9fa;
+}
+
+.theme-dark {
+  --background-table-rows: #1E2431;
+}
+
+/* Table helper classes for alternate styles ------------------------------------ */
+.table-small {
+  .bases-view {
+    --bases-table-font-size: 85%;
+  }
+
+  table:not(.calendar) {
+    --table-text-size: 85%;
+  }
+}
+
+.table-tiny {
+  .bases-view {
+    --bases-table-font-size: 75%;
+  }
+
+  table:not(.calendar) {
+    --table-text-size: 75%;
+  }
+}
+
+.row-hover {
+  --table-edge-cell-padding-first: 8px;
+  --table-edge-cell-padding-last: 8px;
+  --table-row-background-hover: var(--hl1);
+  --table-row-alt-background-hover: var(--hl1);
+}
+
+.row-alt {
+  --table-row-alt-background: var(--background-table-rows);
+  --table-row-alt-background-hover: var(--background-table-rows);
+  --table-edge-cell-padding-first: 8px;
+  --table-edge-cell-padding-last: 8px;
+}
+
+.col-alt {
+  --table-column-alt-background: var(--background-table-rows);
+}
+
+
+/*---
+Add striped background to alternating table rows
+starting from the 1st column (.col-alt-rev class)
+---
+Note: .row-alt adds background starting from the 2nd row
+---*/
+.cm-html-embed tbody tr:nth-child(even),
+.markdown-rendered tbody tr:nth-child(even) {
+  background-color: var(--table-row-alt-reverse-background);
+}
+
+.row-alt-rev {
+  --table-row-alt-background: transparent;
+  --table-row-alt-reverse-background: var(--background-table-rows);
+}
+
+
+/*---
+Add striped background to alternating table rows
+starting from the 1st column (.col-alt-rev class)
+---
+Note: .col-alt adds background starting from the 2nd column
+---*/
+.cm-html-embed thead tr>th:nth-child(2n+1),
+.markdown-rendered thead tr>th:nth-child(2n+1) {
+  background-color: var(--table-column-alt-reverse-background);
+}
+
+.cm-html-embed tbody tr>td:nth-child(2n+1),
+.markdown-rendered tbody tr>td:nth-child(2n+1) {
+  background-color: var(--table-column-alt-reverse-background);
+}
+
+.col-alt-rev {
+  --table-column-alt-background: transparent;
+  --table-column-alt-reverse-background: var(--background-table-rows);
+}
+
+.table-tabular table:not(.calendar) {
+  font-variant-numeric: tabular-nums;
+}
+
+.table-center {
+
+  .markdown-preview-view .markdown-preview-sizer table,
+  &.markdown-preview-view .markdown-preview-sizer table,
+  .markdown-source-view.mod-cm6 .table-wrapper,
+  &.markdown-source-view.mod-cm6 .table-wrapper {
+    margin: 0 auto;
+  }
+}
+
+.table-lines {
+  --table-border-width: var(--border-width);
+  --table-header-border-width: var(--border-width);
+  --table-column-first-border-width: var(--border-width);
+  --table-column-last-border-width: var(--border-width);
+  --table-row-last-border-width: var(--border-width);
+  --table-edge-cell-padding: 8px;
+  --table-edge-cell-padding-first: 8px;
+  --table-edge-cell-padding-last: 8px;
+  --table-add-button-border-width: 1px;
+}
+
+.table-nowrap {
+  --table-white-space: nowrap;
+}
+
+.table-nowrap-first {
+  table {
+
+    thead>tr>th:first-child,
+    tbody>tr>td:first-child {
+      --table-white-space: nowrap;
+    }
+  }
+}
+
+.trim-cols,
+.table-nowrap .table-wrap {
+  --table-white-space: normal;
+}
+
+.table-numbers {
+  --table-numbers-padding-right: 0.5em;
+
+  table:not(.calendar) {
+    counter-reset: section;
+
+    >thead>tr>th:first-child {
+      white-space: nowrap;
+
+      &::before {
+        content: " ";
+        padding-right: var(--table-numbers-padding-right);
+        display: inline-block;
+        min-width: 2em;
+      }
+
+      .table-cell-wrapper,
+      .cm-s-obsidian {
+        display: inline-block;
+        min-width: 10px;
+      }
+    }
+
+    &:not(.table-editor)>tbody>tr>td:first-child,
+    &.table-editor>tbody>tr>td:first-child .table-cell-wrapper {
+      white-space: nowrap;
+
+      &::before {
+        counter-increment: section;
+        content: counter(section) " ";
+        text-align: center;
+        padding-right: var(--table-numbers-padding-right);
+        display: inline-block;
+        min-width: 2em;
+        color: var(--text-faint);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .cm-s-obsidian {
+        display: inline-block;
+        min-width: 10px;
+      }
+    }
+  }
+
+  .bases-table {
+    counter-reset: section;
+
+    .bases-tr>.bases-td:first-child {
+      white-space: nowrap;
+
+      .bases-table-header-label,
+      .bases-table-header-name {
+        padding-inline-start: 0;
+      }
+
+      &::before {
+        content: " ";
+        padding-right: var(--table-numbers-padding-right);
+        display: inline-block;
+        min-width: 2em;
+      }
+    }
+
+    .bases-tbody .bases-tr>.bases-td:first-child {
+      &::before {
+        counter-increment: section;
+        content: counter(section) " ";
+        text-align: center;
+        color: var(--text-faint);
+        font-variant-numeric: tabular-nums;
+        font-size: var(--bases-table-font-size);
+      }
+    }
+  }
+
+  .table-editor {
+    --table-numbers-padding-right: 0;
+  }
+}
+
+.row-lines-off {
+  --table-row-last-border-width: 0;
+  --bases-table-row-border-width: 0;
+
+  table:not(.calendar) tbody>tr>td,
+  .table-view-table>tbody>tr>td,
+  table:not(.calendar) tbody>tr:last-child>td {
+    border-bottom: none;
+  }
+}
+
+.row-lines:not(.table-lines) .markdown-source-view:not(.cards),
+.row-lines:not(.table-lines) .markdown-preview-view:not(.cards) {
+  --table-row-last-border-width: 0;
+
+  table:not(.calendar) tbody>tr:not(:last-child)>td,
+  .table-view-table>tbody>tr:not(:last-child)>td {
+    border-bottom: var(--table-border-width) solid var(--table-border-color);
+  }
+}
+
+.col-lines {
+  --bases-table-column-border-width: var(--table-border-width);
+
+  table:not(.calendar) tbody>tr>td:not(:last-child),
+  .table-view-table thead>tr>th:not(:last-child),
+  .table-view-table>tbody>tr>td:not(:last-child) {
+    border-right: var(--table-border-width) solid var(--background-modifier-border);
+  }
+}
+
+.table-100 table {
+  width: 100%
+}
+
+.table-col-1-150.markdown-preview-view td:first-child {
+  width: 150px
+}
+
+.table-col-1-200.markdown-preview-view td:first-child {
+  width: 200px
+}

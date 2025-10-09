@@ -1,0 +1,16 @@
+{
+  "defaultViewMode": "preview",
+  "spellcheck": true,
+  "readableLineLength": true,
+  "tabSize": 4,
+  "alwaysUpdateLinks": true,
+  "userIgnoreFilters": [
+    "/config/.*"
+  ],
+  "showInlineTitle": true,
+  "vimMode": false,
+  "useTab": true,
+  "attachmentFolderPath": "attachments",
+  "showIndentGuide": false,
+  "smartIndentList": true
+}

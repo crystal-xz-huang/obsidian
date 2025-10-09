@@ -1,0 +1,10 @@
+/* ====== center image ====== */
+/* NOTE: this does not work for externally hosted image e.g. ![alt](https://...)
+  in editing mode because of the margins - but we should NOT change the margins
+  because it makes editing the markdown link harder.
+*/
+.view-content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

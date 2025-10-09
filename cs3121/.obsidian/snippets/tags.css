@@ -1,0 +1,29 @@
+
+.cm-s-obsidian .cm-line span:is(.cm-tag-Easy,.cm-tag-easy),
+.tag[href="#easy" i] {
+  --tag-color: var(--symbolic-green);
+}
+
+
+.cm-s-obsidian .cm-line span:is(.cm-tag-Medium,.cm-tag-medium),
+.tag[href="#medium" i] {
+  --tag-color: var(--symbolic-yellow);
+}
+
+.cm-s-obsidian .cm-line span:is(.cm-tag-Hard,.cm-tag-hard),
+.tag[href="#hard" i] {
+  --tag-color: var(--symbolic-red);
+}
+
+body {
+  --tag-background: color-mix(in srgb,var(--tag-color) 10%,white);
+  --tag-background-hover: color-mix(in srgb,var(--tag-color) 15%,white);
+}
+
+.theme-dark {
+  --tag-color: var(--bright-blue);
+  --tag-background: color-mix(in srgb,var(--tag-color) 10%,#272727 90%);
+  --tag-background-hover: color-mix(in srgb,var(--tag-color) 20%,#272727);
+  --tag-background: hsla(var(--interactive-accent-hsl), 0.1);
+  --tag-background-hover: hsla(var(--interactive-accent-hsl), 0.2);
+}

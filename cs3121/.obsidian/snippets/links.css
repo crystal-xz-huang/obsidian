@@ -1,0 +1,200 @@
+:root {
+  --arrow-up-right-icon-data: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>');
+  --link-external-icon: var(--arrow-up-right-icon-data);
+}
+
+/* ---------------------------------------------------------------------------
+  Links
+----------------------------------------------------------------------------- */
+
+body {
+  /* Resolved link text color */
+  --link-color: var(--text-accent);
+  /* Resolved link text color (hover) */
+  --link-color-hover: var(--text-accent-hover);
+  /* Resolved link text decoration */
+  --link-decoration: none;
+  /* Resolved link text decoration (hover) */
+  --link-decoration-hover: none;
+  /* Resolved link text decoration thickness */
+  --link-decoration-thickness: 1px;
+  /* Link font weight */
+  --link-weight: 400;
+  /* Unresolved link text color */
+  --link-unresolved-color: var(--link-color);
+  /* Unresolved link opacity */
+  --link-unresolved-opacity: 0.5;
+  /* Unresolved link text decoration style */
+  --link-unresolved-decoration-style: wavy;
+  /* Unresolved link text decoration color */
+  --link-unresolved-decoration-color: var(--link-unresolved-color);
+  /* External link text color */
+  --link-external-color: #5460ab;
+  /* External link text color (hover) */
+  --link-external-color-hover: #5460ab;
+  /* External link text decoration*/
+  --link-external-decoration: none;
+  /* External link text decoration (hover) */
+  --link-external-decoration-hover: none;
+}
+
+.theme-light {
+  --link-color-hover: var(--vivid-pink);
+  --link-external-color: var(--bright-blue);
+  --link-external-color-hover: var(--vivid-pink);
+}
+
+.theme-dark {
+  --link-color: var(--electric-violet);
+  --link-color-hover: var(--vivid-pink);
+  --link-external-color: var(--bright-blue);
+  --link-external-color-hover: var(--vivid-pink);
+}
+
+/* Change bg color of code in links to blue */
+.theme-light a>code,
+.theme-light .cm-inline-code.cm-link {
+  color: var(--link-external-color);
+  --inline-code-background: rgb(147 197 253/0.2);
+}
+
+/* Need to add back text-decoration-line for text-decoration-style to work on unresolved links */
+.markdown-source-view:is(.is-live-preview) .is-unresolved .cm-underline,
+.internal-link.is-unresolved {
+  text-decoration-line: underline !important;
+  text-decoration-style: var(--link-unresolved-decoration-style);
+}
+
+/* ---------------------------------------------------------------------------
+  Text Underline Offset
+----------------------------------------------------------------------------- */
+a,
+.markdown-source-view:is(.is-live-preview) span:is(.cm-link, .cm-formatting-link.cm-url, .cm-url),
+.markdown-source-view:is(.is-live-preview) .cm-underline,
+.markdown-source-view:is(.is-live-preview) .is-unresolved .cm-underline {
+  text-underline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+  External Links (exclude metadata links)
+----------------------------------------------------------------------------- */
+/* Custom Icon ------------------------------------*/
+/* Remove icon from the background of external links */
+.external-link {
+  background-image: none;
+  padding-inline-end: 0;
+}
+
+/* Add custom icon */
+.external-link:not(.metadata-link-inner, .multi-select-pill-content)::after {
+  content: "\200B";
+  display: inline-block;
+  vertical-align: text-top;
+  width: 0.825em;
+  height: 0.825em;
+  background-color: var(--link-external-color);
+  mask-image: var(--link-external-icon);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+@media (hover: hover) {
+  .external-link:not(.metadata-link-innerr, .multi-select-pill-content):hover::after {
+    background-color: var(--link-external-color-hover);
+  }
+}
+
+/* Don't wrap URLs onto multiple lines */
+/* .markdown-rendered p:has(.external-link:not(.metadata-link-inner, .multi-select-pill-content):not([aria-label])) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+} */
+
+/* Fix external link's icon color in editing mode */
+.cm-formatting:not(.cm-formatting-code-block):not(.cm-formatting-hashtag).external-link:not(.metadata-link-inner, .multi-select-pill-content) {
+  color: var(--link-external-color);
+}
+
+/* Make color brighter for bolded external links */
+.markdown-source-view:is(.is-live-preview) .cm-url.cm-strong .cm-underline,
+.markdown-source-view:is(.is-live-preview) .cm-link.cm-strong .cm-underline {
+  color: color-mix(in srgb, var(--link-external-color) 60%, white 40%);
+}
+
+.external-link:not(.metadata-link-inner, .multi-select-pill-content) *:is(strong, b) {
+  color: color-mix(in srgb, var(--link-external-color) 60%, white 40%);
+}
+
+/* Glow effect for external links when hovered (same as .links-ext-glow) */
+.external-link:not(.metadata-link-inner, .multi-select-pill-content),
+.markdown-source-view:is(.is-live-preview) span:is(.cm-link, .cm-url)>.cm-underline {
+  --pink-to-highlight-to-purple-to-blue-horizontal-gradient:
+    linear-gradient(140deg,
+      var(--vivid-pink) 0%,
+      var(--vivid-pink) 15%,
+      color-mix(in srgb, var(--vivid-pink), var(--electric-violet) 50%) 25%,
+      color-mix(in srgb, var(--vivid-pink), var(--electric-violet) 10%) 35%,
+      color-mix(in srgb, var(--vivid-pink), var(--orange-red) 50%) 42%,
+      color-mix(in srgb, var(--vivid-pink), var(--orange-red) 50%) 44%,
+      color-mix(in srgb, var(--vivid-pink), var(--background-primary) 70%) 47%,
+      var(--electric-violet) 48%, var(--link-external-color) 60%);
+
+  background: var(--pink-to-highlight-to-purple-to-blue-horizontal-gradient);
+  transition: background-position 1s ease-out;
+  background-size: 200% 100%;
+  background-position: 100% 0%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  position: relative;
+
+  /* make sure italics also inherit color */
+  > em {
+    color: transparent !important;
+  }
+}
+
+@media (hover: hover) {
+  .external-link:not(.metadata-link-inner, .multi-select-pill-content):hover,
+  .markdown-source-view:is(.is-live-preview) span:is(.cm-link, .cm-url)>.cm-underline:hover {
+    background-position: 0% 0%;
+    text-decoration-color: var(--link-external-color-hover);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+  Links and underline handling (exclude metadata links)
+----------------------------------------------------------------------------- */
+/* Add underline on hover to internal links (same as .links-int-on)
+   Note: --link-decoration-hover needs to be set to 'none' for this to work properly */
+.cm-hmd-internal-link>a.cm-underline,
+.internal-link:not(.is-unresolved, .metadata-link-inner, .multi-select-pill) {
+  position: relative;
+  background-image: var(--red-to-pink-to-purple-horizontal-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.cm-hmd-internal-link>a.cm-underline::after,
+.internal-link:not(.is-unresolved, .metadata-link-inner, .multi-select-pill)::after {
+  content: "\200B";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background: var(--red-to-pink-to-purple-horizontal-gradient);
+  transform-origin: bottom right;
+  transition: transform var(--anim-duration-moderate) ease !important;
+}
+
+@media (hover: hover) {
+  .cm-hmd-internal-link>a.cm-underline:hover::after,
+  .internal-link:not(.is-unresolved, .metadata-link-inner, .multi-select-pill):hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}

@@ -1,0 +1,571 @@
+/* ---------------------------------------------------------------------------
+  Overrides
+-----------------------------------------------------------------------------*/
+/* Bigger space between icon and title */
+.callout-title {
+  gap: var(--size-4-2);
+}
+
+/* Disable blend mode */
+body {
+  --callout-blend-mode: normal;
+}
+
+/* Variables */
+body {
+  --callout-icon-stroke: 1.5;
+  --callout-icon-size: var(--icon-size);
+}
+
+.callout {
+  --callout-title-padding: 8px 12px;
+}
+
+.callout .callout-icon>svg {
+  width: var(--callout-icon-size);
+  height: var(--callout-icon-size);
+  stroke-width: var(--callout-icon-stroke);
+}
+
+/* ---------------------------------------------------------------------------
+  Callout Types
+-----------------------------------------------------------------------------*/
+/* DEFAULTS ------------------------------------ */
+.callout[data-callout$="abstract"],
+.callout[data-callout$="summary"],
+.callout[data-callout$="tldr"] {
+  --callout-color: var(--callout-summary);
+  --callout-icon: lucide-clipboard-list;
+}
+
+.callout[data-callout$="info"] {
+  --callout-color: var(--callout-info);
+  --callout-icon: lucide-info;
+}
+
+.callout[data-callout$="todo"] {
+  --callout-color: var(--callout-todo);
+  --callout-icon: lucide-check-circle-2;
+}
+
+.callout[data-callout$="important"] {
+  --callout-color: var(--callout-important);
+  --callout-icon: lucide-flame;
+}
+
+.callout[data-callout$="tip"],
+.callout[data-callout$="hint"] {
+  --callout-color: var(--callout-tip);
+  --callout-icon: lucide-flame;
+}
+
+.callout[data-callout$="success"],
+.callout[data-callout$="check"],
+.callout[data-callout$="done"] {
+  --callout-color: var(--callout-success);
+  --callout-icon: lucide-check;
+}
+
+.callout[data-callout$="question"],
+.callout[data-callout$="help"],
+.callout[data-callout$="faq"] {
+  --callout-color: var(--callout-question);
+  --callout-icon: help-circle;
+}
+
+.callout[data-callout$="warning"],
+.callout[data-callout$="caution"],
+.callout[data-callout$="attention"] {
+  --callout-color: var(--callout-warning);
+  --callout-icon: lucide-alert-triangle;
+}
+
+.callout[data-callout$="failure"],
+.callout[data-callout$="fail"],
+.callout[data-callout$="missing"] {
+  --callout-color: var(--callout-fail);
+  --callout-icon: lucide-x;
+}
+
+.callout[data-callout$="danger"],
+.callout[data-callout$="error"] {
+  --callout-color: var(--callout-error);
+  --callout-icon: lucide-zap;
+}
+
+.callout[data-callout$="bug"] {
+  --callout-color: var(--callout-bug);
+  --callout-icon: lucide-bug;
+}
+
+.callout[data-callout$="example"] {
+  --callout-color: var(--callout-example);
+  --callout-icon: lucide-list;
+}
+
+.callout[data-callout$="quote"],
+.callout[data-callout$="cite"] {
+  --callout-color: var(--callout-quote);
+  --callout-icon: quote-glyph;
+}
+
+/* NEW ------------------------------------ */
+
+/*
+  - alert: orange
+  - attention: yellow
+  - caution: orange
+  - warning: red
+*/
+.callout[data-callout$="alert"] {
+  --callout-color: var(--color-orange-rgb);
+  --callout-icon: lucide-alert-circle;
+}
+
+.callout[data-callout$="attention"] {
+  --callout-color: var(--color-yellow-rgb);
+}
+
+.callout[data-callout$="warning"] {
+  --callout-color: var(--color-red-rgb);
+}
+
+/* transform from "Tldr" to "TLDR" */
+.callout[data-callout$="tldr"] .callout-title-inner {
+  text-transform: uppercase;
+}
+
+.callout[data-callout$='algorithm'] {
+  --callout-icon: lucide-chart-spline;
+}
+
+.callout[data-callout$='code'] {
+  --callout-icon: lucide-code-xml;
+  --callout-color: var(--color-purple-rgb);
+}
+
+.callout[data-callout$='answer'],
+.callout[data-callout$='solution'] {
+  --callout-icon: lucide-circle-check;
+  --callout-color: 63, 182, 24;
+}
+
+.callout[data-callout$="idea"] {
+  --idea-icon: '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.143 14A7.8 7.8 0 0 1 4 9.919C4 5.545 7.582 2 12 2s8 3.545 8 7.919A7.8 7.8 0 0 1 18.857 14M7.383 17.098c-.092-.276-.138-.415-.133-.527a.6.6 0 0 1 .382-.53c.104-.041.25-.041.54-.041h7.656c.291 0 .436 0 .54.04a.6.6 0 0 1 .382.531c.005.112-.041.25-.133.527c-.17.511-.255.767-.386.974a2 2 0 0 1-1.2.869c-.238.059-.506.059-1.043.059h-3.976c-.537 0-.806 0-1.043-.06a2 2 0 0 1-1.2-.868c-.131-.207-.216-.463-.386-.974M15 19l-.13.647c-.14.707-.211 1.06-.37 1.34a2 2 0 0 1-1.113.912C13.082 22 12.72 22 12 22s-1.082 0-1.387-.1a2 2 0 0 1-1.113-.913c-.159-.28-.23-.633-.37-1.34L9 19m3-3v-5" color="currentColor"/></svg>';
+  --callout-color: var(--color-yellow-rgb);
+  --callout-icon: var(--idea-icon);
+}
+
+.callout[data-callout$="note"] {
+  --note-icon: '<svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" stroke="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.0303 4.11328C13.4406 2.70317 15.7275 2.70305 17.1377 4.11328C18.5474 5.52355 18.5476 7.81056 17.1377 9.2207L10.8457 15.5117C10.522 15.8354 10.2868 16.0723 10.0547 16.2627L9.82031 16.4394C9.61539 16.5794 9.39783 16.7003 9.1709 16.7998L8.94141 16.8916C8.75976 16.9582 8.57206 17.0072 8.35547 17.0518L7.59082 17.1865L5.19727 17.5859C5.05455 17.6097 4.90286 17.6358 4.77441 17.6455C4.67576 17.653 4.54196 17.6555 4.39648 17.6201L4.24707 17.5703C4.02415 17.4746 3.84119 17.3068 3.72559 17.0957L3.67969 17.0029C3.59322 16.8013 3.59553 16.6073 3.60547 16.4756C3.61519 16.3473 3.6403 16.1963 3.66406 16.0537L4.06348 13.6602C4.1638 13.0582 4.22517 12.6732 4.3584 12.3096L4.45117 12.0791C4.55073 11.8521 4.67152 11.6346 4.81152 11.4297L4.9873 11.1953C5.17772 10.9632 5.4146 10.728 5.73828 10.4043L12.0303 4.11328ZM6.67871 11.3447C6.32926 11.6942 6.14542 11.8803 6.01953 12.0332L5.90918 12.1797C5.81574 12.3165 5.73539 12.4618 5.66895 12.6133L5.60742 12.7666C5.52668 12.9869 5.48332 13.229 5.375 13.8789L4.97656 16.2725L4.97559 16.2744H4.97852L7.37207 15.875L8.08887 15.749C8.25765 15.7147 8.37336 15.6839 8.4834 15.6435L8.63672 15.581C8.78817 15.5146 8.93356 15.4342 9.07031 15.3408L9.2168 15.2305C9.36965 15.1046 9.55583 14.9207 9.90527 14.5713L14.8926 9.583L11.666 6.35742L6.67871 11.3447ZM16.1963 5.05371C15.3054 4.16303 13.8616 4.16305 12.9707 5.05371L12.6074 5.41601L15.833 8.64257L16.1963 8.27929C17.0869 7.38844 17.0869 5.94455 16.1963 5.05371Z"></path><path d="M5.13477 6.68139L5 6.6687H2.5C2.13273 6.6687 1.83496 6.96647 1.83496 7.33374C1.83518 7.70082 2.13286 7.99877 2.5 7.99877H5L5.13477 7.9851C5.4375 7.92299 5.66485 7.6548 5.66504 7.33374C5.66504 7.01249 5.43764 6.74352 5.13477 6.68139Z"></path><path d="M8.46777 3.34838L8.33301 3.33471H2.5C2.13281 3.33471 1.8351 3.6326 1.83496 3.99975C1.83496 4.36702 2.13273 4.66479 2.5 4.66479H8.33301L8.46777 4.65112C8.77057 4.58893 8.99805 4.32094 8.99805 3.99975C8.99793 3.67864 8.77054 3.41052 8.46777 3.34838Z"></path></svg>4 11.2783 12.8472 11.6269 12.8472 11.9924Z"></path></svg>';
+  --callout-icon-stroke: 0.25px;
+  --callout-icon: var(--note-icon);
+}
+
+.callout[data-callout$="task"],
+.callout[data-callout$="todo"] {
+  --callout-icon: lucide-list-todo;
+}
+
+.callout[data-callout$="goal"],
+.callout[data-callout$="target"] {
+  --callout-icon: lucide-goal;
+  --callout-color: var(--color-yellow-rgb);
+}
+
+.callout[data-callout="aside"] {
+  --callout-icon: lucide-message-square;
+  --callout-color: none;
+  background-color: var(--aside-bg, var(--background-secondary));
+  border: 1px solid var(--aside-accent, var(--background-modifier-border));
+
+  &>.callout-title {
+    background-color: var(--background-secondary);
+  }
+}
+
+/* NOTES ------------------------------------ */
+.callout[data-callout="bookmark"] {
+  --callout-color: none;
+  --callout-icon: lucide-bookmark;
+  --callout-content-background: #FFFFFFBF;
+  border-color: var(--quaternary-contrast);
+
+  &>.callout-title {
+    color: inherit;
+    background: var(--background-alt-light);
+    border-bottom: 1px solid var(--quaternary-contrast);
+  }
+}
+
+.theme-dark .callout[data-callout="bookmark"] {
+  --callout-content-background: #00000040;
+
+  &>.callout-title {
+    background: var(--background-alt-dark);
+  }
+}
+
+.callout[data-callout="remark"] {
+  --callout-color: var(--color-cyan-rgb);
+  --callout-icon: lucide-flag;
+  --callout-content-background: #FFFFFFBF;
+  border-color: var(--quaternary-contrast);
+  --callout-color: var(--text-normal);
+
+  &>.callout-title {
+    color: inherit;
+    background: var(--background-alt-light);
+    border-bottom: 1px solid var(--quaternary-contrast);
+  }
+}
+
+/* MATHS ------------------------------------ */
+
+.callout:is([data-callout$="definition"], [data-callout$="def"]) {
+  --callout-icon: lucide-book-text;
+  --callout-icon: '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 448 512"><path fill="currentColor" d="M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7c-4.2-15.4-4.2-59.3 0-74.7c5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32c0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z"/></svg>';
+  --callout-icon-size: 1em;
+  --callout-color: var(--text-normal);
+  background-color: rgb(0, 0, 0, 0);
+  border-color: var(--quaternary-contrast);
+}
+
+/*---
+TITLE: Definition Callout
+ATTR:  data-callout$="definition" OR data-callout$="def"
+DESC:  Adds "Definition" before the title and parentheses around the title.
+---*/
+.callout:is([data-callout="asm"], [data-callout="assumption*"]) {
+  --callout-title-prefix: "Assumption";
+}
+
+.callout:is([data-callout="axm"], [data-callout="axiom*"]) {
+  --callout-title-prefix: "Axiom";
+}
+
+.callout:is([data-callout="def"], [data-callout="definition*"]) {
+  --callout-title-prefix: "Definition";
+}
+
+.callout:is([data-callout="thm"], [data-callout="theorem*"]) {
+  --callout-title-prefix: "Theorem";
+}
+
+.callout:is([data-callout="lem"], [data-callout="lemma*"]) {
+  --callout-title-prefix: "Lemma";
+}
+
+.callout:is([data-callout="prp"], [data-callout="proposition*"]) {
+  --callout-title-prefix: "Proposition";
+}
+
+.callout:is([data-callout="cor"], [data-callout="corollary*"]) {
+  --callout-title-prefix: "Corollary";
+}
+
+.callout:is([data-callout="clm"], [data-callout="claim*"]) {
+  --callout-title-prefix: "Claim";
+}
+
+.callout:is([data-callout="exm"], [data-callout="example*"]) {
+  --callout-title-prefix: "Example";
+}
+
+.callout:is([data-callout="ex"], [data-callout="exercise*"]) {
+  --callout-title-prefix: "Exercise";
+}
+
+.callout:is([data-callout="hyp"], [data-callout="hypothesis*"]) {
+  --callout-title-prefix: "Hypothesis";
+}
+
+.callout:is([data-callout="rmk"], [data-callout="remark*"]) {
+  --callout-title-prefix: "Remark";
+}
+
+.callout:is([data-callout="asm"],
+  [data-callout="assumption*"],
+  [data-callout="axm"],
+  [data-callout="axiom*"],
+  [data-callout="def"],
+  [data-callout="definition*"],
+  [data-callout="thm"],
+  [data-callout="theorem*"],
+  [data-callout="lem"],
+  [data-callout="lemma*"],
+  [data-callout="prp"],
+  [data-callout="proposition*"],
+  [data-callout="cor"],
+  [data-callout="corollary*"],
+  [data-callout="clm"],
+  [data-callout="claim*"],
+  [data-callout="exm"],
+  [data-callout="example*"],
+  [data-callout="ex"],
+  [data-callout="exercise*"],
+  [data-callout="hyp"],
+  [data-callout="hypothesis*"] [data-callout="rmk"],
+  [data-callout="remark*"],
+) {
+  --callout-title-weight: 400;
+
+  .callout-title {
+    gap: 4px;
+  }
+
+  .callout-title-inner {
+    font-weight: 400;
+  }
+
+  .callout-icon::after {
+    content: var(--callout-title-prefix, "Definition");
+    margin-left: 8px;
+    font-weight: 600;
+    font-size: var(--callout-title-size);
+    color: var(--callout-title-color);
+  }
+
+  .callout-title-inner::before {
+    content: "(";
+    font-weight: var(--callout-title-weight);
+    font-size: var(--callout-title-size);
+    color: var(--callout-title-color);
+  }
+
+  .callout-title-inner::after {
+    content: ").";
+    font-weight: var(--callout-title-weight);
+    font-size: var(--callout-title-size);
+    color: var(--callout-title-color);
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+  Callout Metadata
+-----------------------------------------------------------------------------*/
+/** No Icon */
+.callout[data-callout-metadata~=no-icon]>.callout-title {
+  --callout-title-padding: 8px 16px;
+
+  >.callout-icon {
+    display: none;
+  }
+}
+
+/** No Title */
+.callout[data-callout-metadata~='no-title']>.callout-title {
+  display: none;
+}
+
+/** No Background */
+.callout[data-callout-metadata~='bg-none'] {
+  background-color: transparent;
+}
+
+/** No Border */
+.callout[data-callout-metadata~='border-none'] {
+  border: none;
+}
+
+/** Change Color */
+.callout[data-callout-metadata~="yellow"] {
+  --callout-color: var(--color-yellow-rgb);
+}
+
+.callout[data-callout-metadata~="orange"] {
+  --callout-color: var(--color-orange-rgb);
+}
+
+.callout[data-callout-metadata~="red"] {
+  --callout-color: var(--color-red-rgb);
+}
+
+.callout[data-callout-metadata~="green"] {
+  --callout-color: var(--color-green-rgb);
+}
+
+.callout[data-callout-metadata~="blue"] {
+  --callout-color: var(--color-blue-rgb);
+}
+
+.callout[data-callout-metadata~="purple"] {
+  --callout-color: var(--color-purple-rgb);
+}
+
+.callout[data-callout-metadata~="pink"] {
+  --callout-color: var(--color-pink-rgb);
+}
+
+.callout[data-callout-metadata~="cyan"] {
+  --callout-color: var(--color-cyan-rgb);
+}
+
+.callout[data-callout-metadata~="gray"] {
+  --callout-color: var(--callout-quote);
+}
+
+.callout[data-callout-metadata~="black"] {
+  --callout-color: var(--color-black-rgb);
+}
+
+
+/* ---------------------------------------------------------------------------
+  Admonition Styles
+-----------------------------------------------------------------------------*/
+.theme-light .callout:is([data-callout^="ad-"],
+  [data-callout-metadata~="style-ad"]) {
+  --callout-border-width: 0 0 0 4px;
+  --callout-border-opacity: 1;
+  --callout-padding: 0;
+  --callout-radius: 0;
+  --callout-title-color: inherit;
+  --callout-title-padding: 8px 16px;
+  --callout-title-size: inherit;
+  --callout-content-padding: 0px 16px;
+  --callout-content-background: #FFFFFFBF;
+  --callout-content-radius: 0px;
+  --italic-color: var(--text-normal);
+}
+
+.theme-dark .callout:is([data-callout^="ad-"],
+  [data-callout-metadata~="style-ad"]) {
+  --callout-border-width: 0 0 0 4px;
+  --callout-border-opacity: 1;
+  --callout-padding: 0;
+  --callout-radius: 0;
+  --callout-title-color: inherit;
+  --callout-title-padding: 8px 16px;
+  --callout-title-size: inherit;
+  --callout-content-padding: 0px 16px;
+  --callout-content-background: #00000040;
+  --callout-content-radius: 0px;
+  --italic-color: var(--text-normal);
+}
+
+.callout[data-callout="ad-example"] {
+  --callout-title-padding: 6px 16px !important;
+  --callout-color: 87, 178, 255;
+  --callout-icon: none;
+
+  .callout-title-inner {
+    font-variant: small-caps;
+  }
+
+  .callout-title>.callout-icon {
+    display: none;
+  }
+}
+
+.theme-light .callout[data-callout="ad-example"] {
+  --callout-content-background: #F2F2F2 !important;
+}
+
+/* ---------------------------------------------------------------------------
+  Blockquote Styles
+-----------------------------------------------------------------------------*/
+.theme-light {
+  --border-xlight: #0000000d;
+  --border-light: #0000001a;
+  --border-medium: #00000026;
+  --border-heavy: #0003;
+  --border-xheavy: #00000040;
+  --border-sharp: #0000000d;
+}
+
+.theme-dark {
+  --border-xlight: #ffffff0d;
+  --border-light: #ffffff1a;
+  --border-medium: #ffffff26;
+  --border-heavy: #fff3;
+  --border-xheavy: #ffffff40;
+  --border-sharp: #ffffff0d;
+}
+
+.callout:is([data-callout^="blockquote"], [data-callout^="bq"], [data-callout-metadata~="style-blockquote"], [data-callout-metadata~="style-bq"]) {
+  --callout-border-width: 0 0 0 4px;
+  --callout-border-opacity: 1;
+  --callout-padding: 0;
+  --callout-radius: 0;
+  --callout-title-color: inherit;
+  --callout-title-padding: 8px;
+  --callout-title-size: inherit;
+  --callout-title-weight: normal;
+  --callout-content-padding: 0px 16px;
+  --callout-content-background: transparent;
+  --callout-content-radius: 0px;
+  --callout-icon: none;
+  --italic-color: var(--text-normal);
+
+  >.callout-icon {
+    display: none;
+  }
+
+  .callout-content p:first-child {
+    margin-top: 0;
+  }
+}
+
+
+/* [!blockquote] or [!bq]  */
+.callout:is([data-callout^="blockquote"], [data-callout^="bq"]) {
+  --callout-color: none;
+  border-color: var(--border-medium);
+  --callout-title-color: var(--gray-600);
+}
+
+.callout:is([data-callout="blockquote-cite"], [data-callout="bq-cite"]) {
+  --quote-up-icon: '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="currentColor"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor"><path d="M14 16c0-1.886 0-2.828.586-3.414S16.114 12 18 12s2.828 0 3.414.586S22 14.114 22 16s0 2.828-.586 3.414S19.886 20 18 20s-2.828 0-3.414-.586S14 17.886 14 16"/><path d="M14 16v-4.137C14 8.196 16.516 5.086 20 4M2 16c0-1.886 0-2.828.586-3.414S4.114 12 6 12s2.828 0 3.414.586S10 14.114 10 16s0 2.828-.586 3.414S7.886 20 6 20s-2.828 0-3.414-.586S2 17.886 2 16"/><path d="M2 16v-4.137C2 8.196 4.516 5.086 8 4"/></g></svg>';
+  --callout-icon: var(--quote-up-icon);
+
+  .callout-title {
+    gap: 6px;
+  }
+
+  .callout-title-inner::after {
+    content: "";
+    float: right;
+    width:  var(--callout-icon-size);
+    height: var(--callout-icon-size);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 24 24' fill='%23000000'%3E%3Cg fill='none' stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' color='currentColor'%3E%3Cpath d='M10 8c0 1.886 0 2.828-.586 3.414S7.886 12 6 12s-2.828 0-3.414-.586S2 9.886 2 8s0-2.828.586-3.414S4.114 4 6 4s2.828 0 3.414.586S10 6.114 10 8'/%3E%3Cpath d='M10 7v4.482c0 3.973-2.516 7.342-6 8.518M22 8c0 1.886 0 2.828-.586 3.414S19.886 12 18 12s-2.828 0-3.414-.586S14 9.886 14 8s0-2.828.586-3.414S16.114 4 18 4s2.828 0 3.414.586S22 6.114 22 8'/%3E%3Cpath d='M22 7v4.482c0 3.973-2.516 7.342-6 8.518'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: var(--gray-400);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    vertical-align: middle;
+    transform: translateY(2px);
+  }
+
+  svg {
+    color: var(--gray-400);
+  }
+}
+
+/*---
+TITLE: Border Colors
+ATTR:  border-[light, medium, heavy, xheavy]
+---*/
+.callout:is([data-callout="blockquote-light"],
+  [data-callout="bq-light"],
+  [data-callout-metadata~="border-light"]) {
+  border-color: var(--border-light);
+}
+
+.callout:is([data-callout="blockquote-medium"],
+  [data-callout="bq-medium"],
+  [data-callout-metadata~="border-medium"]) {
+  border-color: var(--border-medium);
+}
+
+.callout:is([data-callout="blockquote-heavy"],
+  [data-callout="bq-heavy"],
+  [data-callout-metadata~="border-heavy"]) {
+  border-color: var(--border-heavy);
+}
+
+.callout:is([data-callout="blockquote-xheavy"],
+  [data-callout="bq-xheavy"],
+  [data-callout-metadata~="border-xheavy"]) {
+  border-color: var(--border-xheavy);
+}

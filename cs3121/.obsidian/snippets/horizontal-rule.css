@@ -1,0 +1,24 @@
+/* ====== DOTS FOR HR ====== */
+.workspace-leaf-content .view-content .hr-dots.markdown-preview-view hr {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  margin-top: calc(2em + 2vh);
+  margin-bottom: calc(2em + 2vh);
+  display: block;
+  border: 0;
+  background: none;
+  text-align: center;
+  overflow: visible
+}
+
+.workspace-leaf-content .view-content .hr-dots.markdown-preview-view hr:before {
+  content: '\2022\2022\2022';
+  display: inline-block;
+  font-size: .5em;
+  font-size: calc(.8em + .2vw);
+  margin-left: 0.6em;
+  letter-spacing: 1.25em;
+  color: var(--hr-color);
+  position: relative;
+  top: -0.75em
+}

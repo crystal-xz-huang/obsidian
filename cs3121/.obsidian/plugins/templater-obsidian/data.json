@@ -1,0 +1,43 @@
+{
+  "command_timeout": 5,
+  "templates_folder": "config/templates",
+  "templates_pairs": [
+    [
+      "",
+      ""
+    ]
+  ],
+  "trigger_on_file_creation": false,
+  "auto_jump_to_cursor": true,
+  "enable_system_commands": false,
+  "shell_path": "",
+  "user_scripts_folder": "config/scripts",
+  "enable_folder_templates": true,
+  "folder_templates": [
+    {
+      "folder": "",
+      "template": ""
+    }
+  ],
+  "enable_file_templates": false,
+  "file_templates": [
+    {
+      "regex": ".*",
+      "template": ""
+    }
+  ],
+  "syntax_highlighting": true,
+  "syntax_highlighting_mobile": false,
+  "enabled_templates_hotkeys": [
+    "config/templates/Toggle underline.md",
+    "config/templates/HTML tag wrap.md",
+    "config/templates/Toggle bold.md",
+    "config/templates/Insert wikilink from selection.md",
+    "config/templates/Insert markdown link from clipboard.md",
+    ""
+  ],
+  "startup_templates": [
+    ""
+  ],
+  "intellisense_render": 1
+}

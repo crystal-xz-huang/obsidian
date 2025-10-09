@@ -1,0 +1,19 @@
+mjx-container mjx-math {
+  font-size: 105%;
+}
+
+/* change font */
+/* mjx-math .TEX-I {
+  font-family: "iA Writer Quattor S" !important;
+  font-style: italic;
+} */
+
+.theme-light mjx-container {
+  /* make math more readable on light mode */
+  color: hsl(232, 15%, 20%);
+}
+
+.theme-dark mjx-container {
+  /* make math more readable on dark mode */
+  color: hsl(232, 15%, 90%);
+}
