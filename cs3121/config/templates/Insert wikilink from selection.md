@@ -1,4 +1,1 @@
-<%*
-  const { generateWikiLink } = tp.user.generateLink();
-  tR += generateWikiLink(tp);
--%>
+<%* tR += tp.user.generateLink.wiki(tp); -%>

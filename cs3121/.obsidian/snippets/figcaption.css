@@ -47,10 +47,8 @@ figcaption {
   width: 50%;
 }
 
-/* Option 3: Table */
-/* ====== image captions (embed images only) ====== */
 /* add alt-text of images as caption */
-.workspace-leaf-content p>.image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"], [alt$=".svg"])::after {
+/* .workspace-leaf-content p>.image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"], [alt$=".svg"])::after {
   content: attr(alt);
   font-style: italic;
   color: var(--text-muted);
@@ -59,8 +57,10 @@ figcaption {
   line-height: 1.5;
   text-align: center;
   display: block;
-}
+} */
 
+/* Option 3: Table */
+/* ====== image captions (embed images only) ====== */
 .workspace-leaf-content[data-type=markdown] .view-content thead tr:has(img, pre) {
   background: none;
 }

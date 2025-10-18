@@ -1,5 +1,7 @@
 [
   "obsidian-style-settings",
   "obsidian-linter",
-  "templater-obsidian"
+  "templater-obsidian",
+  "obsidian-excalidraw-plugin",
+  "oz-clear-unused-images"
 ]

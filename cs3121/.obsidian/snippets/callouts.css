@@ -13,7 +13,7 @@ body {
 
 /* Variables */
 body {
-  --callout-icon-stroke: 1.5;
+  --callout-icon-stroke: 2;
   --callout-icon-size: var(--icon-size);
 }
 
@@ -135,8 +135,13 @@ body {
   text-transform: uppercase;
 }
 
-.callout[data-callout$='algorithm'] {
+.callout[data-callout*='algorithm'] {
   --callout-icon: lucide-chart-spline;
+}
+
+.callout[data-callout*='time'] {
+  --callout-icon: lucide-clock;
+  --callout-color: var(--color-orange-rgb);
 }
 
 .callout[data-callout$='code'] {
@@ -144,11 +149,25 @@ body {
   --callout-color: var(--color-purple-rgb);
 }
 
-.callout[data-callout$='answer'],
-.callout[data-callout$='solution'] {
+.callout[data-callout$='answer'] {
   --callout-icon: lucide-circle-check;
-  --callout-color: 63, 182, 24;
+  --callout-color: var(--color-green-rgb);
 }
+
+.callout:is([data-callout*="explanation"], [data-callout*='solution']) {
+  --callout-icon: lucide-circle-check;
+  --callout-color: var(--color-blue-rgb);
+  /* border-top: none;
+  border-bottom: none;
+  border-left: var(--size-2-2) solid rgb(var(--callout-color));
+  border-right: none;
+  border-radius: 0px; */
+}
+
+.theme-light .callout:is([data-callout*="explanation"], [data-callout*='solution']) {
+  --callout-color: 96, 96, 181;
+}
+
 
 .callout[data-callout$="idea"] {
   --idea-icon: '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.143 14A7.8 7.8 0 0 1 4 9.919C4 5.545 7.582 2 12 2s8 3.545 8 7.919A7.8 7.8 0 0 1 18.857 14M7.383 17.098c-.092-.276-.138-.415-.133-.527a.6.6 0 0 1 .382-.53c.104-.041.25-.041.54-.041h7.656c.291 0 .436 0 .54.04a.6.6 0 0 1 .382.531c.005.112-.041.25-.133.527c-.17.511-.255.767-.386.974a2 2 0 0 1-1.2.869c-.238.059-.506.059-1.043.059h-3.976c-.537 0-.806 0-1.043-.06a2 2 0 0 1-1.2-.868c-.131-.207-.216-.463-.386-.974M15 19l-.13.647c-.14.707-.211 1.06-.37 1.34a2 2 0 0 1-1.113.912C13.082 22 12.72 22 12 22s-1.082 0-1.387-.1a2 2 0 0 1-1.113-.913c-.159-.28-.23-.633-.37-1.34L9 19m3-3v-5" color="currentColor"/></svg>';
@@ -173,6 +192,12 @@ body {
   --callout-color: var(--color-yellow-rgb);
 }
 
+.callout[data-callout*="problem"] {
+  --callout-icon: lucide-list;
+  --callout-color: var(--color-purple-rgb);
+}
+
+
 .callout[data-callout="aside"] {
   --callout-icon: lucide-message-square;
   --callout-color: none;
@@ -184,11 +209,23 @@ body {
   }
 }
 
-/* NOTES ------------------------------------ */
+
+/* ---------------------------------------------------------------------------
+  Maths Callouts
+-----------------------------------------------------------------------------*/
+.callout[data-callout="maths"] {
+  --callout-icon: lucide-sigma;
+  --callout-color: var(--color-blue-rgb);
+}
+
+.callout[data-callout="function"] {
+  --callout-icon: lucide-square-function;
+  --callout-color: var(--color-green-rgb);
+}
+
 .callout[data-callout="bookmark"] {
-  --callout-color: none;
+  --callout-color: transparent;
   --callout-icon: lucide-bookmark;
-  --callout-content-background: #FFFFFFBF;
   border-color: var(--quaternary-contrast);
 
   &>.callout-title {
@@ -199,19 +236,25 @@ body {
 }
 
 .theme-dark .callout[data-callout="bookmark"] {
-  --callout-content-background: #00000040;
-
   &>.callout-title {
     background: var(--background-alt-dark);
   }
 }
 
-.callout[data-callout="remark"] {
+.callout:is([data-callout="observation"], [data-callout="obs"]) {
+  --callout-icon: lucide-clipboard-pen-line;
   --callout-color: var(--color-cyan-rgb);
-  --callout-icon: lucide-flag;
-  --callout-content-background: #FFFFFFBF;
+  border-top: none;
+  border-bottom: none;
+  border-left: var(--size-2-2) solid rgb(var(--callout-color));
+  border-right: none;
+  border-radius: 0px;
+}
+
+.callout:is([data-callout="remark"], [data-callout="rmk"]) {
+  --callout-icon: lucide-message-square;
+  --callout-color: transparent;
   border-color: var(--quaternary-contrast);
-  --callout-color: var(--text-normal);
 
   &>.callout-title {
     color: inherit;
@@ -220,94 +263,22 @@ body {
   }
 }
 
-/* MATHS ------------------------------------ */
+.callout:is([data-callout="remark"], [data-callout="rmk"]) {
+  &>.callout-title {
+    background: var(--background-alt-dark);
+  }
+}
 
-.callout:is([data-callout$="definition"], [data-callout$="def"]) {
-  --callout-icon: lucide-book-text;
+.callout:is([data-callout*="definition"], [data-callout*="def"], [data-callout*="claim"], [data-callout*="clm"], [data-callout*="theorem"], [data-callout*="lemma"], [data-callout*="corollary"], [data-callout*="prop"], [data-callout*="proposition"]) {
   --callout-icon: '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 448 512"><path fill="currentColor" d="M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7c-4.2-15.4-4.2-59.3 0-74.7c5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32c0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z"/></svg>';
   --callout-icon-size: 1em;
-  --callout-color: var(--text-normal);
-  background-color: rgb(0, 0, 0, 0);
+  --callout-color: transparent;
   border-color: var(--quaternary-contrast);
 }
 
-/*---
-TITLE: Definition Callout
-ATTR:  data-callout$="definition" OR data-callout$="def"
-DESC:  Adds "Definition" before the title and parentheses around the title.
----*/
-.callout:is([data-callout="asm"], [data-callout="assumption*"]) {
-  --callout-title-prefix: "Assumption";
-}
 
-.callout:is([data-callout="axm"], [data-callout="axiom*"]) {
-  --callout-title-prefix: "Axiom";
-}
-
+/* Add parentheses around definition titles */
 .callout:is([data-callout="def"], [data-callout="definition*"]) {
-  --callout-title-prefix: "Definition";
-}
-
-.callout:is([data-callout="thm"], [data-callout="theorem*"]) {
-  --callout-title-prefix: "Theorem";
-}
-
-.callout:is([data-callout="lem"], [data-callout="lemma*"]) {
-  --callout-title-prefix: "Lemma";
-}
-
-.callout:is([data-callout="prp"], [data-callout="proposition*"]) {
-  --callout-title-prefix: "Proposition";
-}
-
-.callout:is([data-callout="cor"], [data-callout="corollary*"]) {
-  --callout-title-prefix: "Corollary";
-}
-
-.callout:is([data-callout="clm"], [data-callout="claim*"]) {
-  --callout-title-prefix: "Claim";
-}
-
-.callout:is([data-callout="exm"], [data-callout="example*"]) {
-  --callout-title-prefix: "Example";
-}
-
-.callout:is([data-callout="ex"], [data-callout="exercise*"]) {
-  --callout-title-prefix: "Exercise";
-}
-
-.callout:is([data-callout="hyp"], [data-callout="hypothesis*"]) {
-  --callout-title-prefix: "Hypothesis";
-}
-
-.callout:is([data-callout="rmk"], [data-callout="remark*"]) {
-  --callout-title-prefix: "Remark";
-}
-
-.callout:is([data-callout="asm"],
-  [data-callout="assumption*"],
-  [data-callout="axm"],
-  [data-callout="axiom*"],
-  [data-callout="def"],
-  [data-callout="definition*"],
-  [data-callout="thm"],
-  [data-callout="theorem*"],
-  [data-callout="lem"],
-  [data-callout="lemma*"],
-  [data-callout="prp"],
-  [data-callout="proposition*"],
-  [data-callout="cor"],
-  [data-callout="corollary*"],
-  [data-callout="clm"],
-  [data-callout="claim*"],
-  [data-callout="exm"],
-  [data-callout="example*"],
-  [data-callout="ex"],
-  [data-callout="exercise*"],
-  [data-callout="hyp"],
-  [data-callout="hypothesis*"] [data-callout="rmk"],
-  [data-callout="remark*"],
-) {
   --callout-title-weight: 400;
 
   .callout-title {
@@ -319,7 +290,7 @@ DESC:  Adds "Definition" before the title and parentheses around the title.
   }
 
   .callout-icon::after {
-    content: var(--callout-title-prefix, "Definition");
+    content: "Definition";
     margin-left: 8px;
     font-weight: 600;
     font-size: var(--callout-title-size);
@@ -411,56 +382,6 @@ DESC:  Adds "Definition" before the title and parentheses around the title.
 }
 
 
-/* ---------------------------------------------------------------------------
-  Admonition Styles
------------------------------------------------------------------------------*/
-.theme-light .callout:is([data-callout^="ad-"],
-  [data-callout-metadata~="style-ad"]) {
-  --callout-border-width: 0 0 0 4px;
-  --callout-border-opacity: 1;
-  --callout-padding: 0;
-  --callout-radius: 0;
-  --callout-title-color: inherit;
-  --callout-title-padding: 8px 16px;
-  --callout-title-size: inherit;
-  --callout-content-padding: 0px 16px;
-  --callout-content-background: #FFFFFFBF;
-  --callout-content-radius: 0px;
-  --italic-color: var(--text-normal);
-}
-
-.theme-dark .callout:is([data-callout^="ad-"],
-  [data-callout-metadata~="style-ad"]) {
-  --callout-border-width: 0 0 0 4px;
-  --callout-border-opacity: 1;
-  --callout-padding: 0;
-  --callout-radius: 0;
-  --callout-title-color: inherit;
-  --callout-title-padding: 8px 16px;
-  --callout-title-size: inherit;
-  --callout-content-padding: 0px 16px;
-  --callout-content-background: #00000040;
-  --callout-content-radius: 0px;
-  --italic-color: var(--text-normal);
-}
-
-.callout[data-callout="ad-example"] {
-  --callout-title-padding: 6px 16px !important;
-  --callout-color: 87, 178, 255;
-  --callout-icon: none;
-
-  .callout-title-inner {
-    font-variant: small-caps;
-  }
-
-  .callout-title>.callout-icon {
-    display: none;
-  }
-}
-
-.theme-light .callout[data-callout="ad-example"] {
-  --callout-content-background: #F2F2F2 !important;
-}
 
 /* ---------------------------------------------------------------------------
   Blockquote Styles
@@ -483,7 +404,7 @@ DESC:  Adds "Definition" before the title and parentheses around the title.
   --border-sharp: #ffffff0d;
 }
 
-.callout:is([data-callout^="blockquote"], [data-callout^="bq"], [data-callout-metadata~="style-blockquote"], [data-callout-metadata~="style-bq"]) {
+.callout:is([data-callout*="blockquote"], [data-callout*="citation"]) {
   --callout-border-width: 0 0 0 4px;
   --callout-border-opacity: 1;
   --callout-padding: 0;
@@ -496,51 +417,96 @@ DESC:  Adds "Definition" before the title and parentheses around the title.
   --callout-content-background: transparent;
   --callout-content-radius: 0px;
   --callout-icon: none;
-  --italic-color: var(--text-normal);
+  --callout-color: none;
+  --italic-color: inherit;
+
+  border-color: var(--border-medium);
 
   >.callout-icon {
     display: none;
   }
+}
 
-  .callout-content p:first-child {
+.callout:is([data-callout*="blockquote"], [data-callout*="citation"]):not([data-callout-metadata~=no-t], [data-callout-metadata~=no-title]) {
+  >.callout-content > *:first-child {
     margin-top: 0;
   }
 }
 
+.callout:is([data-callout*="blockquote"], [data-callout*="citation"]):is([data-callout-metadata~=no-t], [data-callout-metadata~=no-title]) {
+  >.callout-content > *:first-child {
+    margin-top: 8px;
+  }
 
-/* [!blockquote] or [!bq]  */
-.callout:is([data-callout^="blockquote"], [data-callout^="bq"]) {
-  --callout-color: none;
-  border-color: var(--border-medium);
-  --callout-title-color: var(--gray-600);
+  >.callout-content > *:last-child {
+    margin-bottom: 8px;
+  }
 }
 
-.callout:is([data-callout="blockquote-cite"], [data-callout="bq-cite"]) {
-  --quote-up-icon: '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="currentColor"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor"><path d="M14 16c0-1.886 0-2.828.586-3.414S16.114 12 18 12s2.828 0 3.414.586S22 14.114 22 16s0 2.828-.586 3.414S19.886 20 18 20s-2.828 0-3.414-.586S14 17.886 14 16"/><path d="M14 16v-4.137C14 8.196 16.516 5.086 20 4M2 16c0-1.886 0-2.828.586-3.414S4.114 12 6 12s2.828 0 3.414.586S10 14.114 10 16s0 2.828-.586 3.414S7.886 20 6 20s-2.828 0-3.414-.586S2 17.886 2 16"/><path d="M2 16v-4.137C2 8.196 4.516 5.086 8 4"/></g></svg>';
-  --callout-icon: var(--quote-up-icon);
+.callout:is([data-callout*="citation"]):is([data-callout-metadata~=no-t], [data-callout-metadata~=no-title]) {
+  --quote-up-icon-data: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 24 24' fill='oklch(70.9%25 .015 304.04)'%3E%3Cg fill='none' stroke='oklch(70.9%25 .015 304.04)' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' color='currentColor'%3E%3Cpath d='M14 16c0-1.886 0-2.828.586-3.414S16.114 12 18 12s2.828 0 3.414.586S22 14.114 22 16s0 2.828-.586 3.414S19.886 20 18 20s-2.828 0-3.414-.586S14 17.886 14 16'/%3E%3Cpath d='M14 16v-4.137C14 8.196 16.516 5.086 20 4M2 16c0-1.886 0-2.828.586-3.414S4.114 12 6 12s2.828 0 3.414.586S10 14.114 10 16s0 2.828-.586 3.414S7.886 20 6 20s-2.828 0-3.414-.586S2 17.886 2 16'/%3E%3Cpath d='M2 16v-4.137C2 8.196 4.516 5.086 8 4'/%3E%3C/g%3E%3C/svg%3E");
+  --quote-down-icon-data: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 24 24' fill='%23000000'%3E%3Cg fill='none' stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' color='currentColor'%3E%3Cpath d='M10 8c0 1.886 0 2.828-.586 3.414S7.886 12 6 12s-2.828 0-3.414-.586S2 9.886 2 8s0-2.828.586-3.414S4.114 4 6 4s2.828 0 3.414.586S10 6.114 10 8'/%3E%3Cpath d='M10 7v4.482c0 3.973-2.516 7.342-6 8.518M22 8c0 1.886 0 2.828-.586 3.414S19.886 12 18 12s-2.828 0-3.414-.586S14 9.886 14 8s0-2.828.586-3.414S16.114 4 18 4s2.828 0 3.414.586S22 6.114 22 8'/%3E%3Cpath d='M22 7v4.482c0 3.973-2.516 7.342-6 8.518'/%3E%3C/g%3E%3C/svg%3E");
 
-  .callout-title {
-    gap: 6px;
+  >.callout-content > *:first-child::before {
+    content: "";
+    display: inline-block;
+    width:  var(--callout-icon-size);
+    height: var(--callout-icon-size);
+    mask-image: var(--quote-up-icon-data);
+    background-color: oklch(70.9% .015 304.04);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: left;
+    margin-right: 8px;
   }
+
+  >.callout-content > *:last-child::after {
+    content: "";
+    float: right;
+    clear: right;
+    width:  var(--callout-icon-size);
+    height: var(--callout-icon-size);
+    mask-image: var(--quote-down-icon-data);
+    background-color: oklch(70.9% .015 304.04);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    vertical-align: middle;
+    transform: translate(8px, 0px);
+  }
+
+  svg {
+    color: oklch(70.9% .015 304.04);
+  }
+}
+
+.callout:is([data-callout*="citation"]):is([data-callout-metadata~=no-c], [data-callout-metadata~=no-content]) {
+  --quote-up-icon: '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="currentColor"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor"><path d="M14 16c0-1.886 0-2.828.586-3.414S16.114 12 18 12s2.828 0 3.414.586S22 14.114 22 16s0 2.828-.586 3.414S19.886 20 18 20s-2.828 0-3.414-.586S14 17.886 14 16"/><path d="M14 16v-4.137C14 8.196 16.516 5.086 20 4M2 16c0-1.886 0-2.828.586-3.414S4.114 12 6 12s2.828 0 3.414.586S10 14.114 10 16s0 2.828-.586 3.414S7.886 20 6 20s-2.828 0-3.414-.586S2 17.886 2 16"/><path d="M2 16v-4.137C2 8.196 4.516 5.086 8 4"/></g></svg>';
+  --quote-down-icon-data: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 24 24' fill='%23000000'%3E%3Cg fill='none' stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' color='currentColor'%3E%3Cpath d='M10 8c0 1.886 0 2.828-.586 3.414S7.886 12 6 12s-2.828 0-3.414-.586S2 9.886 2 8s0-2.828.586-3.414S4.114 4 6 4s2.828 0 3.414.586S10 6.114 10 8'/%3E%3Cpath d='M10 7v4.482c0 3.973-2.516 7.342-6 8.518M22 8c0 1.886 0 2.828-.586 3.414S19.886 12 18 12s-2.828 0-3.414-.586S14 9.886 14 8s0-2.828.586-3.414S16.114 4 18 4s2.828 0 3.414.586S22 6.114 22 8'/%3E%3Cpath d='M22 7v4.482c0 3.973-2.516 7.342-6 8.518'/%3E%3C/g%3E%3C/svg%3E");
+
+  --callout-icon: var(--quote-up-icon);
+  --callout-title-gap: 6px;
 
   .callout-title-inner::after {
     content: "";
     float: right;
     width:  var(--callout-icon-size);
     height: var(--callout-icon-size);
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 24 24' fill='%23000000'%3E%3Cg fill='none' stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' color='currentColor'%3E%3Cpath d='M10 8c0 1.886 0 2.828-.586 3.414S7.886 12 6 12s-2.828 0-3.414-.586S2 9.886 2 8s0-2.828.586-3.414S4.114 4 6 4s2.828 0 3.414.586S10 6.114 10 8'/%3E%3Cpath d='M10 7v4.482c0 3.973-2.516 7.342-6 8.518M22 8c0 1.886 0 2.828-.586 3.414S19.886 12 18 12s-2.828 0-3.414-.586S14 9.886 14 8s0-2.828.586-3.414S16.114 4 18 4s2.828 0 3.414.586S22 6.114 22 8'/%3E%3Cpath d='M22 7v4.482c0 3.973-2.516 7.342-6 8.518'/%3E%3C/g%3E%3C/svg%3E");
-    background-color: var(--gray-400);
+    mask-image: var(--quote-down-icon-data);
+    background-color: oklch(70.9% .015 304.04);
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: center;
     vertical-align: middle;
     transform: translateY(2px);
+    margin-left: var(--callout-title-gap);
   }
 
   svg {
-    color: var(--gray-400);
+    color: oklch(70.9% .015 304.04);
   }
 }
+
 
 /*---
 TITLE: Border Colors

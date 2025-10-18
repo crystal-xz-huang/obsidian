@@ -1,5 +1,7 @@
 /* ====== DOTS FOR HR ====== */
-.workspace-leaf-content .view-content .hr-dots.markdown-preview-view hr {
+.workspace-leaf-content .view-content .hr-dots.markdown-preview-view hr,
+.markdown-source-view.mod-cm6 hr.dots,
+.markdown-rendered hr.dots {
   margin-top: 3rem;
   margin-bottom: 1rem;
   margin-top: calc(2em + 2vh);
@@ -11,14 +13,15 @@
   overflow: visible
 }
 
-.workspace-leaf-content .view-content .hr-dots.markdown-preview-view hr:before {
+.workspace-leaf-content .view-content .hr-dots.markdown-preview-view hr:before,
+hr.dots:before {
   content: '\2022\2022\2022';
   display: inline-block;
   font-size: .5em;
   font-size: calc(.8em + .2vw);
   margin-left: 0.6em;
   letter-spacing: 1.25em;
-  color: var(--hr-color);
+  color: var(--text-accent);
   position: relative;
   top: -0.75em
 }

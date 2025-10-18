@@ -1,4 +1,1 @@
-<%*
-  const { generateMarkdownLink } = tp.user.generateLink();
-  tR += await generateMarkdownLink(tp);
-%>
+<%* tR += await tp.user.generateLink.markdown(tp); %>

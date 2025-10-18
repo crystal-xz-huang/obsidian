@@ -1,0 +1,246 @@
+:root {
+  --color-background-grey: #4c4d4eff;
+  --color-background-blue: #394354ff;
+  --color-background-red: #523937ff;
+  --color-background-yellow: #554b30ff;
+  --color-background-green: #37483cff;
+  --color-background-pink: #553949ff;
+  --color-background-purple: #473954ff;
+  --color-background-cyan: #354c51ff;
+  --color-background-orange: #544233ff;
+  --color-foreground-grey: #dadce0ff;
+  --color-foreground-blue: #8ab4f8ff;
+  --color-foreground-red: #f28b82ff;
+  --color-foreground-yellow: #fdd663ff;
+  --color-foreground-green: #81c995ff;
+  --color-foreground-pink: #ff8bcbff;
+  --color-foreground-purple: #c58af9ff;
+  --color-foreground-cyan: #78d9ecff;
+  --color-foreground-orange: #fcad70ff;
+}
+
+/* [REFERENCE] https://docs.fontawesome.com/web */
+.theme-light {
+  /*----------------------------------------------------------------
+    FONT AWESOME COLORS
+    ----------------------------------------------------------------*/
+  --red-fa: hsla(360, 100%, 76%, 1);
+  --yellow-fa: hsla(42, 100%, 62%, 1);
+  --teal-fa: hsla(162, 72%, 65%, 1);
+  --blue-fa: hsla(208, 96%, 72%, 1);
+  --purple-fa: hsla(288, 85%, 78%, 1);
+  --violet-fa: hsla(255, 94%, 79%, 1);
+}
+
+.theme-dark {
+  --red-fa: hsla(360, 74%, 54%, 1);
+  --yellow-fa: hsla(42, 96%, 50%, 1);
+  --teal-fa: hsla(162, 85%, 35%, 1);
+  --blue-fa: hsla(208, 83%, 41%, 1);
+  --purple-fa: hsla(288, 54%, 46%, 1);
+  --violet-fa: hsla(255, 67%, 55%, 1);
+}
+
+span.yellow {
+  color: var(--color-foreground-yellow);
+  font-weight: 600;
+}
+
+span.pink {
+  color: var(--color-foreground-pink);
+  font-weight: 600;
+}
+
+span.blue {
+  color: var(--color-foreground-blue);
+  font-weight: 600;
+}
+
+span.green {
+  color: var(--color-foreground-green);
+  font-weight: 600;
+}
+
+span.red {
+  color: var(--color-foreground-red);
+  font-weight: 600;
+}
+
+span.grey {
+  color: var(--color-foreground-grey);
+  font-weight: 600;
+}
+
+span.orange {
+  color: var(--color-foreground-orange);
+  font-weight: 600;
+}
+
+span.red {
+  color: var(--color-foreground-red);
+  font-weight: 600;
+}
+
+span.purple {
+  color: var(--color-foreground-purple);
+  font-weight: 600;
+}
+
+.theme-dark {
+  /*----------------------------------------------------------------
+    HIGHLIGHTERS
+    ----------------------------------------------------------------*/
+  --yellow-highlighter: #FFF3A3A6;
+  --pink-highlighter: #FFB8EBA6;
+  --red-highlighter: #FF5582A6;
+  --blue-highlighter: #ADCCFFA6;
+  --green-highlighter: #BBFABBA6;
+  --purple-highlighter: #D2B3FFA6;
+  --orange-highlighter: #FFB86CA6;
+  --grey-highlighter: #CACFD9A6;
+  --cyan-highlighter: rgba(162, 238, 239, 0.18);
+
+  --text-highlight-rgb: var(--yellow-highlighter);
+}
+
+.theme-light {
+  /*----------------------------------------------------------------
+    HIGHLIGHTERS
+    ----------------------------------------------------------------*/
+  --yellow-highlighter: #FFF3A3A6;
+  --pink-highlighter: #FFB8EBA6;
+  --red-highlighter: #FF5582A6;
+  --blue-highlighter: #ADCCFFA6;
+  --green-highlighter: #BBFABBA6;
+  --purple-highlighter: #D2B3FFA6;
+  --orange-highlighter: #FFB86CA6;
+  --grey-highlighter: #CACFD9A6;
+  --text-highlight-rgb: var(--yellow-highlighter);
+}
+
+/*----------------------------------------------------------------
+HIGHLIGHTING (MARK)
+----------------------------------------------------------------*/
+.markdown-rendered mark,
+mark {
+  font-weight: 500;
+  background-color: var(--text-highlight-rgb);
+  color: var(--text-normal) !important;
+}
+
+.cm-s-obsidian span.cm-highlight {
+  font-weight: 500;
+  background-color: var(--text-highlight-rgb);
+  color: var(--text-normal) !important;
+}
+
+/*----------------------------------------------------------------
+REALISTIC HIGHLIGHT
+----------------------------------------------------------------*/
+mark.yellow {
+  --text-highlight-rgb: var(--yellow-highlighter);
+}
+
+mark.pink {
+  --text-highlight-rgb: var(--pink-highlighter);
+}
+
+mark.blue {
+  --text-highlight-rgb: var(--blue-highlighter);
+}
+
+mark.green {
+  --text-highlight-rgb: var(--green-highlighter);
+}
+
+mark.red {
+  --text-highlight-rgb: var(--red-highlighter);
+}
+
+mark.grey {
+  --text-highlight-rgb: var(--grey-highlighter);
+}
+
+mark.orange {
+  --text-highlight-rgb: var(--orange-highlighter);
+}
+
+mark.red {
+  --text-highlight-rgb: var(--red-highlighter);
+}
+
+mark.purple {
+  --text-highlight-rgb: var(--purple-highlighter);
+}
+
+mark,
+.markdown-rendered mark {
+  margin: 0 -0.05em;
+  padding: 0.125em 0.15em;
+  border-radius: .25em;
+  border-radius: .35em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+span.cm-highlight {
+  padding: .1em 0.15em;
+  border-radius: .2em;
+  background: var(--text-highlight-rgb);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+span.cm-formatting-highlight {
+  /*margin: 0 0 0 -0.4em;*/
+  background: var(--text-highlight-rgb);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.cm-highlight+span.cm-formatting-highlight {
+  background: var(--text-highlight-rgb);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* from github */
+/* cyan */
+.theme-dark .markdown-rendered mark,
+span.cm-highlight {
+  --label-r: 162;
+  --label-g: 238;
+  --label-b: 239;
+  --label-h: 181;
+  --label-s: 71;
+  --label-l: 79;
+  --perceived-lightness: calc(((var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) + (var(--label-b) * 0.0722)) / 255);
+  --lightness-switch: max(0, min(calc((var(--perceived-lightness) - var(--lightness-threshold)) * -1000), 1));
+  --lightness-threshold: 0.6;
+  --background-alpha: 0.18;
+  --border-alpha: 0.3;
+  --lighten-by: calc(((var(--lightness-threshold) - var(--perceived-lightness)) * 100) * var(--lightness-switch));
+  background: rgba(var(--label-r), var(--label-g), var(--label-b), var(--background-alpha));
+  color: hsl(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) + var(--lighten-by)) * 1%));
+  font-weight: 500;
+}
+
+
+/* teal */
+.theme-dark .markdown-rendered mark,
+span.cm-highlight {
+  --label-r: 0;
+  --label-g: 134;
+  --label-b: 114;
+  --label-h: 171;
+  --label-s: 100;
+  --label-l: 26;
+  --perceived-lightness: calc(((var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) + (var(--label-b) * 0.0722)) / 255);
+  --lightness-switch: max(0, min(calc((var(--perceived-lightness) - var(--lightness-threshold)) * -1000), 1));
+  --lightness-threshold: 0.6;
+  --background-alpha: 0.18;
+  --lighten-by: calc(((var(--lightness-threshold) - var(--perceived-lightness)) * 100) * var(--lightness-switch));
+  background: rgba(var(--label-r), var(--label-g), var(--label-b), var(--background-alpha));
+  color: hsl(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) + var(--lighten-by)) * 1%));
+  font-weight: 500;
+}

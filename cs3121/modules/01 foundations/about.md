@@ -1,11 +1,7 @@
 ---
-aliases:
-  - About Module 1
+aliases: [About Module 1]
 title: "Module 1: Foundations"
-tags:
-  - index-pages
-  - module/1
-  - week/1
+tags: [index-pages, module/1, week/1]
 ---
 # Module 1: Foundations
 

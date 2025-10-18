@@ -3,17 +3,24 @@ aliases: [The Stable Matching Problem]
 ---
 # The Stable Matching Problem
 
-<b>Stable matching problem.</b> Given $n$ men and $n$ women, and their preference lists, find a stable matching if one exists. 
+## Overview
 
-<b>Solution.</b> The Gale-Shapley algorithm solves the stable matching problem by having one group (e.g., men) propose to the other (e.g., women) based on preference lists until a stable matching is achieved, where no two individuals who are not matched would both prefer each other to their current partners. 
+> [!problem]
+> Given $n$ men and $n$ women, and their preference lists, find a stable matching if one exists. 
 
-<b>Theorem.</b> The Gale–Shapley algorithm guarantees to find a stable matching for **any** problem instance. 
+> [!solution]
+> The Gale-Shapley algorithm solves the stable matching problem by having one group (e.g., men) propose to the other (e.g., women) based on preference lists until a stable matching is achieved, where no two individuals who are not matched would both prefer each other to their current partners. 
+
+> [!theorem]
+> The Gale–Shapley algorithm guarantees to find a stable matching for **any** problem instance. 
 
 - **Stability:** The final matching is stable, meaning no unmatched pair would prefer each other over their current partners. 
 - **Guaranteed Solution:** The algorithm always finds a stable matching, and it terminates in a finite number of steps. It takes $n^2$ steps, where $n$ is the number of men *or* women.
 - **Proposer-Optimality:** If the men propose, the resulting matching is men-optimal, as each man gets the best stable partner possible for him. The women, in contrast, get the worst possible stable partner. 
 
-## The Problem
+---
+
+## Definitions
 
 Given the preference lists of $n$ men and $n$ women, find a stable matching if one exists.
 
@@ -27,7 +34,7 @@ In a matching A, an unmatched pair `M-W` is unstable if man `M` and woman `W` pr
 
 This pair has the incentive to opt out of the assigned pairing and get together on their own instead. If this happens, then this pair would block the matching from being "stable". 
 
-> [!example]-
+> [!example]+
 > For example, consider the following matching with the pairs Jim-Angela and Dwight-Pam:
 > 
 > | <div id="explanation"><svg width="500" height="400"><image></image><image></image><image></image><image></image><image></image><image></image><image></image><image></image><image x="50" y="60" width="100" xlink:href="https://avataaars.io/?topType=ShortHairShortFlat&amp;accessoriesType=Blank&amp;hairColor=Brown&amp;facialHairType=Blank&amp;clotheType=CollarSweater&amp;clotheColor=White&amp;eyeType=Default&amp;eyebrowType=Default&amp;mouthType=Default&amp;skinColor=Pale&amp;avatarStyle=Circle" class="person-circle"></image><image x="330" y="60" width="100" xlink:href="https://avataaars.io/?topType=ShortHairShortRound&amp;accessoriesType=Prescription01&amp;hairColor=Brown&amp;facialHairType=Blank&amp;clotheType=CollarSweater&amp;clotheColor=PastelYellow&amp;eyeType=Default&amp;eyebrowType=Default&amp;mouthType=Default&amp;skinColor=Light&amp;avatarStyle=Circle" class="person-circle"></image><image x="50" y="240" width="100" xlink:href="https://avataaars.io/?topType=LongHairStraight&amp;accessoriesType=Blank&amp;hairColor=BlondeGolden&amp;facialHairType=Blank&amp;clotheType=CollarSweater&amp;clotheColor=Gray02&amp;eyeType=Default&amp;eyebrowType=Default&amp;mouthType=Default&amp;skinColor=Pale&amp;avatarStyle=Circle" class="person-circle"></image><image x="330" y="240" width="100" xlink:href="https://avataaars.io/?topType=LongHairStraightStrand&amp;accessoriesType=Blank&amp;hairColor=Auburn&amp;facialHairType=Blank&amp;clotheType=CollarSweater&amp;clotheColor=PastelRed&amp;eyeType=Default&amp;eyebrowType=Default&amp;mouthType=Default&amp;skinColor=Light&amp;avatarStyle=Circle" class="person-circle"></image><text x="100" y="62" font-family="Nunito, sans-serif" font-size="30px" text-anchor="middle" fill="#4ca3dd" class="person-label">Jim</text><text x="380" y="62" font-family="Nunito, sans-serif" font-size="30px" text-anchor="middle" fill="#4ca3dd" class="person-label">Dwight</text><text x="100" y="370" font-family="Nunito, sans-serif" font-size="30px" text-anchor="middle" fill="#F7347A" class="person-label">Angela</text><text x="380" y="370" font-family="Nunito, sans-serif" font-size="30px" text-anchor="middle" fill="#F7347A" class="person-label">Pam</text><text x="20" y="134" font-family="Nunito, sans-serif" font-size="40px" text-anchor="middle" fill="black">♂️:</text><text x="20" y="314" font-family="Nunito, sans-serif" font-size="40px" text-anchor="middle" fill="black">♀️:</text><path d="M100,165C100,207.5,380,207.5,380,250" stroke="red" stroke-width="3" fill="none" class="engage-line"></path><line x1="100" y1="165" x2="100" y2="250" stroke="green" stroke-width="3"></line><line x1="380" y1="165" x2="380" y2="250" stroke="green" stroke-width="3"></line></svg></div> |
@@ -48,127 +55,139 @@ A matching is stable when there does not exist any pair (_A_, _B_) which both p
 
 ---
 
-## Questions
+## FAQ
+
+###### How many ways are there to match?
 
 > [!question]
 > Given $n$ women and $n$ men, how many ways are there to match them, without regard for preferences?
+
+> [!answer]
+> There are $n! ≈ (n/e)^n$ perfect matching, ignoring preferences.
 > 
-> > [!answer]
-> > There are $n! ≈ (n/e)^n$ perfect matching, ignoring preferences.
+> >[!explanation]-
+> >Each man must be paired with exactly one woman, and vice versa (perfect matching).
+> >This is the same as counting **permutations** of $n$ items.
+> >
+> >- Women 1 has $n$ choices of men.
+> >- Women 2 has $(n-1)$ choices (since one men is already taken).
+> >
+> >- Women 3 has $(n-2)$ choices. $$\vdots$$
+> >
+> >- Women $n$ has just $1$ choice.
+> >
+> >Therfore the total number of matchings is $n!$ (factorial):
+> >
+> >$$n \times (n-1) \times (n-2) \times \cdots \times 2 \times 1 = n!$$
+>
+> This is more than exponentially many in $n$ (super-exponential).
+> 
+> > [!explanation]-
+> > For large $n$, factorials grow extremely fast, so we usually approximate using Stirling’s approximation:
+> >
+> > $$n! \sim \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n  $$
+> >
+> > (where $e \approx 2.718$ is Euler’s number).
 > > 
-> > >Each man must be paired with exactly one woman, and vice versa (perfect matching).
-> > >This is the same as counting **permutations** of $n$ items.
-> > >
-> > >- Women 1 has $n$ choices of men.
-> > >- Women 2 has $(n-1)$ choices (since one men is already taken).
-> > >
-> > >- Women 3 has $(n-2)$ choices. $$\vdots$$
-> > >
-> > >- Women $n$ has just $1$ choice.
-> > >
-> > >Therfore the total number of matchings is $n!$ (factorial):
-> > >
-> > >$$n \times (n-1) \times (n-2) \times \cdots \times 2 \times 1 = n!$$
+> > If we ignore the $\sqrt{2 \pi n}$ factor, since it’s relatively small compared to $\left(\tfrac{n}{e}\right)^n$, we get:
+> >
+> > $$n! \approx \left(\frac{n}{e}\right)^n.$$
+> >
+> > A plain exponential function in $n$ looks like $c^n$ for some constant $c$ – $2^n$, $3^n$
+> > But here we have $\left(\frac{n}{e}\right)^n$. Notice that the “base” is not a constant — it grows with $n$.
+> > - For $n=10$, base = $10/e \approx 3.68$.
+> > - For $n=100$, base = $100/e \approx 36.8$.
+> > - For $n=1000$, base = $1000/e \approx 368$.
 > > 
-> > This is more than exponentially many in $n$  (super-exponential).
-> > 
-> > > For large $n$, factorials grow extremely fast, so we usually approximate using Stirling’s approximation:
-> > >
-> > > $$n! \sim \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n  $$
-> > >
-> > > (where $e \approx 2.718$ is Euler’s number).
-> > > 
-> > > If we ignore the $\sqrt{2 \pi n}$ factor, since it’s relatively small compared to $\left(\tfrac{n}{e}\right)^n$, we get:
-> > >
-> > > $$n! \approx \left(\frac{n}{e}\right)^n.$$
-> > >
-> > > A plain exponential function in $n$ looks like $c^n$ for some constant $c$ – $2^n$, $3^n$
-> > > But here we have $\left(\frac{n}{e}\right)^n$. Notice that the “base” is not a constant — it grows with $n$.
-> > > - For $n=10$, base = $10/e \approx 3.68$.
-> > > - For $n=100$, base = $100/e \approx 36.8$.
-> > > - For $n=1000$, base = $1000/e \approx 368$.
-> > > 
-> > > So the effective base of the exponential is increasing with $n$ → that’s why we say there are “more than exponentially many” matchings.
-> > 
+> > So the effective base of the exponential is increasing with $n$ → that’s why we say there are “more than exponentially many” matchings.
+> 
+
+###### Do stable matchings always exist?
 
 > [!question]
 > Do stable matchings always exist?
+
+> [!answer]
+> Not always! A stable matching may fail to exist for certain sets of participants and their preferences. 
+
+> [!explanation]
+> Consider the [stable roommate problem](https://en.wikipedia.org/wiki/Stable_roommates_problem). 
+> - **2n** people; each person ranks others from 1 to 2n – 1.
+> - Assign roommate pairs so that there are no unstable pairs.
 > 
-> > [!answer]
-> > Not always! A stable matching may fail to exist for certain sets of participants and their preferences. 
-> > 
-> > Consider the [stable roommate problem](https://en.wikipedia.org/wiki/Stable_roommates_problem). 
-> > - **2n** people; each person ranks others from 1 to 2n – 1.
-> > - Assign roommate pairs so that there are no unstable pairs.
-> > 
-> > |     | 1st | 2nd | 3rd |
-> > | :---: | :---: | :---: | :---: |
-> > | A   | B   | C   | D   |
-> > | B   | C   | A   | D   |
-> > | C   | A   | B   | D   |
-> > | D   | A   | B   | C   |
-> > 
-> > A-B, C-D ⇒ B-C unstable
-> > A-C, B-D ⇒ A-B unstable
-> > A-D, B-C ⇒ A-C unstable
-> > 
-> >  This is distinct from the stable matching problem (stable-marriage problem) in that all the stable-roommates problem allows matches between any two elements, not only between classes of _men_ and _women_ – two equally sized sets of participants of two types.
+> |     | 1st | 2nd | 3rd |
+> | :---: | :---: | :---: | :---: |
+> | A   | B   | C   | D   |
+> | B   | C   | A   | D   |
+> | C   | A   | B   | D   |
+> | D   | A   | B   | C   |
+> 
+> A-B, C-D ⇒ B-C unstable
+> A-C, B-D ⇒ A-B unstable
+> A-D, B-C ⇒ A-C unstable
+> 
+>  This is distinct from the stable matching problem (stable-marriage problem) in that all the stable-roommates problem allows matches between any two elements, not only between classes of _men_ and _women_ – two equally sized sets of participants of two types.
 
-Do all executions of Gale–Shapley lead to the same stable matching?
+###### Do all executions of Gale–Shapley lead to the same stable matching?
 
-No, because an instance can have several stable matchings.
+> [!question]
+> Do all executions of Gale–Shapley lead to the same stable matching?
 
-In general, there may be many different stable matchings. 
-For example, suppose that there are 3 women and 3 men which have preferences of:
+> [!answer]
+> No, because an instance can have several stable matchings.
 
-|        | 1st      | 2nd      | 3rd      |
-| ------ | -------- | -------- | -------- |
-| Monica | Chandler | Joey     | Ross     |
-| Phoebe | Joey     | Ross     | Chandler |
-| Rachel | Ross     | Chandler | Joey     |
-
-In this input case, there are three stable matchings:
-
-| Matching 1        | Matching 2        | Matching 3        |
-| ----------------- | ----------------- | ----------------- |
-| Monica & Chandler | Phoebe & Chandler | Rachel & Chandler |
-| Phoebe & Joey     | Rachel & Joey     | Monica & Joey     |
-| Rachel & Ross     | Monica & Ross     | Phoebe & Ross     |
-
-- Matching 1. All women get their first choice and all men get their last choice.
-- Matching 2. All men get their first choice and all women get their last choice,
-- Matching 3. Everyone gets their second choice.
+> [!explanation]
+> In general, there may be many different stable matchings. 
+> For example, suppose that there are 3 women and 3 men which have preferences of:
+> 
+> |        | 1st      | 2nd      | 3rd      |
+> | ------ | -------- | -------- | -------- |
+> | Monica | Chandler | Joey     | Ross     |
+> | Phoebe | Joey     | Ross     | Chandler |
+> | Rachel | Ross     | Chandler | Joey     |
+> 
+> In this input case, there are three stable matchings:
+> 
+> | Matching 1        | Matching 2        | Matching 3        |
+> | ----------------- | ----------------- | ----------------- |
+> | Monica & Chandler | Phoebe & Chandler | Rachel & Chandler |
+> | Phoebe & Joey     | Rachel & Joey     | Monica & Joey     |
+> | Rachel & Ross     | Monica & Ross     | Phoebe & Ross     |
+> 
+> - Matching 1. All women get their first choice and all men get their last choice.
+> - Matching 2. All men get their first choice and all women get their last choice,
+> - Matching 3. Everyone gets their second choice.
 
 ---
 
-## The Solution
-
-### Gale–Shapley Algorithm
+# The Solution
 
 In 1962, David Gale and Lloyd Shapley proved that, for any *equal number* of men and women, it is *always* possible to find a matching in which all pairs are stable. 
 
-The **Gale–Shapley algorithm** involves a number of _"rounds"_ or *"iterations"*. Let’s examine the man-oriented version (for the women-oriented versoin, just reverse the roles of men and women in the procedure):
+## Gale–Shapley Algorithm
+
+The **Gale–Shapley algorithm** involves a number of _"rounds"_ or *"iterations"*. Let’s examine the man-oriented version (for the women-oriented version, just reverse the roles of men and women in the procedure):
 
 - ==In the first round, first==
 	- Each unengaged man proposes to the woman he prefers most, and then
 	- Each woman replies _"maybe"_ to her suitor she most prefers and _"no"_ to all other suitors. 
 
-	She is then provisionally _"engaged"_ to the suitor she most prefers so far, and that suitor is likewise provisionally engaged to her.
-	  <br/>
+She is then provisionally _"engaged"_ to the suitor she most prefers so far, and that suitor is likewise provisionally engaged to her.
+
 - ==In each subsequent round, first==
 	- Each unengaged man proposes to the most-preferred woman to whom he has not yet proposed (regardless of whether the woman is already engaged), and then
 	- Each woman replies _"maybe"_ if she is currently not engaged or if she prefers this man over her current provisional partner (in this case, her current provisional partner becomes unengaged, and the woman and the man whom she prefers become engaged.).
 	  
-  This allows every already-engaged woman to _"trade up"_ (and reject her until-then partner).
-	  <br/>
+This allows every already-engaged woman to _"trade up"_ (and reject her until-then partner).
+
 - ==This process is repeated until everyone is engaged.==
 	- When all the men have been paired, it goes by saying that all the women are paired (and vice versa). Therefore everyone is paired. See the proof explaining why [[#Claim 2 The algorithm produces a perfect matching, i.e. when the algorithm terminates, the $2n$ parties form $n$ separate pairs.|here →]]
 
 Each man makes a proposal to each woman at most once, so the algorithm takes at most $n^2$ rounds. Therefore, this algorithm is guaranteed to produce a stable matching for all participants in $O(n^2)$ rounds where $n$ is the number of men *or* women. See the proof [[#Claim 1 The algorithm terminates after $ leq n 2$ rounds.|here →]]
 
-To analyze the actual *running time*, however, depends on the implementation details of the algorithm and the data structures used. 
+To analyse the actual *running time*, however, depends on the implementation details of the algorithm and the data structures used. 
 
-### Algorthm Pseudocode
+## Algorithm Pseudocode
 
 | <pre>algorithm <b>stable_matching</b>:<br>		Initialize all <i>men</i> and <i>women</i> to <i>free</i> (unengaged)<br>		<b>while</b> there exists a <i>free</i> man <i>m</i> who still has a woman <i>w</i> to propose to:<br>			<b>set</b> w <b>to</b> first woman on m's list to whom m has not yet proposed<br>			<b>if</b> w is <i>free</i>:<br>				(m, w) become <i>engaged</i><br>			<b>else</b>:<br>				let m' be w's current fiance<br>				<b>if</b> w prefers m to m':<br>					m' becomes <i>free</i><br>					(m, w) become <i>engaged</i><br>				<b>else</b>:<br>					(m', w) remain <i>engaged</i></pre> |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -178,9 +197,9 @@ To analyze the actual *running time*, however, depends on the implementation det
 | :------------------------------------------: |
 |            Women-oriented version            |
 
-### Running Time
+## Running Time
 
-To analyze the actual running time, we need to specify the algorithm in more detail:
+To analyse the actual running time, we need to specify the algorithm in more detail:
 - How are the preference lists given to the algorithm?
 - How does the algorithm store the tentative matchings? 
 - Most fundamentally: How does the algorithm actually represent women and man?
@@ -206,7 +225,7 @@ Let's first show that the **while**l oop of lines 2–9 always terminates, so
 
 ---
 
-# Correctness Guarantees
+# Correctness 
 
 This algorithm guarantees 3 claims:
 
@@ -297,8 +316,6 @@ This is a contradiction. Therefore, the matching produced by the algorithm must 
 
 In general, there may be many different stable matchings.
 
-
-
 The Gale–Shapley algorithm in which women make proposals to men always yields the same stable matching (regardless of the order in which proposals are made), and its choice is the stable matching that is the _best for all women_ and _worst for all men_ among all stable matchings.
 
 In a reversed form of the algorithm, this produces a matching that is *best for all men* and *worst for all women* among all stable matchings. These two matchings are the top and bottom elements of the
@@ -354,7 +371,7 @@ In a reversed form of the algorithm, this produces a matching that is *best for
 > <b>Meaning.</b> There does not exist any pair (_A_, _B_) which both prefer each other over their current partner under the matching.
 > 
 
-# Further Reading
+# References & Further Reading
 
 - CSE 421 University of Washington: [Stable Matching Solution Visualized](https://uw-cse442-wi20.github.io/FP-cs-algorithm/)
 - Wikipedia: [Stable matching problem - Wikipedia](https://en.wikipedia.org/wiki/Stable_matching_problem)

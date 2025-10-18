@@ -184,7 +184,7 @@ async function getPageMetadata(url) {
   }
 }
 
-module.exports = function () {
+module.exports = () => {
   return {
     getPageMetadata,
     htmlEnDeCode,

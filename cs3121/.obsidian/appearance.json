@@ -14,16 +14,16 @@
     "tab-bar",
     "math",
     "links",
-    "popovers",
     "image",
-    "footnotes",
     "figcaption",
     "code",
     "callouts",
     "colors",
     "colorscheme",
     "list",
-    "highlight"
+    "footnotes",
+    "highlight",
+    "popovers"
   ],
   "monospaceFontFamily": "JetBrains Mono",
   "showViewHeader": true,
@@ -33,5 +33,6 @@
   "baseFontSize": 16,
   "theme": "system",
   "baseFontSizeAction": false,
-  "nativeMenus": true
+  "nativeMenus": true,
+  "accentColor": ""
 }

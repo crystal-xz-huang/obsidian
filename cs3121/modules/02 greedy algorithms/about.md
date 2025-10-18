@@ -9,3 +9,5 @@
 - Communicate algorithmic ideas at different abstraction levels
 - Evaluate the efficiency of algorithms and justify correctness
 - Apply LaTeX to produce high-quality technical documents
+
+

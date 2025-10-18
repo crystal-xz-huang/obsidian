@@ -1,14 +1,9 @@
 ---
-aliases:
-  - Time Complexity
-tags:
-  - lecture-notes
-  - module/1
-  - week/1
+aliases: [Time Complexity]
+tags: [lecture-notes, module/1, week/1]
 date: 2025-09-17T14:00:00
 ---
-
-# Time complexity
+# Time Complexity
 
 > [!NOTE]
 > True-ish statements:
@@ -185,19 +180,22 @@ $${\displaystyle f(x)=\Omega (g(x))\Longleftrightarrow g(x)=O(f(x))}$$
 
 > [!definition] 
 > If $f_1 = O(g_1)$ and $f_2 = O(g_2)$, then 
+>
 > $$\begin{align}
 > f_1 + f_2 &= O(g_1 + g_2) \\
 > &= O(\max(g_1, g_2)).
 > \end{align}
 > $$
+>
 >  The same property applies if $O$ is replaced by $\Omega$ or $\Theta$.
 
 > [!quote]+ Fact
-> If  $f_1 = O(g_1)$ and $f_2 = O(g_2)$, then  $f_1 + f_2 = O(g_1 + g_2)$.
+> If $f_1 = O(g_1)$ and $f_2 = O(g_2)$, then $f_1 + f_2 = O(g_1 + g_2)$.
 > ==The last term $O(g_1 + g_2)$ is often rewritten as $O(\max(g_1, g_2))$, since $g_1 + g_2 \leq 2 \max(g_1, g_2)$.==
 > 
 > > [!NOTE]- Explanation
 > > The max of any two real numbers $g_1, g_2 \geq 0$ is
+> >
 > > $$
 > > \max(g_1, g_2) =
 > > \begin{cases}
@@ -205,7 +203,7 @@ $${\displaystyle f(x)=\Omega (g(x))\Longleftrightarrow g(x)=O(f(x))}$$
 > > g_2 & \text{if } g_2 \geq g_1.
 > > \end{cases}
 > > $$
-> > 
+> >
 > > Suppose $g_1 \geq g_2$. Then:
 > > 
 > > - $\max(g_1, g_2) = g_1$  
@@ -217,11 +215,11 @@ $${\displaystyle f(x)=\Omega (g(x))\Longleftrightarrow g(x)=O(f(x))}$$
 > > - $g_1 + g_2 \leq g_2 + g_2 = 2g_2 = 2 \max(g_1, g_2)$  
 > > 
 > > So in either case:  
-> > 
+> >
 > > $$
 > > g_1 + g_2 \leq 2 \max(g_1, g_2).
 > > $$
-> > 
+> >
 > > This inequality tells us that **the sum of two functions is at most a constant factor (2) times the larger one.** 
 > > 
 > > Since Big-O ignores constant factors, we can replace $O(g_1 + g_2)$ with $O(\max(g_1, g_2))$.
@@ -247,17 +245,17 @@ If $f_1$ is the running time of the first stage and $f_2$ of the second stage, t
 
 > [!definition]
 > If $f_1 = O(g_1)$ and $f_2 = O(g_2)$, then  
-> 
+>
 > $$
 > f_1 \cdot f_2 = O(g_1 \cdot g_2)
 > $$
-> 
+>
 > In particular, if $f = O(g)$ and $\lambda$ is a constant (i.e. $\lambda = O(1)$), then  
-> 
+>
 > $$
 > \lambda \cdot f = O(g)
 > $$
-> 
+>
 > also.
 > 
 > The same property applies if $O$ is replaced by $\Omega$ or $\Theta$.
@@ -272,11 +270,11 @@ If each execution of the inner part takes $f_2$ time, and it is executed $f_1$ m
 
 > [!definition] 
 > If $f_1 = O(g_1)$ and $f_2 = \Omega(g_2)$, then  
-> 
+>
 > $$
 > \frac{f_1}{f_2} = O\!\left(\frac{g_1}{g_2}\right)
 > $$
-> 
+>
 > provided $f_2$ and $g_2$ are positive.
 > 
 > The same property applies if $O$ is replaced by $\Omega$ or $\Theta$.

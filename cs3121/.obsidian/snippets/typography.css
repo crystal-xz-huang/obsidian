@@ -43,7 +43,6 @@ body {
   /* override */
   --inline-title-size: 1.25em;
   --inline-title-font: var(--font-monospace);
-
   --h1-size: 1.875em;
   --h2-size: 1.602em;
   --h3-size: 1.424em;
@@ -69,37 +68,6 @@ body {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-}
-
-/* Markdown source view (not live preview) */
-.markdown-source-view:not(.is-live-preview) {
-  /* Set source view to monospace font */
-  font-family: var(--font-monospace);
-  --font-text: var(--font-monospace);
-  /* --font-text-size: var(--font-small); */
-
-  /* Reset header font sizes */
-  .cm-header {
-    font-size: 1rem;
-    font-variant: normal;
-  }
-
-  /* Fix footnote indent */
-  .HyperMD-footnote {
-    font-size: inherit;
-    padding-left: 0;
-    text-indent: 0;
-  }
-
-  .cm-inline-code {
-    font-size: var(--code-size);
-  }
-
-  /* Fix heading font-size */
-  .cm-line[class*=HyperMD-header-] {
-    font-size: inherit;
-    line-height: inherit;
   }
 }
 
@@ -174,12 +142,13 @@ body:not(.heading-indicator-off) .is-live-preview .HyperMD-header .collapse-indi
   Italics (Font-specific: Karla)
 --------------------------------------------------------------- */
 .cm-em,
-p :is(em, i) {
+em,
+i {
   letter-spacing: 0.025em;
-  font-style: italic;
 }
 
-p i {
+.markdown-source-view i,
+.markdown-reading-view i {
   color: var(--text-normal);
 }
 
@@ -199,6 +168,140 @@ u {
   text-decoration-thickness: 0.1em;
 }
 
+/* ---------------------------------------------------------------
+  Bold
+--------------------------------------------------------------- */
+.modal-container {
+  --bold-color: var(--text-normal);
+  --italic-color: var(--text-normal);
+}
+
 b {
   color: var(--primary-contrast);
+}
+
+/* ---------------------------------------------------------------
+  File Header, Inline Title
+--------------------------------------------------------------- */
+body {
+  --file-header-font: var(--font-monospace);
+  --inline-title-margin-bottom: var(--heading-spacing);
+}
+
+.markdown-preview-view .mod-header:not(.metadata-container[data-property-count="0"]) {
+  --inline-title-margin-bottom: 0.75em;
+}
+
+/* ---------------------------------------------------------------
+  Frontmatter, Metadata
+--------------------------------------------------------------- */
+.theme-light .mod-root .metadata-container,
+.theme-light .metadata-properties {
+  font-family: var(--font-monospace);
+}
+
+.theme-light {
+  --hover-accent: #dc388f;
+  /* Metadata */
+  --metadata-gap: 0px;
+  --metadata-input-text-color: var(--text-muted);
+  --metadata-input-font-size: var(--font-smallest);
+  --metadata-label-font: var(--font-monospace);
+  --metadata-label-font-size: 0.75em;
+  --metadata-border-radius: var(--radius-s);
+  --metadata-border-width: 1px;
+  --metadata-label-text-color: var(--text-muted);
+  --metadata-label-text-color: var(--text-muted);
+  --metadata-label-text-color-hover: var(--text-muted);
+}
+
+/* LIVE PREVIEW */
+.theme-light .mod-root .metadata-container {
+  padding: 0;
+  margin-left: 4px;
+  margin-right: -4px;
+  background-color: var(--background-primary-alt);
+  margin-block-end: var(--heading-spacing);
+}
+
+.theme-light .multi-select-container.multi-select-container .multi-select-input {
+  padding-top: 2px;
+}
+
+.theme-light .mod-root .metadata-add-button.metadata-add-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 30px;
+  padding: 4px 6px;
+  margin-top: 0px;
+  font-size: 75%;
+  font-style: italic;
+  background: var(--color-base-25);
+  border-top: 1px solid var(--metadata-border-color);
+  border-left: 1px solid var(--metadata-border-color);
+  border-radius: var(--radius-s) 0 var(--radius-s) 0;
+}
+
+.theme-light .metadata-add-button.text-icon-button .text-button-label {
+  display: none;
+}
+
+/* heading */
+.theme-light .metadata-properties-heading:not(.is-collapsed) {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.theme-light .metadata-properties-heading:not(.is-collapsed) .metadata-properties-title {
+  display: none;
+}
+
+.theme-light .metadata-properties-heading.is-collapsed {
+  padding: 6px 8px;
+  margin-bottom: 0;
+  font-size: 0.9em;
+}
+
+.theme-light .metadata-properties-heading.is-collapsed .metadata-properties-title {
+  color: var(--text-muted);
+}
+
+.theme-light .metadata-add-button:hover {
+  color: var(--hover-accent);
+}
+
+.theme-light .metadata-property-icon {
+  padding-right: 4px;
+  color: var(--hover-accent);
+}
+
+.theme-light .metadata-property-icon:hover {
+  color: var(--hover-accent);
+  background-color: var(--color-base-30);
+}
+
+.theme-light .metadata-property-key-input.metadata-property-key-input {
+  color: var(--text-muted);
+}
+
+.theme-light .multi-select-input.multi-select-input {
+  font-family: var(--font-interface);
+  color: var(--text-normal);
+}
+
+.theme-light .metadata-property-icon {
+  height: 100%;
+  padding: 0;
+}
+
+.theme-light .metadata-property-icon:before {
+  width: var(--size-4-2);
+}
+
+body.theme-light .metadata-property:focus-within,
+body.theme-light .metadata-property:hover {
+  background-color: var(--color-base-25);
+  box-shadow: none;
 }

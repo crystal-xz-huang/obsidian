@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "be854e6a24bd0dc6",
+        "id": "61cc839f78759f61",
         "type": "tabs",
         "children": [
           {
-            "id": "bc37d82f2ea41e2d",
+            "id": "06928147bba20205",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -23,37 +23,52 @@
             }
           },
           {
-            "id": "c02ebf98f68fb538",
+            "id": "1908663ac28f4a19",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Proving the Correctness of Greedy Algorithms.md",
+                "file": "portfolio/tasks/2.7 Project Selection.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Proving the Correctness of Greedy Algorithms"
+              "title": "2.7 Project Selection"
             }
           },
           {
-            "id": "33385f1719f8cca7",
+            "id": "056afe84cb321bbb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "portfolio/tasks/2.1 Greedy Proof.md",
+                "file": "portfolio/tasks/3.7 Coincidence.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2.1 Greedy Proof"
+              "title": "3.7 Coincidence"
+            }
+          },
+          {
+            "id": "6c9439835532d88b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "portfolio/tasks/3.2 Shortest Path with Modified Edges.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "3.2 Shortest Path with Modified Edges"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -63,9 +78,8 @@
     "type": "split",
     "children": [
       {
-        "id": "ff20b27b09a44434",
+        "id": "a123c3d39ccd498a",
         "type": "tabs",
-        "dimension": 85.70407433881344,
         "children": [
           {
             "id": "fd9f62e213c26f07",
@@ -79,28 +93,6 @@
               "icon": "lucide-folder-closed",
               "title": "Files"
             }
-          }
-        ]
-      },
-      {
-        "id": "c2ee1d938980adce",
-        "type": "tabs",
-        "dimension": 14.295925661186562,
-        "children": [
-          {
-            "id": "688f662792b2921c",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "portfolio/notes/2.7 Project Selection.md",
-                "followCursor": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of 2.7 Project Selection"
-            }
           },
           {
             "id": "843d83707d391193",
@@ -108,7 +100,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:module/3",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -129,12 +121,11 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 280.5
+    "width": 200
   },
   "right": {
     "id": "13c65fb2017d50a7",
@@ -143,6 +134,7 @@
       {
         "id": "dc47c215439afedf",
         "type": "tabs",
+        "dimension": 24.37455325232309,
         "children": [
           {
             "id": "d266d13b4c770cdc",
@@ -150,12 +142,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "modules/01 foundations/2.1 reasoning about algorithms.md",
+                "file": "attachments/huffman-coding-tree-example.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 2.1 reasoning about algorithms"
+              "title": "Outgoing links from huffman-coding-tree-example.excalidraw"
             }
           },
           {
@@ -164,17 +156,17 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "portfolio/notes/2.7 Project Selection.md",
+                "file": "modules/02 greedy algorithms/5.1 Directed Graph Structure.md",
                 "collapseAll": true,
-                "extraContext": true,
+                "extraContext": false,
                 "sortOrder": "alphabetical",
-                "showSearch": true,
+                "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2.7 Project Selection"
+              "title": "Backlinks for 5.1 Directed Graph Structure"
             }
           },
           {
@@ -208,10 +200,45 @@
           }
         ],
         "currentTab": 1
+      },
+      {
+        "id": "faf0e55cdc525e03",
+        "type": "tabs",
+        "dimension": 75.62544674767692,
+        "children": [
+          {
+            "id": "688f662792b2921c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "modules/02 greedy algorithms/5.1 Directed Graph Structure.md",
+                "followCursor": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 5.1 Directed Graph Structure"
+            }
+          },
+          {
+            "id": "4d329704035a360e",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "bases/Related.base",
+                "viewName": "Related"
+              },
+              "icon": "lucide-table",
+              "title": "Related"
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 229.5,
+    "width": 200,
     "collapsed": true
   },
   "left-ribbon": {
@@ -225,55 +252,57 @@
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
       "zk-prefixer:Create new unique note": false,
-      "workspaces:Manage workspace layouts": false
+      "workspaces:Manage workspace layouts": false,
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "33385f1719f8cca7",
+  "active": "6c9439835532d88b",
   "lastOpenFiles": [
-    "portfolio/tasks/3.4 Layer Cake.md",
-    "files/lecture/03-dp.pdf",
-    "portfolio/tasks/2.3 Night at the Art Gallery.md",
     "portfolio/tasks/3.1 Chocolate Bar.md",
-    "Proving the Correctness of Greedy Algorithms.md",
-    "portfolio/tasks/3.7 Coincidence.md",
-    "portfolio/task sheets/COMP3121_9101-3.7.pdf",
-    "reference/00 - 2.1 Data Structures.md",
-    "portfolio/tasks/2.7 Project Selection.md",
-    "portfolio/task sheets/COMP3121_9101-3.5.pdf",
-    "portfolio/task sheets/COMP3121_9101-3.4.pdf",
-    "portfolio/task sheets/COMP3121_9101-3.1.pdf",
+    "portfolio/tasks/3.2 Shortest Path with Modified Edges.md",
     "portfolio/tasks/2.1 Greedy Proof.md",
-    "files/external resources/proofs/Guidelines for GSA.pdf",
-    "reference/00 - 1.0 Asymptotic Analysis.md",
-    "course outline/timetable.md",
-    "notes in progress/Reductions.md",
-    "reference/00 - 2.3 Comparison Sorting Algorithms.md",
-    "knowledge",
-    "reference/01 - Gale-Shapley Algorithm.md",
-    "course outline/index.md",
-    "course outline/assessments.md",
+    "portfolio/tasks/3.6 I Can See You.md",
+    "portfolio/tasks/2.7 Project Selection.md",
+    "portfolio/tasks/3.7 Coincidence.md",
+    "modules/02 greedy algorithms/5.1 Directed Graph Structure.md",
+    "reference/3 Graphs/Strongly Connected Components and Condensation Graph.md",
+    "reference/3 Graphs/Topological Ordering.md",
+    "modules/02 greedy algorithms/5.2 Single Source Shortest Paths.md",
+    "modules/03 dynamic programming/overview.md",
+    "modules/02 greedy algorithms/2.1 Activity Selection.md",
+    "portfolio/tasks/3.5 Career Change.md",
+    "portfolio/task sheets/COMP3121_9101-3.6.pdf",
+    "attachments/task-3.5-pattern.excalidraw.md",
+    "attachments/task-3.5-pattern.excalidraw.png",
+    "attachments/task-3.5.excalidraw.md",
+    "attachments/task-3.5.excalidraw.png",
+    "modules/03 dynamic programming/4 Two Parameters, Constant Recurrence/0-1 Knapsack.md",
+    "modules/03 dynamic programming/1 Introduction/Introduction.md",
+    "modules/03 dynamic programming/about.md",
+    "attachments/career-change.excalidraw.md",
+    "modules/03 dynamic programming/3 One Parameter, Linear Recurrence/Longest Increasing Subsequence.md",
+    "attachments/career-change.excalidraw.png",
+    "portfolio/tasks/3.4 Layer Cake.md",
+    "modules/03 dynamic programming/1 Introduction/Tower of Hanoi.md",
+    "modules/02 greedy algorithms/about.md",
+    "faq/non-increasing vs decreasing.md",
+    "modules/01 foundations/3 Proofs.md",
     "course outline/modules.md",
-    "course outline/resources.md",
-    "course outline/schedule.md",
-    "portfolio/tasks/2.4 Chores.md",
-    "portfolio/tasks/1.4 RGB.md",
-    "files/seminar/w1-seminar-sols.pdf.sb-820cf3a3-C5J8DM",
-    "areas/data structures.md",
-    "_personal/mathjax.md",
-    "portfolio/tasks/2.6 Caffeine.md",
-    "modules/02 greedy algorithms/Tape Storage.md",
-    "moodle",
-    "_personal/obsidian-border.md",
-    "files/seminar/w3-seminar-sols.pdf",
-    "attachments/wk2-minimise-job-lateness-inversions.excalidraw.png",
-    "attachments/Screen Shot 2025-10-07 at 3.56.39 pm.png",
-    "attachments/wk2-minimise-job-lateness-1.png",
-    "attachments/wk2-minimise-job-lateness.png",
-    "attachments/stable-matching-problem.excalidraw.png",
-    "attachments/wk2-activity-selection-exchange.excalidraw.png",
-    "attachments/Screen Shot 2025-10-05 at 5.17.37 pm.png",
-    "attachments/wk2-minimize-lateness.png",
-    "attachments/wk2-files-on-tape.png",
-    "attachments/Pasted image 20251007014857.png"
+    "Related.base",
+    "faq",
+    "modules/03 dynamic programming/7 Applications to String Matching",
+    "modules/03 dynamic programming/untitled folder",
+    "modules/03 dynamic programming/6 Applications to Graphs",
+    "modules/03 dynamic programming/5 Two Parameters, Linear Recurrence",
+    "modules/03 dynamic programming/4 Two Parameters, Constant Recurrence",
+    "modules/03 dynamic programming/3 One Parameter, Linear Recurrence",
+    "modules/03 dynamic programming/2 One Parameter, Constant Recurrence",
+    "attachments/wk3-LIS-proof.excalidraw.png",
+    "attachments/wk3-LIS-annotation-1.excalidraw.png",
+    "attachments/wk3-tower-of-hanoi-1.excalidraw.png",
+    "attachments/tower-of-hanoi.png",
+    "attachments/wk3-tower-of-hanoi-2.excalidraw.png",
+    "attachments/tower-of-hanoi.excalidraw.png",
+    "attachments/Pasted image 20251014182621.png"
   ]
 }

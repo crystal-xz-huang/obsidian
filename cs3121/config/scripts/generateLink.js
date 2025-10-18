@@ -1,19 +1,20 @@
+module.exports = {
+  markdown: (tp) => generateMarkdownLink(tp),
+  wiki: (tp) => generateWikiLink(tp),
+}
+
 const emptyString = (str) => !str || str.trim().length === 0;
 
+/**
+ * Create an external link from the clipboard URL,
+ * fetching the webpage metadata for the display text.
+ * @param {*} tp
+ * @returns {string} The markdown link
+ */
 const generateMarkdownLink = async (tp) => {
-  // External Link (Markdown) with clipboard URL if valid
-  const selected_text = tp.file.selection();
   const url = await tp.system.clipboard(); // get URL from clipboard
 
   let mdLink = '';
-
-  // Assumption is:
-  // - Selected text is used as display text if available
-  // - Clipboard URL is used as link if valid URL
-  if (selected_text && !emptyString(selected_text)) {
-    mdLink = `[${selected_text}](<% tp.file.cursor() %>)`;
-    return mdLink;
-  }
 
   // Validate URL format
   const url_pattern = /^(https?:\/\/[^\s]+)$/i;
@@ -44,8 +45,4 @@ const generateWikiLink = (tp) => {
     return `[[<% tp.file.cursor()%>|${selected_text}]]`;
   }
   return `[[<% tp.file.cursor()%>]]`;
-};
-
-module.exports = function () {
-  return { generateMarkdownLink, generateWikiLink };
 };
