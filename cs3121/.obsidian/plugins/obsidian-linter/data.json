@@ -129,8 +129,8 @@
       "default-language": ""
     },
     "emphasis-style": {
-      "enabled": false,
-      "style": "consistent"
+      "enabled": true,
+      "style": "asterisk"
     },
     "no-bare-urls": {
       "enabled": false,
@@ -172,8 +172,8 @@
       "line-break-indicator": "  "
     },
     "unordered-list-style": {
-      "enabled": false,
-      "list-style": "consistent"
+      "enabled": true,
+      "list-style": "-"
     },
     "compact-yaml": {
       "enabled": false,
@@ -204,7 +204,7 @@
     "heading-blank-lines": {
       "enabled": true,
       "bottom": true,
-      "empty-line-after-yaml": false
+      "empty-line-after-yaml": true
     },
     "line-break-at-document-end": {
       "enabled": false
@@ -270,20 +270,24 @@
       "enabled": false
     }
   },
-  "lintOnSave": true,
+  "lintOnSave": false,
   "recordLintOnSaveLogs": false,
   "displayChanged": true,
   "lintOnFileChange": false,
   "displayLintOnFileChangeNotice": false,
   "settingsConvertedToConfigKeyValues": true,
   "foldersToIgnore": [
-    "config/templates",
-    ""
+    "config"
   ],
   "filesToIgnore": [
     {
       "label": "Exalidraw Files",
       "match": ".*\\.excalidraw\\.md$",
+      "flags": "i"
+    },
+    {
+      "label": "Script Files",
+      "match": ".*\\.js$",
       "flags": "i"
     }
   ],

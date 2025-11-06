@@ -1,3 +1,8 @@
+---
+tags:
+  - type/concept
+---
+# Character Encoding
 
 **Character encoding** is the process of converting characters (letters, numbers, symbols) into numerical values (bits: 0s and 1s).
 

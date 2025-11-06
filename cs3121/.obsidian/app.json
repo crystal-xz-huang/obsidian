@@ -5,12 +5,17 @@
   "tabSize": 4,
   "alwaysUpdateLinks": true,
   "userIgnoreFilters": [
-    "/config/.*"
+    "config/"
   ],
   "showInlineTitle": true,
   "vimMode": false,
   "useTab": true,
   "attachmentFolderPath": "attachments",
   "showIndentGuide": false,
-  "smartIndentList": true
+  "smartIndentList": true,
+  "showUnsupportedFiles": false,
+  "livePreview": false,
+  "newFileLocation": "current",
+  "newFileFolderPath": "",
+  "showLineNumber": false
 }

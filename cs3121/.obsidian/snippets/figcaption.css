@@ -63,6 +63,11 @@ figcaption {
 /* ====== image captions (embed images only) ====== */
 .workspace-leaf-content[data-type=markdown] .view-content thead tr:has(img, pre) {
   background: none;
+  background-color: white;
+}
+
+.theme-dark .workspace-leaf-content[data-type=markdown] .view-content thead tr:has(img, pre) {
+  background: none;
 }
 
 .workspace-leaf-content[data-type=markdown] .view-content thead:has(img)+tbody td {

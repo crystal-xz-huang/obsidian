@@ -1,0 +1,2 @@
+- **nonnegative** numbers include **zero** $\geq 0$
+- **positive** numbers are strictly **greater than zero** $>0$

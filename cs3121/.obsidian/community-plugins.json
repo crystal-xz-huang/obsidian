@@ -3,5 +3,7 @@
   "obsidian-linter",
   "templater-obsidian",
   "obsidian-excalidraw-plugin",
-  "oz-clear-unused-images"
+  "oz-clear-unused-images",
+  "find-unlinked-files",
+  "obsidian-tasks-plugin"
 ]

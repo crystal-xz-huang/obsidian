@@ -1,0 +1,53 @@
+body.theme-dark.is-translucent {
+  --workspace-background-translucent: transparent;
+}
+
+.theme-dark {
+  /* --text-muted: #949fbe; */
+  /* --text-faint: #626d91; */
+  --nav-item-color-hover: #f8f8f2;
+  --color-activated-tab-header-dark: #f8f8f2;
+  --on-border-dark: #949fbe;
+}
+
+.theme-dark .workspace .mod-sidedock .workspace-tab-header {
+  --icon-color: #626d91;
+}
+
+/* Decrease gap in card layout */
+body:not(.is-mobile).card-layout-open-light.theme-light .workspace.is-left-sidedock-open .workspace-split.mod-horizontal.mod-left-split,
+body:not(.is-mobile).card-layout-open-dark.theme-dark .workspace.is-left-sidedock-open .workspace-split.mod-horizontal.mod-left-split {
+  margin-right: 8px;
+}
+
+body:not(.is-mobile).card-layout-open-light.theme-light .workspace.is-right-sidedock-open .workspace-split.mod-horizontal.mod-right-split,
+body:not(.is-mobile).card-layout-open-dark.theme-dark .workspace.is-right-sidedock-open .workspace-split.mod-horizontal.mod-right-split {
+  margin-left: 8px;
+}
+
+body:not(.is-mobile).card-layout-open-light.theme-light .workspace-split.mod-vertical,
+body:not(.is-mobile).card-layout-open-dark.theme-dark .workspace-split.mod-vertical {
+  gap: 8px
+}
+
+/* ====== ribbon====== */
+body:not(.is-mobile):not(.show-ribbon) .workspace {
+  margin-left: 8px;
+}
+
+.mod-macos:not(.show-ribbon) {
+  --frame-left-space: calc(80px - 8px);
+}
+
+body:not(.is-mobile) .workspace {
+  margin-right: 8px;
+}
+
+/*status bar autohide*/
+body:not(.is-mobile).status-bar-autohide .status-bar {
+  height: 8px;
+}
+
+body:not(.is-mobile).status-bar-autohide .horizontal-main-container {
+  padding-bottom: 8px;
+}

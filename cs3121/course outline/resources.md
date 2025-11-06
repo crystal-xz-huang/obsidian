@@ -1,6 +1,6 @@
 ---
-tags: ["#overview-pages"]
-aliases: [Course Resources]
+aliases:
+  - Course Resources
 ---
 # Course Resources
 

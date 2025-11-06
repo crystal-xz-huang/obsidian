@@ -1,7 +1,7 @@
 ---
-tags: ["#overview-pages"]
-aliases: [Assessments]
-cssclasses:
+tags:
+aliases:
+  - Assessments
 ---
 # Course Assessment
 

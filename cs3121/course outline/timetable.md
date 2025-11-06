@@ -1,5 +1,5 @@
 ---
-title: 25T3COMP3121 Course Timetable
+aliases: 25T3COMP3121 Course Timetable
 source: https://cgi.cse.unsw.edu.au/~give/Admindata/25T3/COMP3121_timetable.html
 created: 2025-10-03
 tags: []

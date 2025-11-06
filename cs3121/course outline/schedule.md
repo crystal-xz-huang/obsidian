@@ -2,7 +2,7 @@
 aliases:
   - Course Schedule
 tags:
-  - "#overview-pages"
+  - index-pages
 ---
 # Course Schedule
 

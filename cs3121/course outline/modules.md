@@ -1,6 +1,8 @@
 ---
-aliases: [Modules]
-tags: ["#module", overview-pages]
+aliases:
+  - Modules
+tags:
+  - index-pages
 ---
 # Modules
 

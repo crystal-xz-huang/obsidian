@@ -1,8 +1,9 @@
 filters:
   and:
     - file.path != this.file.path
-    - file.folder != "attachments"
-    - '!file.basename.startsWith("_")'
+    - /^\s*[a-zA-Z0-9]/.matches(file.path)
+    - file.ext == "md"
+    - '!file.path.containsAny("- personal", "- archives", "+ untitled", "+ inbox", "attachments", "bases", "config", "excalidraw", "files", "glossary")'
 formulas:
   LinksOverlap: formula.Related.length
   Related: list(this.file.links).filter(list(file.links).containsAny(value)).unique()
@@ -31,8 +32,6 @@ views:
       - file.name
       - formula.Related
     sort:
-      - property: formula.Related
-        direction: DESC
       - property: file.name
         direction: DESC
       - property: formula.LinksOverlap
@@ -43,5 +42,28 @@ views:
         direction: DESC
     limit: 20
     columnSize:
-      file.name: 207
+      file.name: 426
+      formula.Related: 264
+  - type: table
+    name: Related List
+    filters:
+      or:
+        - formula.LinksOverlap > 2
+        - file.hasLink(this)
+        - this.file.hasLink(file)
+    order:
+      - file.name
+      - formula.Related
+    sort:
+      - property: file.name
+        direction: DESC
+      - property: formula.LinksOverlap
+        direction: DESC
+      - property: formula.TagsOverlap
+        direction: DESC
+      - property: formula.BacklinksCount
+        direction: DESC
+    limit: 20
+    columnSize:
+      file.name: 405
       formula.Related: -13

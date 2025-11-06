@@ -5,30 +5,9 @@
   --text-highlight-bg: var(--green-highlighter);
 } */
 
-.markdown-preview-view mark:hover {
-  background-color: var(--green-highlighter-hover);
-}
-
-
-/* from github */
-/* cyan */
-.theme-dark .markdown-rendered mark,
-.theme-dark span.cm-highlight {
-  --label-r: 162;
-  --label-g: 238;
-  --label-b: 239;
-  --label-h: 181;
-  --label-s: 71;
-  --label-l: 79;
-  --perceived-lightness: calc(((var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) + (var(--label-b) * 0.0722)) / 255);
-  --lightness-switch: max(0, min(calc((var(--perceived-lightness) - var(--lightness-threshold)) * -1000), 1));
-  --lightness-threshold: 0.6;
-  --background-alpha: 0.18;
-  --border-alpha: 0.3;
-  --lighten-by: calc(((var(--lightness-threshold) - var(--perceived-lightness)) * 100) * var(--lightness-switch));
-  background: rgba(var(--label-r), var(--label-g), var(--label-b), var(--background-alpha));
-  color: hsl(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) + var(--lighten-by)) * 1%));
-  font-weight: 500;
+/* .theme-light .markdown-preview-view mark:hover {
+  background-color: var(--text-highlighter-hover);
+  --text-highlighter-hover: #FFB86CA6;
 }
 
 mark,
@@ -38,4 +17,4 @@ mark,
   border-radius: .25em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-}
+} */

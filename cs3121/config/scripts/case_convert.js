@@ -182,13 +182,11 @@ function toTitleCase(str) {
     .join(' ');
 }
 
-module.exports = () => {
-  return {
-    toKebabCase,
-    toSnakeCase,
-    toSentenceCase,
-    toPathCase,
-    toTextCase,
-    toTitleCase,
-  };
+module.exports = {
+  toKebabCase,
+  toSnakeCase,
+  toSentenceCase,
+  toPathCase,
+  toTextCase,
+  toTitleCase,
 };

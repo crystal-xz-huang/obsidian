@@ -151,12 +151,13 @@ a,
   position: relative;
 
   /* make sure italics also inherit color */
-  > em {
+  >em {
     color: transparent !important;
   }
 }
 
 @media (hover: hover) {
+
   .external-link:not(.metadata-link-inner, .multi-select-pill-content):hover,
   .markdown-source-view:is(.is-live-preview) span:is(.cm-link, .cm-url)>.cm-underline:hover {
     background-position: 0% 0%;

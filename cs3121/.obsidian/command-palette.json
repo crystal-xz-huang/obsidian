@@ -1,0 +1,8 @@
+{
+  "pinned": [
+    "workspace:copy-path",
+    "workspace:copy-url",
+    "file-explorer:duplicate-file",
+    "file-explorer:reveal-active-file"
+  ]
+}

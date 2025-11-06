@@ -12,6 +12,11 @@ console.log("-------- File MetadataCache --------");
 debugLog("Headings:", headings || "No headings found");
 debugLog("Sections:", sections || "No sections found");
 
+console.log("-------- File Info --------");
+const folder = tp.file.folder();
+debugLog("Folder:", folder || "No folder found");
 
-
+console.log("-------- Global App --------");
+const layout = tp.app.workspace.getLayout();
+debugLog("Layout:", layout || "No folder found");
 %>

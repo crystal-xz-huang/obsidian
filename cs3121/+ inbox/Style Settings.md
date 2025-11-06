@@ -1,0 +1,53 @@
+
+```json
+{
+  "Components@@colorful-folder": false,
+  "Components@@outline-enhanced": true,
+  "Components@@new-tab-image-select": "new-tab-image-default",
+  "Components@@status-bar-autohide": true,
+  "Components@@nav-header-autohide": false,
+  "Components@@vault-profile-autohide": false,
+  "Editor@@line-hover-indicator": false,
+  "Editor@@border-focus-mode": false,
+  "Editor@@h1-divider-on": false,
+  "Editor@@collapse-icon-restore": false,
+  "Editor@@heading-indicator-off": false,
+  "Editor@@h2-color-select": "h2-color-default",
+  "Editor@@h2-divider-on": false,
+  "Editor@@callout-style-select": "callout-style-1",
+  "Components@@tab-autohide": false,
+  "Editor@@focus-indicator-codeblock-line-number": true,
+  "Editor@@focus-indicator-list-level": false,
+  "Editor@@inline-title-divider-remove": true,
+  "Components@@file-names-untrim": false,
+  "Components@@file-icon-remove": true,
+  "Plugin@@colorful-checkbox": false,
+  "Editor@@line-active-bg@@light": "#E497F717",
+  "Editor@@img-center-align": false,
+  "Editor@@editor-grid-background-pattren": false,
+  "Appearance-dark@@card-layout-open-dark": true,
+  "Appearance-light@@card-layout-open-light": true,
+  "Appearance-light@@background-underlying-select-light": "background-underlying-default-light",
+  "Appearance-light@@card-highlight-light": false,
+  "Appearance-light@@workspace-divider-transparent-light": false,
+  "Appearance-light@@card-border-radius-light": "8px",
+  "Appearance-light@@color-to-tab-icon-light": true,
+  "Components@@tab-title-bar-autohide": false,
+  "Editor@@ul-marker-restore": false,
+  "Editor@@list-spacing": "0.175em",
+  "Components@@restored-scrollbars": false,
+  "Components@@CTA-BTN-enable": false,
+  "Components@@folder-font-bold": false,
+  "baseline-style@@colorful-folders": "colorful-folders-dot",
+  "Appearance-dark@@card-highlight-dark": false,
+  "Appearance-dark@@theme-dark-style-select": "theme-dark-background-default",
+  "Appearance-dark@@workspace-divider-transparent-dark": false
+}
+```
+
+```
+{
+  "Appearance-dark@@card-layout-open-dark": true,
+  "Appearance-dark@@theme-dark-style-select": "theme-dark-background-default"
+}
+```

@@ -4,71 +4,63 @@
     "type": "split",
     "children": [
       {
-        "id": "61cc839f78759f61",
+        "id": "6c6c28ee0a4dd191",
         "type": "tabs",
+        "dimension": 49.906890130353815,
         "children": [
           {
-            "id": "06928147bba20205",
+            "id": "b64958784a9e5e64",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "portfolio/tasks/2.1 Greedy Proof.md",
+                "file": "modules/04 Divide and Conquer/Master Theorem.md",
                 "mode": "source",
-                "source": false,
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2.1 Greedy Proof"
+              "title": "Master Theorem"
+            },
+            "group": "85de4d31a2aa51ef"
+          }
+        ]
+      },
+      {
+        "id": "5a9516cdb0ece159",
+        "type": "tabs",
+        "dimension": 50.09310986964618,
+        "children": [
+          {
+            "id": "a0b0b863879df344",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "excalidraw/general-recurrence-formula.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "general-recurrence-formula.excalidraw"
             }
           },
           {
-            "id": "1908663ac28f4a19",
+            "id": "2fb86afd3adf178a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "portfolio/tasks/2.7 Project Selection.md",
-                "mode": "source",
-                "source": false,
+                "file": "modules/04 Divide and Conquer/Master Theorem.md",
+                "mode": "preview",
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2.7 Project Selection"
-            }
-          },
-          {
-            "id": "056afe84cb321bbb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "portfolio/tasks/3.7 Coincidence.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "3.7 Coincidence"
-            }
-          },
-          {
-            "id": "6c9439835532d88b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "portfolio/tasks/3.2 Shortest Path with Modified Edges.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "3.2 Shortest Path with Modified Edges"
-            }
+              "title": "Master Theorem"
+            },
+            "group": "85de4d31a2aa51ef"
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -80,6 +72,7 @@
       {
         "id": "a123c3d39ccd498a",
         "type": "tabs",
+        "dimension": 72.49466950959487,
         "children": [
           {
             "id": "fd9f62e213c26f07",
@@ -88,7 +81,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -100,7 +93,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:module/3",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -112,7 +105,7 @@
             }
           },
           {
-            "id": "bc8e9a6e8329538f",
+            "id": "868dbd6813a3fbe9",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -122,10 +115,33 @@
             }
           }
         ]
+      },
+      {
+        "id": "fe59a62697110ff9",
+        "type": "tabs",
+        "dimension": 27.505330490405118,
+        "children": [
+          {
+            "id": "688f662792b2921c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "modules/04 Divide and Conquer/Master Theorem.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Master Theorem"
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 350.5,
+    "collapsed": true
   },
   "right": {
     "id": "13c65fb2017d50a7",
@@ -134,39 +150,19 @@
       {
         "id": "dc47c215439afedf",
         "type": "tabs",
-        "dimension": 24.37455325232309,
         "children": [
           {
-            "id": "d266d13b4c770cdc",
+            "id": "9961edfda388061c",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "attachments/huffman-coding-tree-example.excalidraw.md",
+                "file": "modules/04 Divide and Conquer/Decision Problems and Optimisation Problems.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from huffman-coding-tree-example.excalidraw"
-            }
-          },
-          {
-            "id": "affea9f71dda7e00",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "modules/02 greedy algorithms/5.1 Directed Graph Structure.md",
-                "collapseAll": true,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for 5.1 Directed Graph Structure"
+              "title": "Outgoing links from Decision Problems and Optimisation Problems"
             }
           },
           {
@@ -177,7 +173,7 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true,
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-tags",
@@ -185,7 +181,7 @@
             }
           },
           {
-            "id": "f22f84953972ed73",
+            "id": "754e87a86b6199af",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -197,44 +193,21 @@
               "icon": "lucide-archive",
               "title": "All properties"
             }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "faf0e55cdc525e03",
-        "type": "tabs",
-        "dimension": 75.62544674767692,
-        "children": [
-          {
-            "id": "688f662792b2921c",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "modules/02 greedy algorithms/5.1 Directed Graph Structure.md",
-                "followCursor": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of 5.1 Directed Graph Structure"
-            }
           },
           {
-            "id": "4d329704035a360e",
+            "id": "9472a6a6674c086c",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "file-properties",
               "state": {
-                "file": "bases/Related.base",
-                "viewName": "Related"
+                "file": "modules/04 Divide and Conquer/Master Theorem.md"
               },
-              "icon": "lucide-table",
-              "title": "Related"
+              "icon": "lucide-info",
+              "title": "File properties for Master Theorem"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -246,63 +219,62 @@
       "templater-obsidian:Templater": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
       "zk-prefixer:Create new unique note": false,
-      "workspaces:Manage workspace layouts": false,
-      "obsidian-excalidraw-plugin:New drawing": false
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "oz-clear-unused-images:Clear Unused Images": false
     }
   },
-  "active": "6c9439835532d88b",
+  "active": "b64958784a9e5e64",
   "lastOpenFiles": [
-    "portfolio/tasks/3.1 Chocolate Bar.md",
-    "portfolio/tasks/3.2 Shortest Path with Modified Edges.md",
-    "portfolio/tasks/2.1 Greedy Proof.md",
-    "portfolio/tasks/3.6 I Can See You.md",
-    "portfolio/tasks/2.7 Project Selection.md",
-    "portfolio/tasks/3.7 Coincidence.md",
-    "modules/02 greedy algorithms/5.1 Directed Graph Structure.md",
-    "reference/3 Graphs/Strongly Connected Components and Condensation Graph.md",
-    "reference/3 Graphs/Topological Ordering.md",
-    "modules/02 greedy algorithms/5.2 Single Source Shortest Paths.md",
-    "modules/03 dynamic programming/overview.md",
-    "modules/02 greedy algorithms/2.1 Activity Selection.md",
-    "portfolio/tasks/3.5 Career Change.md",
-    "portfolio/task sheets/COMP3121_9101-3.6.pdf",
-    "attachments/task-3.5-pattern.excalidraw.md",
-    "attachments/task-3.5-pattern.excalidraw.png",
-    "attachments/task-3.5.excalidraw.md",
-    "attachments/task-3.5.excalidraw.png",
-    "modules/03 dynamic programming/4 Two Parameters, Constant Recurrence/0-1 Knapsack.md",
-    "modules/03 dynamic programming/1 Introduction/Introduction.md",
-    "modules/03 dynamic programming/about.md",
-    "attachments/career-change.excalidraw.md",
-    "modules/03 dynamic programming/3 One Parameter, Linear Recurrence/Longest Increasing Subsequence.md",
-    "attachments/career-change.excalidraw.png",
-    "portfolio/tasks/3.4 Layer Cake.md",
-    "modules/03 dynamic programming/1 Introduction/Tower of Hanoi.md",
-    "modules/02 greedy algorithms/about.md",
-    "faq/non-increasing vs decreasing.md",
-    "modules/01 foundations/3 Proofs.md",
-    "course outline/modules.md",
-    "Related.base",
-    "faq",
-    "modules/03 dynamic programming/7 Applications to String Matching",
-    "modules/03 dynamic programming/untitled folder",
-    "modules/03 dynamic programming/6 Applications to Graphs",
-    "modules/03 dynamic programming/5 Two Parameters, Linear Recurrence",
-    "modules/03 dynamic programming/4 Two Parameters, Constant Recurrence",
-    "modules/03 dynamic programming/3 One Parameter, Linear Recurrence",
-    "modules/03 dynamic programming/2 One Parameter, Constant Recurrence",
-    "attachments/wk3-LIS-proof.excalidraw.png",
-    "attachments/wk3-LIS-annotation-1.excalidraw.png",
-    "attachments/wk3-tower-of-hanoi-1.excalidraw.png",
-    "attachments/tower-of-hanoi.png",
-    "attachments/wk3-tower-of-hanoi-2.excalidraw.png",
-    "attachments/tower-of-hanoi.excalidraw.png",
-    "attachments/Pasted image 20251014182621.png"
+    "modules/04 Divide and Conquer/Recurrences and the Master Theorem.md",
+    "modules/04 Divide and Conquer/Master Theorem.md",
+    "excalidraw/drawing-20251106-104752.excalidraw.md",
+    "excalidraw/general-recurrence-formula.excalidraw.md",
+    "excalidraw/general-recurrence-formula.excalidraw.png",
+    "excalidraw/general-recurrence-tree.excalidraw.png",
+    "excalidraw/recurrence-solution-tree.excalidraw.png",
+    "attachments/recursion-tree-cost.png",
+    "attachments/recursion-tree.png",
+    "modules/04 Divide and Conquer/Divide and Conquer Paradigm.md",
+    "excalidraw/counting-the-number-of-inversion-mergesort-2.excalidraw.md",
+    "mocs/Modules/Divide and Conquer.md",
+    "mocs/index of modules.md",
+    "modules/04 Divide and Conquer/Quicksort.md",
+    "templates/bases/Example Problems.md",
+    "templates/bases",
+    "templates",
+    "modules/04 Divide and Conquer/Counting the Number of Inversions.md",
+    "excalidraw/counting-the-number-of-inversion-mergesort-2.excalidraw.png",
+    "excalidraw/counting-the-number-of-inversion-mergesort.excalidraw.png",
+    "excalidraw/counting_the_number_of_inversions_example.excalidraw.md",
+    "files/lecture/4-dnc.pdf",
+    "excalidraw/counting_the_number_of_inversions_example.excalidraw.png",
+    "modules/03 Dynamic Programming/Matrix Chain Multiplication.md",
+    "modules/01 Foundations/Stable Matching Problem.md",
+    "reference/Graphs/Graph Algorithms/Matchings in Bipartite Graphs/The Stable Matching Problem and Gale-Shapley Algorithm.md",
+    "excalidraw/counting_the_number_of_inversions_example.png",
+    "glossary/Permutations and Inversions.md",
+    "modules/04 Divide and Conquer/Binary Search.md",
+    "modules/04 Divide and Conquer/Maximum Median.md",
+    "modules/04 Divide and Conquer/Merge Sort.md",
+    "modules/04 Divide and Conquer/Decision and Optimisation Problems.md",
+    "modules/00 Review of Prerequisite Material/Data Structures and Algorithms/Comparison Sorting Algorithms.md",
+    "portfolio/tasks/2.6 Caffeine.md",
+    "modules/02 Greedy Algorithms/Minimizing Lateness.md",
+    "glossary/Glossary.md",
+    "modules/04 Divide and Conquer/Coin Balance Puzzle.md",
+    "config/scripts/dnc_template.js",
+    "excalidraw/drawing-20251105-204119.excalidraw.md",
+    "bases/Related.base",
+    "config/scripts/open_file.js",
+    "config/templates/[file",
+    "excalidraw/27-coins-balance.png",
+    "files/lecture/0-introduction.pdf",
+    "files/lecture/--introduction.pdf",
+    "files/lecture/1-introduction.pdf"
   ]
 }

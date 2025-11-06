@@ -1,5 +1,4 @@
 {
-  "workspace:undo-close-pane": [],
   "templater-obsidian:insert-templater": [
     {
       "modifiers": [
@@ -16,15 +15,6 @@
         "Shift"
       ],
       "key": "C"
-    }
-  ],
-  "editor:toggle-inline-math": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "M"
     }
   ],
   "app:toggle-left-sidebar": [
@@ -114,24 +104,6 @@
       "key": "U"
     }
   ],
-  "editor:clear-formatting": [
-    {
-      "modifiers": [
-        "Alt",
-        "Shift"
-      ],
-      "key": "X"
-    }
-  ],
-  "editor:toggle-blockquote": [
-    {
-      "modifiers": [
-        "Alt",
-        "Mod"
-      ],
-      "key": "."
-    }
-  ],
   "templater-obsidian:config/templates/[format] toggle underline.md": [
     {
       "modifiers": [
@@ -172,7 +144,6 @@
       "key": "B"
     }
   ],
-  "editor:insert-link": [],
   "templater-obsidian:config/templates/[insert] External (Markdown) Link.md": [
     {
       "modifiers": [
@@ -244,6 +215,106 @@
         "Ctrl"
       ],
       "key": "B"
+    }
+  ],
+  "workspace:undo-close-pane": [],
+  "obsidian-linter:lint-file": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "F"
+    }
+  ],
+  "obsidian-linter:paste-as-plain-text": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "V"
+    }
+  ],
+  "editor:insert-link": [],
+  "editor:toggle-blockquote": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "."
+    }
+  ],
+  "workspace:split-vertical": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "\\"
+    }
+  ],
+  "workspace:split-horizontal": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "ArrowDown"
+    }
+  ],
+  "editor:clear-formatting": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "\\"
+    }
+  ],
+  "global-search:open": [],
+  "window:reset-zoom": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "0"
+    }
+  ],
+  "editor:set-heading": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "0"
+    }
+  ],
+  "obsidian-excalidraw-plugin:insert-link": [],
+  "file-explorer:duplicate-file": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "D"
+    }
+  ],
+  "templater-obsidian:config/templates/open file in new pane.md": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "O"
+    }
+  ],
+  "templater-obsidian:config/templates/Open file in new pane.md": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "O"
     }
   ]
 }

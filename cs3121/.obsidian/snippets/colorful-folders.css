@@ -1,0 +1,610 @@
+/**
+  * Colorful Folders
+  * Baseline Theme
+*/
+
+/*!
+/* @settings
+name: Baseline
+id: baseline-style
+settings:
+	-
+		id: colorful-folders
+		title: Colorful folders
+		description: Adds colored indicator on folders
+		type: class-select
+		allowEmpty: false
+		default: colorful-folders-off
+		options:
+			-
+				label: None
+				value: colorful-folders-off
+			-
+				label: Dot
+				value: colorful-folders-dot
+			-
+				label: Indicator
+				value: colorful-folders-side
+			-
+				label: Subtle
+				value: colorful-folders-subtle
+			-
+				label: Strong
+				value: colorful-folders-strong
+			-
+				label: Monochrome
+				value: colorful-folders-mono
+  -
+    id: colorful-headings
+    title: Colorful headings
+    type: heading
+    level: 3
+    collapsed: true
+  -
+    id: colorful-headings-text
+    title: Colored heading text
+    type: class-toggle
+    default: false
+  -
+    id: colorful-headings-side
+    title: Heading indicator
+    type: class-toggle
+    default: false
+  -
+    id: colorful-headings-background
+    title: Heading background
+    type: class-toggle
+    default: false
+  -
+    id: colorful-headings-full-width
+    title: Full width background
+    type: class-toggle
+    default: false
+
+  - id: font-settings
+    title: Headings
+    description: "Customize heading colors"
+    type: heading
+    level: 1
+    collapsed: true
+  - id: lp-heading-indicator
+    title: "Heading level indicators in live preview"
+    type: class-toggle
+    default: false
+
+*/
+.theme-dark {
+  /* nord */
+  --colorful-red-rgb: 191, 97, 106;
+  --colorful-orange-rgb: 208, 138, 112;
+  --colorful-yellow-rgb: 235, 203, 139;
+  --colorful-green-rgb: 163, 190, 140;
+  --colorful-cyan-rgb: 136, 192, 208;
+  --colorful-blue-rgb: 129, 161, 193;
+  --colorful-purple-rgb: 180, 142, 173;
+  --colorful-pink-rgb: 180, 142, 173;
+  --colorful-red: #bf616a;
+  --colorful-orange: #d08770;
+  --colorful-yellow: #ebcb8b;
+  --colorful-green: #a3be8c;
+  --colorful-cyan: #88c0d0;
+  --colorful-blue: #81a1c1;
+  --colorful-purple: #b48ead;
+  --colorful-pink: #b48ead;
+  /* rose pine */
+  --colorful-red-rgb: 234, 111, 146;
+  --colorful-orange-rgb: 233, 155, 151;
+  --colorful-yellow-rgb: 246, 193, 119;
+  --colorful-green-rgb: 47, 116, 143;
+  --colorful-cyan-rgb: 157, 207, 215;
+  --colorful-blue-rgb: 157, 207, 215;
+  --colorful-purple-rgb: 196, 167, 231;
+  --colorful-pink-rgb: 196, 167, 231;
+  --colorful-red: #eb6f92;
+  --colorful-orange: #ea9a97;
+  --colorful-yellow: #f6c177;
+  --colorful-green: #31748f;
+  --colorful-cyan: #9ccfd8;
+  --colorful-blue: #9ccfd8;
+  --colorful-purple: #c4a7e7;
+  --colorful-pink: #c4a7e7;
+}
+
+.theme-light {
+  /* rose pine */
+  --colorful-red-rgb: 180, 99, 122;
+  --colorful-orange-rgb: 215, 130, 125;
+  --colorful-yellow-rgb: 234, 157, 53;
+  --colorful-green-rgb: 40, 105, 131;
+  --colorful-cyan-rgb: 87, 147, 159;
+  --colorful-blue-rgb: 87, 147, 159;
+  --colorful-purple-rgb: 144, 122, 169;
+  --colorful-pink-rgb: 144, 122, 169;
+  --colorful-red: #b4637a;
+  --colorful-orange: #d7827e;
+  --colorful-yellow: #ea9d34;
+  --colorful-green: #286983;
+  --colorful-cyan: #56949f;
+  --colorful-blue: #56949f;
+  --colorful-purple: #907aa9;
+  --colorful-pink: #907aa9;
+}
+
+body.colorful-folders-side .nav-files-container>div>.nav-folder {
+  position: relative
+}
+
+body.colorful-folders-side .nav-files-container>div>.nav-folder::before {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 8px;
+  border-radius: var(--radius-s);
+  width: 4px;
+  height: -webkit-fill-available;
+  content: ""
+}
+
+body.colorful-folders-dot .nav-files-container>div>.nav-folder>.nav-folder-title>.collapse-icon::before {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-s);
+  content: ""
+}
+
+body.colorful-folders-side .nav-files-container>div>.nav-folder>.nav-folder-title>.collapse-icon svg,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder>.nav-folder-title>.collapse-icon svg {
+  display: none
+}
+
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+2)::before,
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+2)>.nav-folder-title>.collapse-icon::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+2)::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+2)>.nav-folder-title>.collapse-icon::before {
+  background-color: var(--colorful-red)
+}
+
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+3)::before,
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+3)>.nav-folder-title>.collapse-icon::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+3)::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+3)>.nav-folder-title>.collapse-icon::before {
+  background-color: var(--colorful-orange)
+}
+
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+4)::before,
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+4)>.nav-folder-title>.collapse-icon::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+4)::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+4)>.nav-folder-title>.collapse-icon::before {
+  background-color: var(--colorful-yellow)
+}
+
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+5)::before,
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+5)>.nav-folder-title>.collapse-icon::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+5)::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+5)>.nav-folder-title>.collapse-icon::before {
+  background-color: var(--colorful-green)
+}
+
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+6)::before,
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+6)>.nav-folder-title>.collapse-icon::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+6)::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+6)>.nav-folder-title>.collapse-icon::before {
+  background-color: var(--colorful-cyan)
+}
+
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+7)::before,
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+7)>.nav-folder-title>.collapse-icon::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+7)::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+7)>.nav-folder-title>.collapse-icon::before {
+  background-color: var(--colorful-blue)
+}
+
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+8)::before,
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+8)>.nav-folder-title>.collapse-icon::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+8)::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+8)>.nav-folder-title>.collapse-icon::before {
+  background-color: var(--colorful-purple)
+}
+
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+9)::before,
+body.colorful-folders-side .nav-files-container>div>.nav-folder:nth-child(8n+9)>.nav-folder-title>.collapse-icon::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+9)::before,
+body.colorful-folders-dot .nav-files-container>div>.nav-folder:nth-child(8n+9)>.nav-folder-title>.collapse-icon::before {
+  background-color: var(--colorful-pink)
+}
+
+body.colorful-folders-subtle .nav-files-container {
+  --collapse-icon-color: var(--text-normal)
+}
+
+body.colorful-folders-subtle .nav-files-container>div>.nav-folder {
+  border-radius: var(--radius-s);
+  --nav-item-color-hover: var(--nav-item-color);
+  --nav-collapse-icon-color: var(--nav-item-color)
+}
+
+body.colorful-folders-subtle .nav-files-container>div>.nav-folder:nth-child(8n+2) {
+  --nav-item-color: color-mix(in srgb, var(--colorful-red), var(--color-base-100));
+  background-color: rgba(var(--colorful-red-rgb), 0.1)
+}
+
+body.colorful-folders-subtle .nav-files-container>div>.nav-folder:nth-child(8n+3) {
+  --nav-item-color: color-mix(in srgb, var(--colorful-orange), var(--color-base-100));
+  background-color: rgba(var(--colorful-orange-rgb), 0.1)
+}
+
+body.colorful-folders-subtle .nav-files-container>div>.nav-folder:nth-child(8n+4) {
+  --nav-item-color: color-mix(in srgb, var(--colorful-yellow), var(--color-base-100));
+  background-color: rgba(var(--colorful-yellow-rgb), 0.1)
+}
+
+body.colorful-folders-subtle .nav-files-container>div>.nav-folder:nth-child(8n+5) {
+  --nav-item-color: color-mix(in srgb, var(--colorful-green), var(--color-base-100));
+  background-color: rgba(var(--colorful-green-rgb), 0.1)
+}
+
+body.colorful-folders-subtle .nav-files-container>div>.nav-folder:nth-child(8n+6) {
+  --nav-item-color: color-mix(in srgb, var(--colorful-cyan), var(--color-base-100));
+  background-color: rgba(var(--colorful-cyan-rgb), 0.1)
+}
+
+body.colorful-folders-subtle .nav-files-container>div>.nav-folder:nth-child(8n+7) {
+  --nav-item-color: color-mix(in srgb, var(--colorful-blue), var(--color-base-100));
+  background-color: rgba(var(--colorful-blue-rgb), 0.1)
+}
+
+body.colorful-folders-subtle .nav-files-container>div>.nav-folder:nth-child(8n+8) {
+  --nav-item-color: color-mix(in srgb, var(--colorful-purple), var(--color-base-100));
+  background-color: rgba(var(--colorful-purple-rgb), 0.1)
+}
+
+body.colorful-folders-subtle .nav-files-container>div>.nav-folder:nth-child(8n+9) {
+  --nav-item-color: color-mix(in srgb, var(--colorful-pink), var(--color-base-100));
+  background-color: rgba(var(--colorful-pink-rgb), 0.1)
+}
+
+body.colorful-folders-strong .nav-files-container {
+  --collapse-icon-color: var(--text-normal)
+}
+
+body.colorful-folders-strong .nav-files-container>div>.nav-folder {
+  border-radius: var(--radius-s);
+  --nav-item-color: white;
+  --nav-item-color-hover: var(--nav-item-color);
+  --nav-collapse-icon-color: var(--nav-item-color)
+}
+
+body.colorful-folders-strong .nav-files-container>div>.nav-folder:nth-child(8n+2) {
+  background-color: rgba(var(--colorful-red-rgb), 0.75)
+}
+
+body.colorful-folders-strong .nav-files-container>div>.nav-folder:nth-child(8n+3) {
+  background-color: rgba(var(--colorful-orange-rgb), 0.75)
+}
+
+body.colorful-folders-strong .nav-files-container>div>.nav-folder:nth-child(8n+4) {
+  background-color: rgba(var(--colorful-yellow-rgb), 0.75)
+}
+
+body.colorful-folders-strong .nav-files-container>div>.nav-folder:nth-child(8n+5) {
+  background-color: rgba(var(--colorful-green-rgb), 0.75)
+}
+
+body.colorful-folders-strong .nav-files-container>div>.nav-folder:nth-child(8n+6) {
+  background-color: rgba(var(--colorful-cyan-rgb), 0.75)
+}
+
+body.colorful-folders-strong .nav-files-container>div>.nav-folder:nth-child(8n+7) {
+  background-color: rgba(var(--colorful-blue-rgb), 0.75)
+}
+
+body.colorful-folders-strong .nav-files-container>div>.nav-folder:nth-child(8n+8) {
+  background-color: rgba(var(--colorful-purple-rgb), 0.75)
+}
+
+body.colorful-folders-strong .nav-files-container>div>.nav-folder:nth-child(8n+9) {
+  background-color: rgba(var(--colorful-pink-rgb), 0.75)
+}
+
+body.colorful-folders-mono .nav-files-container {
+  --collapse-icon-color: var(--text-normal)
+}
+
+body.colorful-folders-mono .nav-files-container>div>.nav-folder {
+  border-radius: var(--radius-s);
+  --nav-item-color: var(--text-normal)
+}
+
+body.colorful-folders-mono .nav-files-container>div>.nav-folder:nth-child(8n+2) {
+  background-color: rgba(var(--mono-rgb-100), 0.24)
+}
+
+body.colorful-folders-mono .nav-files-container>div>.nav-folder:nth-child(8n+3) {
+  background-color: rgba(var(--mono-rgb-100), 0.21)
+}
+
+body.colorful-folders-mono .nav-files-container>div>.nav-folder:nth-child(8n+4) {
+  background-color: rgba(var(--mono-rgb-100), 0.18)
+}
+
+body.colorful-folders-mono .nav-files-container>div>.nav-folder:nth-child(8n+5) {
+  background-color: rgba(var(--mono-rgb-100), 0.15)
+}
+
+body.colorful-folders-mono .nav-files-container>div>.nav-folder:nth-child(8n+6) {
+  background-color: rgba(var(--mono-rgb-100), 0.12)
+}
+
+body.colorful-folders-mono .nav-files-container>div>.nav-folder:nth-child(8n+7) {
+  background-color: rgba(var(--mono-rgb-100), 0.09)
+}
+
+body.colorful-folders-mono .nav-files-container>div>.nav-folder:nth-child(8n+8) {
+  background-color: rgba(var(--mono-rgb-100), 0.06)
+}
+
+body.colorful-folders-mono .nav-files-container>div>.nav-folder:nth-child(8n+9) {
+  background-color: rgba(var(--mono-rgb-100), 0.03)
+}
+
+@media screen,
+print {
+
+  body.colorful-headings-text .markdown-rendered h1,
+  body.colorful-headings-text .HyperMD-header-1 {
+    color: color-mix(in srgb, var(--h1-color, var(--colorful-red)) 75%, var(--color-base-100))
+  }
+
+  body.colorful-headings-text .markdown-rendered h2,
+  body.colorful-headings-text .HyperMD-header-2 {
+    color: color-mix(in srgb, var(--h2-color, var(--colorful-orange)) 75%, var(--color-base-100))
+  }
+
+  body.colorful-headings-text .markdown-rendered h3,
+  body.colorful-headings-text .HyperMD-header-3 {
+    color: color-mix(in srgb, var(--h3-color, var(--colorful-yellow)) 75%, var(--color-base-100))
+  }
+
+  body.colorful-headings-text .markdown-rendered h4,
+  body.colorful-headings-text .HyperMD-header-4 {
+    color: color-mix(in srgb, var(--h4-color, var(--colorful-green)) 75%, var(--color-base-100))
+  }
+
+  body.colorful-headings-text .markdown-rendered h5,
+  body.colorful-headings-text .HyperMD-header-5 {
+    color: color-mix(in srgb, var(--h5-color, var(--colorful-blue)) 75%, var(--color-base-100))
+  }
+
+  body.colorful-headings-text .markdown-rendered h6,
+  body.colorful-headings-text .HyperMD-header-6 {
+    color: color-mix(in srgb, var(--h6-color, var(--colorful-purple)) 75%, var(--color-base-100))
+  }
+
+  body.colorful-headings-side .markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+  body.colorful-headings-side .cm-line.HyperMD-header-1,
+  body.colorful-headings-side .cm-line.HyperMD-header-2,
+  body.colorful-headings-side .cm-line.HyperMD-header-3,
+  body.colorful-headings-side .cm-line.HyperMD-header-4,
+  body.colorful-headings-side .cm-line.HyperMD-header-5,
+  body.colorful-headings-side .cm-line.HyperMD-header-6 {
+    position: relative;
+    padding-inline-start: var(--font-ui-smaller)
+  }
+
+  body.colorful-headings-side .markdown-rendered :is(h1, h2, h3, h4, h5, h6)::before,
+  body.colorful-headings-side .cm-line.HyperMD-header-1::before,
+  body.colorful-headings-side .cm-line.HyperMD-header-2::before,
+  body.colorful-headings-side .cm-line.HyperMD-header-3::before,
+  body.colorful-headings-side .cm-line.HyperMD-header-4::before,
+  body.colorful-headings-side .cm-line.HyperMD-header-5::before,
+  body.colorful-headings-side .cm-line.HyperMD-header-6::before {
+    pointer-events: none;
+    display: inline-flex;
+    border-radius: var(--radius-s);
+    width: 4px;
+    inset-block: 0;
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    transition: var(--anim-duration-moderate) var(--anim-motion-baseline)
+  }
+
+  body.colorful-headings-side .collapse-indicator {
+    inset-inline-start: 0
+  }
+
+  body.colorful-headings-side .cm-active .collapse-indicator {
+    inset-inline-start: -32px
+  }
+
+  body.colorful-headings-side .HyperMD-header:not(.cm-line.HyperMD-header+.cm-line:not(.HyperMD-header):has(>br:only-child)+.cm-line.HyperMD-header)::before {
+    margin-top: var(--p-spacing)
+  }
+
+  body.colorful-headings-side .markdown-rendered h1::before,
+  body.colorful-headings-side .HyperMD-header-1::before {
+    background-color: var(--h1-color, var(--colorful-red))
+  }
+
+  body.colorful-headings-side .markdown-rendered h2::before,
+  body.colorful-headings-side .HyperMD-header-2::before {
+    background-color: var(--h2-color, var(--colorful-orange))
+  }
+
+  body.colorful-headings-side .markdown-rendered h3::before,
+  body.colorful-headings-side .HyperMD-header-3::before {
+    background-color: var(--h3-color, var(--colorful-yellow))
+  }
+
+  body.colorful-headings-side .markdown-rendered h4::before,
+  body.colorful-headings-side .HyperMD-header-4::before {
+    background-color: var(--h4-color, var(--colorful-green))
+  }
+
+  body.colorful-headings-side .markdown-rendered h5::before,
+  body.colorful-headings-side .HyperMD-header-5::before {
+    background-color: var(--h5-color, var(--colorful-blue))
+  }
+
+  body.colorful-headings-side .markdown-rendered h6::before,
+  body.colorful-headings-side .HyperMD-header-6::before {
+    background-color: var(--h6-color, var(--colorful-purple))
+  }
+
+  body.colorful-headings-side.colorful-headings-background .markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+  body.colorful-headings-side.colorful-headings-background .cm-line.HyperMD-header-1,
+  body.colorful-headings-side.colorful-headings-background .cm-line.HyperMD-header-2,
+  body.colorful-headings-side.colorful-headings-background .cm-line.HyperMD-header-3,
+  body.colorful-headings-side.colorful-headings-background .cm-line.HyperMD-header-4,
+  body.colorful-headings-side.colorful-headings-background .cm-line.HyperMD-header-5,
+  body.colorful-headings-side.colorful-headings-background .cm-line.HyperMD-header-6 {
+    padding-inline-start: var(--font-ui-smaller)
+  }
+
+  body.colorful-headings-side.colorful-headings-background .markdown-rendered :is(h1, h2, h3, h4, h5, h6)::after,
+  body.colorful-headings-side.colorful-headings-background .cm-line.HyperMD-header-1::after,
+  body.colorful-headings-side.colorful-headings-background .cm-line.HyperMD-header-2::after,
+  body.colorful-headings-side.colorful-headings-background .cm-line.HyperMD-header-3::after,
+  body.colorful-headings-side.colorful-headings-background .cm-line.HyperMD-header-4::after,
+  body.colorful-headings-side.colorful-headings-background .cm-line.HyperMD-header-5::after,
+  body.colorful-headings-side.colorful-headings-background .cm-line.HyperMD-header-6::after {
+    inset-inline: 8px -4px
+  }
+
+  body.colorful-headings-background .markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+  body.colorful-headings-background .cm-line.HyperMD-header-1,
+  body.colorful-headings-background .cm-line.HyperMD-header-2,
+  body.colorful-headings-background .cm-line.HyperMD-header-3,
+  body.colorful-headings-background .cm-line.HyperMD-header-4,
+  body.colorful-headings-background .cm-line.HyperMD-header-5,
+  body.colorful-headings-background .cm-line.HyperMD-header-6 {
+    position: relative;
+    padding-inline-start: 8px
+  }
+
+  body.colorful-headings-background .markdown-rendered :is(h1, h2, h3, h4, h5, h6)::after,
+  body.colorful-headings-background .cm-line.HyperMD-header-1::after,
+  body.colorful-headings-background .cm-line.HyperMD-header-2::after,
+  body.colorful-headings-background .cm-line.HyperMD-header-3::after,
+  body.colorful-headings-background .cm-line.HyperMD-header-4::after,
+  body.colorful-headings-background .cm-line.HyperMD-header-5::after,
+  body.colorful-headings-background .cm-line.HyperMD-header-6::after {
+    pointer-events: none;
+    display: inline-flex;
+    border-radius: var(--radius-s);
+    inset-block: -4px;
+    content: "";
+    position: absolute;
+    inset-inline: 0 -8px;
+    max-width: 100cqw;
+    transition: var(--anim-duration-moderate) var(--anim-motion-baseline)
+  }
+
+  body.colorful-headings-background .HyperMD-header:not(.cm-line.HyperMD-header+.cm-line:not(.HyperMD-header):has(>br:only-child)+.cm-line.HyperMD-header)::after {
+    margin-top: var(--p-spacing)
+  }
+
+  body.colorful-headings-background .markdown-rendered h1::after,
+  body.colorful-headings-background .HyperMD-header-1::after {
+    background-color: color-mix(in srgb, var(--h1-color, var(--colorful-red)) 10%, transparent)
+  }
+
+  body.colorful-headings-background .markdown-rendered h2::after,
+  body.colorful-headings-background .HyperMD-header-2::after {
+    background-color: color-mix(in srgb, var(--h2-color, var(--colorful-orange)) 10%, transparent)
+  }
+
+  body.colorful-headings-background .markdown-rendered h3::after,
+  body.colorful-headings-background .HyperMD-header-3::after {
+    background-color: color-mix(in srgb, var(--h3-color, var(--colorful-yellow)) 10%, transparent)
+  }
+
+  body.colorful-headings-background .markdown-rendered h4::after,
+  body.colorful-headings-background .HyperMD-header-4::after {
+    background-color: color-mix(in srgb, var(--h4-color, var(--colorful-green)) 10%, transparent)
+  }
+
+  body.colorful-headings-background .markdown-rendered h5::after,
+  body.colorful-headings-background .HyperMD-header-5::after {
+    background-color: color-mix(in srgb, var(--h5-color, var(--colorful-blue)) 10%, transparent)
+  }
+
+  body.colorful-headings-background .markdown-rendered h6::after,
+  body.colorful-headings-background .HyperMD-header-6::after {
+    background-color: color-mix(in srgb, var(--h6-color, var(--colorful-purple)) 10%, transparent)
+  }
+
+  body.colorful-headings-background:not(.colorful-headings-full-width) .markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+  body.colorful-headings-background:not(.colorful-headings-full-width) .HyperMD-header-1,
+  body.colorful-headings-background:not(.colorful-headings-full-width) .HyperMD-header-2,
+  body.colorful-headings-background:not(.colorful-headings-full-width) .HyperMD-header-3,
+  body.colorful-headings-background:not(.colorful-headings-full-width) .HyperMD-header-4,
+  body.colorful-headings-background:not(.colorful-headings-full-width) .HyperMD-header-5,
+  body.colorful-headings-background:not(.colorful-headings-full-width) .HyperMD-header-6 {
+    width: fit-content;
+    justify-self: self-start;
+    max-width: 100%
+  }
+}
+
+/* Live Preview Heading Level Indicator */
+body.lp-heading-indicator .is-live-preview .HyperMD-header .collapse-indicator.collapse-icon svg {
+  display: none !important;
+}
+
+body.lp-heading-indicator .is-live-preview {
+  & .HyperMD-header::before {
+    position: relative;
+    bottom: 1px;
+    left: -2px;
+    padding-right: 4px;
+    padding-left: 4px;
+    font-family: var(--font-monospace);
+    font-size: 0.8rem;
+    font-style: normal;
+    line-height: 1em;
+    color: var(--text-muted);
+  }
+
+  /* biome-ignore format: more condensed */
+  & .cm-line:not(.cm-active) {
+    &.HyperMD-header-1::before {
+      content: "H1"
+    }
+
+    &.HyperMD-header-2::before {
+      content: "H2"
+    }
+
+    &.HyperMD-header-3::before {
+      content: "H3"
+    }
+
+    &.HyperMD-header-4::before {
+      content: "H4"
+    }
+
+    &.HyperMD-header-5::before {
+      content: "H5"
+    }
+
+    &.HyperMD-header-6::before {
+      content: "H6"
+    }
+  }
+}
+
+/* Headers with background colors */
+body:not(.colorful-headings-background) .markdown-source-view .cm-line.HyperMD-header,
+body:not(.colorful-headings-background) .markdown-preview-view :is(h1, h2, h3, h4, h5, h6) {
+  background-color: var(--color-base-25);
+  border: 1px solid var(--color-base-40);
+  border-radius: var(--radius-s);
+  padding-left: 6px;
+  padding-top: 0px;
+}
+
+body:not(.collapse-icon-restore, .colorful-headings-background) .is-live-preview .HyperMD-header .collapse-indicator.collapse-icon svg,
+body:not(.collapse-icon-restore) :is(.markdown-rendered, .markdown-preview-view) :is(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6) .collapse-indicator.collapse-icon svg {
+  transform: translateX(-6px) !important;
+}

@@ -1,12 +1,6 @@
 mjx-container mjx-math {
-  font-size: 105%;
+  font-size: 110%;
 }
-
-/* change font */
-/* mjx-math .TEX-I {
-  font-family: "iA Writer Quattor S" !important;
-  font-style: italic;
-} */
 
 .theme-light mjx-container {
   /* make math more readable on light mode */
@@ -16,4 +10,34 @@ mjx-container mjx-math {
 .theme-dark mjx-container {
   /* make math more readable on dark mode */
   color: hsl(232, 15%, 90%);
+}
+
+strong mjx-container {
+  color: inherit !important;
+}
+
+em mjx-container {
+  color: inherit !important;
+}
+
+mjx-container [style="color: red;"] {
+  color: var(--color-red) !important;
+}
+mjx-container [style="color: blue;"] {
+  color: var(--color-blue) !important;
+}
+mjx-container [style="color: green;"] {
+  color: var(--color-green) !important;
+}
+mjx-container [style="color: orange;"] {
+  color: var(--color-orange) !important;
+}
+mjx-container [style="color: purple;"] {
+  color: var(--color-purple) !important;
+}
+mjx-container [style="color: pink;"] {
+  color: var(--color-pink) !important;
+}
+mjx-container [style="color: cyan;"] {
+  color: var(--color-cyan) !important;
 }
