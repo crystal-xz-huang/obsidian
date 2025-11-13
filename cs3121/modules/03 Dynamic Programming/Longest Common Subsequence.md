@@ -4,11 +4,8 @@ aliases:
 modules:
   - "[[mocs/Modules/Dynamic Programming|Module 3: Dynamic Programming]]"
 tags:
-  - source/lecture
   - topic/dynamic-programming
-  - topic/optimization
-  - topic/string
-  - type/problem
+  - examples
 ---
 
 # Longest Common Subsequence (LCS)
@@ -52,7 +49,7 @@ We just fill out this matrix row by row, doing constant amount of work per entry
 
 If we have 2 strings, we can represent a subsequence by drawing lines connecting the pairs of identical letters:
 
-![[lcs-example.excalidraw.png|300]]
+![[lcs-example.png|300]]
 
 In this case, the LCS has length 4 and is the string $\texttt{ABAD}$.
 
@@ -62,7 +59,7 @@ If lines cross over each other, then they do _not_ represent a common subseque
 
 Conversely, any set of lines without crossings represents a subsequence:
 
-![[lcs-example-2.excalidraw.png]]
+![[lcs-example-2.png]]
 
 Using the analogy of drawing lines between the matches, we can also phrase the LCS problem as _maximising the number of non-crossing lines_.
 
@@ -70,7 +67,7 @@ From this we can observe the following: if the two strings start with the same l
 
 The converse is true too: if two sequences end with the same character, we can assume that their LCS will also end with this character. Therefore, we can append the last line to any optimal alignment of the prefixes, without causing any other crossings, and get a representation of an equally-long subsequence that ends this way. (See image below).
 
-|![[lcs-example-3.excalidraw.png]]|
+|![[lcs-example-3.png]]|
 | :-: |
 | Consider the line representations of two equally-long LCS for $\tt S = ABACDC$ and $\tt T = BACBAD$. We can remove the last line $\tt D$ and append it to any optimal alignment on the prefixes of $\tt  S$ and $\tt T$ to obtain a new optimal solution that ends with $\tt{D}$.|
 
@@ -189,7 +186,7 @@ Each entry $c[i,j]$ depends only on its three neighbouring entries:
 <b>Evaluation order:</b>
 Compute table entries in **row-major order** (left to right first). If we fill this array in standard row-major order—row by row from top down, each row from left to right—then whenever we reach an entry in the array, all the entries it depends on are already available.
 
-|                                                                                                                                                                       ![[lcs-construction.excalidraw.png]]                                                                                                                                                                        |
+|                                                                                                                                                                       ![[lcs-construction.png]]                                                                                                                                                                        |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | The arrows in this table point to the subproblems that depend on it. For example, the table entry $c[i, j]$ has three arrows pointing to it, indicating that it **depends on** the solutions from three other subproblems $c[i-1,j-1]$, $c[i-1,j]$ and $c[i,j-1]$. This implies that we must compute these subproblems before we can compute the current subproblem at $c[i, j]$. |
 |                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -284,7 +281,7 @@ The tables are filled bottom-up in a **row-major order** (increasing order of $i
 
 When the procedure is complete, the optimal length of the LCS will be stored in $c[m,n]$. Thus, since we fill in the entire table, the procedure will take $O(m n)$ time.
 
-![[lcs-construction.excalidraw.png]]
+![[lcs-construction.png]]
 
 ```java
 function LCSLength(A[1..n], B[1..m])
@@ -322,7 +319,7 @@ To reconstruct the LCS, start at *any* entry containing the maximum length (for 
 
 Alternatively, we could avoid the B matrix (saving some space) and reconstruct the LCS from **C** at each step in $O(1)$ time (using only the surrounding table cells). However, this does not provide any improvement in the asymptotic run time.
 
-![[lcs-reconstruction.excalidraw.png]]
+![[lcs-reconstruction.png]]
 
 > [!time] Analysis
 > The procedure takes $O(m+n)$ time, since it decrements at least one of $i$ and $j$ in each recursive call.

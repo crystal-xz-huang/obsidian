@@ -1,0 +1,27 @@
+```base
+filters:
+  and:
+    - or:
+        - file.hasLink(this.file)
+    - or:
+        - file.hasTag("examples")
+        - '!file.hasTag("categories")'
+        - '!file.hasTag("notes")'
+formulas:
+  topics: file.tags.filter(value.contains("topic"))
+properties:
+  file.name:
+    displayName: Problem
+  note.categories:
+    displayName: Categories
+  formula.topics:
+    displayName: Topics
+views:
+  - type: table
+    name: Example Problems
+    order:
+      - file.name
+      - formula.topics
+    columnSize:
+      file.name: 200
+```

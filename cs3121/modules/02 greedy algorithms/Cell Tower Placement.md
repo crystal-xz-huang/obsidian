@@ -4,9 +4,7 @@ modules:
 categories:
   - "[[Optimal Selection]]"
 tags:
-  - source/lecture
   - topic/greedy
-  - type/problem
 ---
 ## Problem
 

@@ -2,9 +2,8 @@
 modules:
   - "[[mocs/Modules/Dynamic Programming|Module 3: Dynamic Programming]]"
 tags:
-  - source/lecture
-  - type/problem
   - topic/dynamic-programming
+  - examples
 ---
 ## Tower of Hanoi
 

@@ -4,6 +4,7 @@ modules:
 categories:
   - "[[Proofs]]"
 ---
+
 # Reasoning about Algorithms
 
 Whenever we present an algorithm, we must justify its **correctness** and **efficiency**.  

@@ -4,8 +4,6 @@ modules:
 categories:
   - "[[Applications to Graphs#Directed Graph Structure]]"
 tags:
-  - source/lecture
-  - type/problem
   - topic/greedy
 ---
 # Tsunami Warning

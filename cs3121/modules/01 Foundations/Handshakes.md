@@ -1,9 +1,6 @@
 ---
 modules:
   - "[[Foundations|Module 1: Foundations]]"
-tags:
-  - "#examples/puzzle"
-  - source/lecture
 ---
 # Puzzle: Handshakes
 

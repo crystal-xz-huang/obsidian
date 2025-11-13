@@ -9,14 +9,8 @@ const mdCache = await tp.app.metadataCache.getFileCache(activeFile);
 // Show file info
 const { headings, sections } = mdCache || {};
 console.log("-------- File MetadataCache --------");
-debugLog("Headings:", headings || "No headings found");
-debugLog("Sections:", sections || "No sections found");
-
-console.log("-------- File Info --------");
-const folder = tp.file.folder();
-debugLog("Folder:", folder || "No folder found");
-
-console.log("-------- Global App --------");
-const layout = tp.app.workspace.getLayout();
-debugLog("Layout:", layout || "No folder found");
+// debugLog("Headings:", headings || "No headings found");
+// debugLog("Sections:", sections || "No sections found");
+  const selectedTags = await tp.system.multi_suggester((item) => item, Object.keys(tp.app.metadataCache.getTags()).map(x => x.replace("#", "")).sort(), false, 'Select tags for this note (optional)');
+console.log(selectedTags)
 %>

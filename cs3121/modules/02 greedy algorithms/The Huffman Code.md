@@ -4,8 +4,6 @@ modules:
 categories:
   - "[[Optimal Merging]]"
 tags:
-  - source/lecture
-  - type/concept
   - topic/greedy
 ---
 A Huffman tree is a full binary tree with characters at its leaves. Each edge in the tree corresponds to a bit: a _left_ edge corresponds to 0 and a _right_ edge corresponds to 1. To get the encoding for a character, follow the path from the root node to the character’s leaf node and concatenate all the corresponding bits.

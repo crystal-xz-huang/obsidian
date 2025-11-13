@@ -1,3 +1,15 @@
+@media (prefers-color-scheme: light) {
+  .theme-dark {
+    --workspace-background-translucent: var(--background-secondary);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .theme-light {
+    --workspace-background-translucent: var(--background-secondary);
+  }
+}
+
+
 body.theme-dark.is-translucent {
   --workspace-background-translucent: transparent;
 }
@@ -5,6 +17,9 @@ body.theme-dark.is-translucent {
 .theme-dark {
   /* --text-muted: #949fbe; */
   /* --text-faint: #626d91; */
+  --color-pink-rgb: 237, 107, 255;
+  --color-pink: oklch(0.833 0.145 321.434);
+
   --nav-item-color-hover: #f8f8f2;
   --color-activated-tab-header-dark: #f8f8f2;
   --on-border-dark: #949fbe;
@@ -50,4 +65,8 @@ body:not(.is-mobile).status-bar-autohide .status-bar {
 
 body:not(.is-mobile).status-bar-autohide .horizontal-main-container {
   padding-bottom: 8px;
+}
+
+.notice ul {
+  padding-inline-start: 16px;
 }

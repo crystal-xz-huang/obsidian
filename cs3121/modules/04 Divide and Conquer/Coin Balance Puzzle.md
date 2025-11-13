@@ -1,8 +1,9 @@
 ---
-categories:
+modules:
   - "[[Divide and Conquer]]"
-tags: [examples, topic/divide-and-conquer]
-status: open
+tags:
+  - topic/divide-and-conquer
+  - examples
 ---
 
 # Balance Puzzle

@@ -8,7 +8,6 @@
     "blockquote",
     "annotation-tags",
     "github-markdown",
-    "typography",
     "tags",
     "tables",
     "tab-bar",
@@ -26,11 +25,11 @@
     "cards",
     "code",
     "colorful-folders",
-    "editor",
     "icons",
     "tabs and sidedock",
     "color-scheme",
-    "bases"
+    "bases",
+    "markup"
   ],
   "monospaceFontFamily": "JetBrains Mono",
   "showViewHeader": true,

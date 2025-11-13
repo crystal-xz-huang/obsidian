@@ -2,8 +2,7 @@
 modules:
   - "[[Greedy Algorithms|Module 2: Greedy Algorithms]]"
 tags:
-  - examples/puzzle
-  - source/lecture
+  - topic/greedy
 ---
 # Puzzles
 

@@ -20,7 +20,7 @@
 
 ### ⬇️ Decreasing and non-increasing
 
-#### Decreasing (>)
+#### Strictly Decreasing (>)
 
 <b>Decreasing</b> means strictly decreasing — every next element is **less than** the previous one.
 
@@ -40,7 +40,7 @@ $$ 10, 10, 8, 3,1$$
 
 ### ⬆️ Increasing and non-decreasing
 
-#### Increasing (<)
+#### Strictly Increasing (<) 
 
 <b>Increasing</b> means <b>strictly increasing</b> — every next element is **greater than** the previous one.
 

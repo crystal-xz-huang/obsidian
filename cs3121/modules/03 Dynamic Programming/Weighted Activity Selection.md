@@ -7,9 +7,8 @@ modules:
 categories:
   - "[[Interval Scheduling#Weighted]]"
 tags:
-  - source/lecture
-  - type/problem
   - topic/dynamic-programming
+  - examples
 ---
 
 

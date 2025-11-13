@@ -1,30 +1,41 @@
 ---
 aliases:
   - Discrete Binary Search
-categories:
+modules:
   - "[[Divide and Conquer]]"
 tags:
-  - categories
   - topic/divide-and-conquer
   - topic/binary-search
-status: open
 ---
+
+# Decrease and Conquer: Binary Search
+
+The first kind of divide and conquer algorithm is often referred to as **decrease and conquer**. 
+
+In decrease and conquer, we are not splitting the problem into multiple smaller subproblems. Rather, we reduce the size of the subproblem recursively. Therefore, decrease and conquer algorithms are a kind of degenerate divide and conquer algorithm, where we only consider one smaller subproblem.
+
+A typical example of this is **binary search**. In binary search, we split the array into two halves but only recurse on one side — in this sense, we are only concerned with one subproblem.
+
+When we wanted to decide if an element $x$ exists in an array $A$, we required $n$ queries in the worst case! If we know further information about the properties of our input, we can make further improvements to reduce the running time or memory usage.  
+
+Binary search is an optimisation technique that reduces the number of queries from $n$ down to $\lceil \log_2 n \rceil$. However, for binary search to be effective, we require two properties to hold:
+
+- **Well-defined interval.** If we want to query the middle element, we need a well-defined interval to begin with so that the middle element is defined.
+- **Monotonicity.** If we remove a set of elements, we should ensure that we never have to query any of the elements that we previously discarded.
+
+These 2 constraints are what we need to prove to apply binary search.
 
 # Discrete Binary Search
 
 Discrete Binary Search is an application of the standard binary search algorithm to find a specific value within a **monotonic** function
 
-- **Function Evaluation:** 
-    Instead of directly accessing elements in an array, discrete binary search evaluates the function `f(x)` at a chosen `x` value within the search space.     
-- **Monotonic Function:** The function being searched must be monotonic, meaning it is either consistently increasing or consistently decreasing over its integer domain. 
-
 For example, suppose we have an algorithm that returns "Yes" or "No" to a decision problem. If the "Y" changes to a "N" (and doesn't switch back) over a sorted input of increasing/decreasing values of $x$, then we can use binary search to find the last input $x$ where $d(x) = \text{YES}$. 
-  
+
 $$
 \underbrace{\text{Yes, Yes, Yes, Yes}}_{\text{smaller input x}}
 \;\; \underbrace{\text{No, No, No, No}}_{\text{larger input x}}
 $$
-  
+
 > [!question]
 > <b>For which optimisation problems can we apply discrete binary search?</b>
 > 
@@ -35,6 +46,7 @@ $$
 > - Since this is **monotonic**, the optimisation problem can be rephrased as finding the largest $x$ such that $f(x) = 1$ using discrete binary search.
 >   
 > There’s exactly one cutoff value of $t$ where the answer flips from 1 to 0:
+>
 > $$
 > \underbrace{1, 1, \ldots, 1, 1}_{\forall \ b \ < \ t}, 
 > \underbrace{ {\color{blue}0}, 0, \ldots, 0, 0}_{\forall \ b \ \geq \ t}
@@ -45,8 +57,12 @@ $$
 ```base
 filters:
   and:
-    - file.hasTag("examples")
-    - file.hasLink(this.file)
+    - or:
+        - file.hasTag("topic/binary-search")
+        - file.hasLink(this.file)
+    - or:
+        - file.hasTag("examples")
+        - '!file.hasTag("categories")'
 formulas:
   topic_tags: file.tags.filter(value.contains("topic"))
 properties:
@@ -62,14 +78,54 @@ views:
       - formula.topic_tags
     columnSize:
       file.name: 200
+
 ```
 
+```base
+filters:
+  and:
+    - file.hasLink(this)
+formulas:
+  Path: file.path
+properties:
+  note.created:
+    displayName: Date
+  file.name:
+    displayName: Title
+  note.categories:
+    displayName: Categories
+views:
+  - type: table
+    name: Backlinks
+    order:
+      - file.name
+      - categories
+      - created
+    sort:
+      - property: created
+        direction: DESC
+    columnSize:
+      file.name: 162
+      note.categories: 158
+  - type: table
+    name: Recent entries
+    order:
+      - file.name
+      - created
+    sort:
+      - property: created
+        direction: DESC
+    limit: 20
+
+```
 
 <hr class="dots"/>
 
 # Binary Search
 
-Binary search is a ==classic== example of the divide and conquer algorithm. Each comparison *divides* the problem size by 2 and *conquers* only one half — no overlap, no recomputation.
+In binary search, we split the array into two halves but only recurse on one side — in this sense, we are only concerned with one subproblem.
+
+Each comparison *divides* the problem size by 2 and *conquers* only one half.
 
 > [!summary]
 > Steps:  
@@ -84,8 +140,7 @@ Binary search is a ==classic== example of the divide and conquer algorithm. Each
 > Time complexity is $\Theta(\log n)$.
 
 - The recurrence is $T(n) = T \left(\frac{n}{2}\right) + O(1)$ because each time you do one comparison (constant work) and recurse on half the array.
-- Solving this gives $T(n) = O(\log n)$
-
+- Solving this gives $T(n) = O(\log n)$.
 
 ## Algorithm
 
@@ -101,8 +156,6 @@ Binary search is a ==classic== example of the divide and conquer algorithm. Each
 
 <b>Instance:</b> Given an array $A$, sorted in [[Increasing and decreasing#Non-decreasing (≤)|non-decreasing order]], and a target integer $x$. 
 <b>Task:</b> Find the index of $x$ in $A$.
-
-Check out the complete [Obsidian documentation](https://help.obsidian.md/) online, available in multiple languages.
 
 1. Set $\ell$ to $0$ and $r$ to $n - 1$.
 2. If ==$\ell > r$==, the search terminates as unsuccessful. (interval is empty)
@@ -131,7 +184,139 @@ Basically binary search reduces the initial search space $A$ to an interval $A[\
 - the left endpoint $\ell$ is the **first (smallest)** index in $A$ with $A[\ell] > \text{target},$ and
 - the right endpoint $r$ is the **last (largest)** index in $A$ with $A[r] < \text{target}.$
 
-When $\ell = r$, 
+## Templates
+
+99% of binary search problems that you see online will fall into 1 of these 3 templates.
+![](https://assets.leetcode.com/uploads/2023/02/13/template_diagram.png)
+
+Each of these 3 provided templates provides a specific use case:
+
+---
+**Template #1** `(left <= right)`:
+
+
+- Most basic and elementary form of Binary Search
+- Search Condition can be determined without comparing to the element's neighbors (or use specific elements around it)
+- No post-processing required because at each step, you are checking to see if the element has been found. If you reach the end, then you know the element is not found
+
+---
+**Template #2** `(left < right)`:
+
+
+- An advanced way to implement Binary Search.
+- Search Condition needs to access the element's immediate right neighbor
+- Use the element's right neighbor to determine if the condition is met and decide whether to go left or right
+- Guarantees Search Space is at least 2 in size at each step
+- Post-processing required. Loop/Recursion ends when you have 1 element left. Need to assess if the remaining element meets the condition.
+
+---
+**Template #3** `(left + 1 < right):
+
+- An alternative way to implement Binary Search
+- Search Condition needs to access element's immediate left and right neighbors
+- Use element's neighbors to determine if the condition is met and decide whether to go left or right
+- Guarantees Search Space is at least 3 in size at each step
+- Post-processing required. Loop/Recursion ends when you have 2 elements left. Need to assess if the remaining elements meet the condition.
+---
+### Binary Search Template I
+
+> [!code] Distinguishing Syntax
+> - Initial Condition: `left = 0, right = length-1`
+> - Termination: `left > right`
+> - Searching Left: `right = mid-1`
+> - Searching Right: `left = mid+1`
+
+```python
+def binarySearch(nums, target):
+    if len(nums) == 0:
+        return -1
+
+    left, right = 0, len(nums) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    # End Condition: left > right
+    return -1
+```
+
+### Binary Search Template II
+
+Template #2 is an advanced form of Binary Search.
+
+- Use the element's right neighbor to determine if the condition is met and decide whether to go left or right
+- Guarantees Search Space is at least 2 in size at each step
+- Post-processing required. Loop/Recursion ends when you have 1 element left. Need to assess if the remaining element meets the condition.
+
+> [!code] Distinguishing Syntax
+> - Initial Condition: `left = 0, right = length - 1`
+> - Termination: `left == right`
+> - Searching Left: `right = mid`
+> - Searching Right: `left = mid+1`
+
+```python
+def binarySearch(nums, target):
+    if len(nums) == 0:
+        return -1
+
+    left, right = 0, len(nums) - 1
+    while left < right:
+        mid = (left + right) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid
+
+    # Post-processing:
+    # End Condition: left == right
+    if nums[left] == target:
+        return left
+    return -1
+
+```
+
+###  Binary Search Template III
+
+Template #3 is another unique form of Binary Search.
+
+- Use the element's neighbors to determine if the condition is met and decide whether to go left or right
+- Guarantees Search Space is at least 3 in size at each step
+- Post-processing required. Loop/Recursion ends when you have 2 elements left. Need to assess if the remaining elements meet the condition.
+
+> [!code] Distinguishing Syntax
+> - Initial Condition: `left = 0, right = length-1`
+> - Termination: `left + 1 == right`
+> - Searching Left: `right = mid`
+> - Searching Right: `left = mid`
+
+```python
+def binarySearch(nums, target):
+    if len(nums) == 0:
+        return -1
+
+    left, right = 0, len(nums) - 1
+    while left + 1 < right:
+        mid = (left + right) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left = mid
+        else:
+            right = mid
+
+    # Post-processing:
+    # End Condition: left + 1 == right
+    if nums[left] == target: return left
+    if nums[right] == target: return right
+    return -1
+```
 
 ## Binary Search Extensions
 
@@ -143,6 +328,7 @@ Given an array $A$, sorted in [[Increasing and decreasing#Non-decreasing (≤)|n
 2. **Upper bound**: find the largest index $i$ such that $A[i] \le x$.
 3. **Equal range**: find the range of indices $\ell..r$ such that $A[\ell] = \ldots = A[r] = x$.
 
+
 ### Lower Bound: Find first A\[i\] ≥ T
 
 > [!NOTE]
@@ -152,7 +338,7 @@ Given an array $A$, sorted in [[Increasing and decreasing#Non-decreasing (≤)|n
 > - Insert $T$ at index $\ell$ in the sorted $A$.
 
 The goal is for the left pointer to be the first index where `A[left] >= target`. 
-Shrink the search space as long as $\tt target \leq [left ... right]$.
+Shrink the search space as long as $\tt target \leq [left … right]$.
 
 Decrease the right pointer if `A[m] >= target` because we have found a potential answer at `mid` but there might be a smaller index on the left side that also satisfies the condition. 
 If `target` is not found, then `left` will be the first index where` A[left] > T`. 
@@ -193,12 +379,10 @@ function binary_search_leftmost(A, n, T):
 	3. Else $A_m \ge x$; set $r$ to $m$. %% continue search in lower half %%
 3. Return $\ell$ when $\ell = r$.
 
-
 ### Upper Bound: Find last A\[i\] ≤ T
 
-
 The goal is for the right pointer to be the rightmost (last) index where `A[right] <= T`.
-Shrink the interval from either the right or left side as long as $\tt [left ... right] ≤ target$.
+Shrink the interval from either the right or left side as long as $\tt [left … right] ≤ target$.
 
 
 Here, we increase the left pointer when `A[mid] <= target` to shrink the search space from the left until `[left, right]` converges to the rightmost index satisfying the condition.
@@ -217,7 +401,6 @@ function binary_search_rightmost(A, n, T):
             R := m
     return ans
 ```
-
 
 Alternatively, we can decrease the right pointer until `A[mid] <= target` is satisfied:
 
@@ -240,6 +423,10 @@ function binary_search_rightmost(A, n, T):
 	2. ==If $A_m > T$ set $r$ to $m$.== %% continue search in lower half %%
 	3. Else $A_m \le x$; set $\ell$ to $m+1$. %% continue search in upper half %%
 3. Return $r-1$ .
+
+## References & Further Reading
+
+- [Binary Search Explore Card - LeetCode](https://leetcode.com/explore/learn/card/binary-search/)
 
 [^1]: Each recursive call halves the search space. After $k$ steps, there are $n / 2^k$ elements left. You stop when $n / 2^k = 1$, i.e. $k = \log_2 n$. Therefore the recursion depth/levels is $\log_2 n$.
 

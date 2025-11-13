@@ -29,7 +29,7 @@
   "Appearance-light@@workspace-divider-transparent-light": false,
   "Appearance-light@@card-border-radius-light": "8px",
   "Appearance-light@@color-to-tab-icon-light": true,
-  "Components@@tab-title-bar-autohide": true,
+  "Components@@tab-title-bar-autohide": false,
   "Editor@@ul-marker-restore": false,
   "Editor@@list-spacing": "0.175em",
   "Components@@restored-scrollbars": false,

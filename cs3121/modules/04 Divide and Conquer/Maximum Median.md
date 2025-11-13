@@ -1,11 +1,10 @@
 ---
-categories:
+modules:
   - "[[Divide and Conquer]]"
+categories:
   - "[[Decision and Optimisation Problems]]"
 tags:
-  - examples
   - topic/divide-and-conquer
-  - topic/binary-search
 status: open
 ---
 

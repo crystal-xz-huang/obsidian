@@ -1,33 +1,3 @@
-/* ====== center image ====== */
-/* NOTE: this does not work for externally hosted image e.g. ![alt](https://...)
-  in editing mode because of the margins - but we should NOT change the margins
-  because it makes editing the markdown link harder.
-*/
-.view-content img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-/* 
-.view-content img[alt*="right"] {
-  float: right;
-  clear: right;
-  margin-left: 1rem;
-  margin-bottom: 2px;
-  margin-top: 2px;
-  width: 50%;
-}
-
-.view-content img[alt*="left"] {
-  float: left;
-  clear: left;
-  width: 50%;
-  height: auto;
-  margin-right: 1rem;
-  margin-bottom: 2px;
-  margin-top: 2px;
-} */
-
 /* MIT License | Copyright (c) Stephan Ango (@kepano) 
 
 Image Grid snippet for Obsidian
@@ -42,18 +12,19 @@ https://github.com/sponsors/kepano
 /* Revamped for Obsidian 1.1.9+ using :has() */
 
 body {
-	--image-grid-fit: cover;
-	--image-grid-background: transparent;
-	--img-grid-gap: 0.5rem;
+  --image-grid-fit: cover;
+  --image-grid-background: transparent;
+  --img-grid-gap: 0.5rem;
 }
+
 @media (max-width:400pt) {
-	body {
-		--img-grid-gap: 0.25rem;
-	}
+  body {
+    --img-grid-gap: 0.25rem;
+  }
 }
 
 .img-grid-ratio {
-	--image-grid-fit: contain;
+  --image-grid-fit: contain;
 }
 
 .img-grid-ratio {
@@ -63,11 +34,13 @@ body {
 .img-grid {
 
   .image-embed.is-loaded {
-    line-height:0;
+    line-height: 0;
     display: flex;
     align-items: stretch;
+
     img {
       background-color: var(--image-grid-background);
+
       &:active {
         background-color: transparent;
       }
@@ -75,13 +48,15 @@ body {
   }
 
   .markdown-preview-section {
-    > div:has(img) {
+    >div:has(img) {
+
       p:empty,
-      img ~ br,
-      .image-embed ~ br {
-        display:none;
+      img~br,
+      .image-embed~br {
+        display: none;
       }
     }
+
     div:has(>.image-embed ~ .image-embed),
     p:has(>.image-embed ~ .image-embed),
     div:has(>img ~ img),
@@ -94,25 +69,193 @@ body {
       grid-column-gap: var(--img-grid-gap);
       grid-row-gap: 0;
       grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-      > img {
+
+      >img {
         object-fit: var(--image-grid-fit);
         align-self: stretch;
       }
-      > .internal-embed img {
+
+      >.internal-embed img {
         object-fit: var(--image-grid-fit);
         align-self: center;
       }
     }
-    > div:has(img) > p {
+
+    >div:has(img)>p {
       display: grid;
       margin-block-start: var(--img-grid-gap);
       margin-block-end: var(--img-grid-gap);
       grid-column-gap: var(--img-grid-gap);
       grid-row-gap: 0;
       grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-      > br {
-        display:none;
+
+      >br {
+        display: none;
       }
     }
   }
+}
+
+/* Dark mode images  */
+/* MIT License | Copyright (c) Stephan Ango (@kepano) */
+
+:root {
+  --image-mix: normal
+}
+
+.image-blend-light {
+  --image-mix: multiply;
+}
+
+.theme-dark .markdown-source-view img,
+.theme-dark .markdown-preview-view img {
+  opacity: var(--image-muted);
+  transition: opacity 0.25s linear;
+}
+
+@media print {
+  body {
+    --image-muted: 1;
+  }
+}
+
+.theme-dark .print-preview img,
+.theme-dark .markdown-source-view img:hover,
+.theme-dark .markdown-preview-view img:hover {
+  opacity: 1;
+  transition: opacity 0.25s linear;
+}
+
+.theme-light img {
+  mix-blend-mode: var(--image-mix);
+}
+
+/* Invert  */
+div[src$="#blend"],
+div[src$="#invert"] {
+  background-color: var(--background-primary);
+}
+
+.theme-dark {
+
+  img[src$="#invert"],
+  div[src$="#invert"] img,
+  span[src$="#invert"] img {
+    filter: invert(1) hue-rotate(180deg);
+    mix-blend-mode: screen;
+  }
+
+  img[src$="#blend"],
+  div[src$="#blend"] img,
+  span[src$="#blend"] img {
+    mix-blend-mode: screen;
+  }
+
+  .img-blend {
+    mix-blend-mode: screen;
+  }
+}
+
+.theme-light {
+
+  img[src$="#blend"],
+  div[src$="#blend"] img,
+  span[src$="#blend"] img {
+    mix-blend-mode: multiply;
+  }
+
+  img[src$="#invertW"],
+  div[src$="#invertW"] img,
+  span[src$="invertW"] img {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  .img-blend {
+    mix-blend-mode: multiply;
+  }
+}
+
+/* Circle */
+img[src$="#circle"]:not(.emoji),
+span[src$="#circle"] img:not(.emoji),
+span[src$="#round"] img:not(.emoji) {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
+
+/* Outline */
+img[src$="#outline"],
+div[src$="#outline"] img,
+span[src$="#outline"] img {
+  border: 1px solid var(--ui1);
+}
+
+/* Interface */
+img[src$="#interface"],
+span[src$="#interface"] img {
+  border: 1px solid var(--ui1);
+  box-shadow:
+    0px 0.5px 0.9px rgba(0, 0, 0, 0.021),
+    0px 1.3px 2.5px rgba(0, 0, 0, 0.03),
+    0px 3px 6px rgba(0, 0, 0, 0.039),
+    0px 10px 20px rgba(0, 0, 0, 0.06);
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-radius: var(--radius-m);
+}
+
+
+
+/* ====== Image zoom ====== */
+body:not(.is-mobile):not(.zoom-off) .workspace-leaf-content[data-type=markdown] .image-embed:not(.canvas-node-content),
+body:not(.is-mobile):not(.zoom-off) .workspace-leaf-content[data-type=markdown] img[referrerpolicy=no-referrer],
+body:not(.is-mobile):not(.zoom-off) .workspace-leaf-content[data-type=markdown] .cm-content>img {
+  cursor: zoom-in
+}
+
+body:not(.is-mobile):not(.zoom-off) .markdown-preview-view .image-embed:not(.canvas-node-content):active img,
+body:not(.is-mobile):not(.zoom-off) .markdown-preview-view img[referrerpolicy=no-referrer]:active {
+  position: fixed;
+  z-index: 1000;
+  cursor: zoom-out;
+  inset: 0;
+  background-color: var(--background-primary);
+  width: 100%;
+  height: 100%;
+  max-height: unset;
+  object-fit: contain;
+  mask: none;
+  padding: 0
+}
+
+body:not(.is-mobile):not(.zoom-off) .markdown-source-view .image-embed:not(.canvas-node-content):active,
+body:not(.is-mobile):not(.zoom-off) .markdown-source-view .cm-content>img:active {
+  position: fixed;
+  z-index: 1000;
+  cursor: zoom-out;
+  inset: var(--header-height) 0 0;
+  background-color: var(--background-primary)
+}
+
+body:not(.is-mobile):not(.zoom-off) .markdown-source-view .image-embed:not(.canvas-node-content):active {
+  display: flex !important;
+  justify-content: center;
+}
+
+body:not(.is-mobile):not(.zoom-off) .markdown-source-view .image-embed:not(.canvas-node-content):active img {
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  height: auto;
+  max-height: unset;
+  object-fit: contain;
+  mask: none;
+  position: relative;
+  padding: 0
+}
+
+body:not(.is-mobile):not(.zoom-off) .markdown-source-view .cm-content>img:active {
+  width: 100%;
+  height: calc(100% - var(--header-height));
+  max-height: unset;
+  object-fit: contain
 }

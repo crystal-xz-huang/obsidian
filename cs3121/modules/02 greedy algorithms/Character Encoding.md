@@ -5,10 +5,9 @@ categories:
   - "[[Optimal Merging]]"
   - "[[The Huffman Code]]"
 tags:
-  - type/problem
   - topic/greedy
-  - source/lecture
 ---
+
 ## Array Merging
 
 > [!problem]

@@ -2,10 +2,8 @@
 modules:
   - "[[mocs/Modules/Dynamic Programming|Module 3: Dynamic Programming]]"
 tags:
-  - source/lecture
-  - type/problem
   - topic/dynamic-programming
-  - topic/graph
+  - examples
 categories:
   - "[[Shortest Path Problem]]"
 ---
@@ -34,7 +32,7 @@ categories:
 - Find a [[Longest Common Subsequence|Longest Common Subsequence (LCS)]] of the two strings. 
 - Then add back the differing elements of the two sequences in the right places, in any compatible order.
 
-![[scs-example.excalidraw.png|300]]
+![[scs-example.png|300]]
 
 
 > [!solution]

@@ -4,8 +4,7 @@ aliases:
 modules:
   - "[[Greedy Algorithms|Module 2: Greedy Algorithms]]"
 tags:
-  - source/lecture
-  - type/concept
+  - topic/greedy
 ---
 # Introduction to Greedy Algorithms
 

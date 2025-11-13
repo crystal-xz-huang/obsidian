@@ -8,7 +8,6 @@ categories:
   - "[[Interval Scheduling#Unweighted]]"
 tags:
   - topic/greedy
-  - examples
 ---
 
 # Scheduling to Minimize Maximum Lateness

@@ -4,10 +4,8 @@ aliases:
 modules:
   - "[[mocs/Modules/Dynamic Programming|Module 3: Dynamic Programming]]"
 tags:
-  - source/lecture
-  - type/problem
-  - topic/string
   - topic/dynamic-programming
+  - examples
 ---
 
 # Longest Increasing Subsequence (LIS)

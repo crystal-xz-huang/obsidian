@@ -67,7 +67,7 @@ function collectReferencesUpwards(tp, start) {
 async function suggestReferences(tp) {
   const parentFolder = tp.app.vault.getFolderByPath(tp.file.folder(true));
   if (!parentFolder) {
-    tp.user.notice('Active file is not in a folder.', 'error');
+    tp.user.notice('Error', 'Active file has no parent folder.');
     return;
   }
 

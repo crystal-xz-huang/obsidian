@@ -1,9 +1,9 @@
 ---
-categories:
+modules:
   - "[[Divide and Conquer]]"
 tags:
-  - categories
   - topic/divide-and-conquer
+  - topic/sorting
 ---
 
 # Quicksort

@@ -15,12 +15,8 @@
   "enable_folder_templates": true,
   "folder_templates": [
     {
-      "folder": "modules/04 Divide and Conquer",
-      "template": "config/templates/Divide and Conquer Template.md"
-    },
-    {
-      "folder": "",
-      "template": ""
+      "folder": "modules",
+      "template": "config/templates/pages/New Note.md"
     }
   ],
   "enable_file_templates": false,
@@ -36,9 +32,10 @@
     "config/templates/Toggle underline.md",
     "config/templates/HTML tag wrap.md",
     "config/templates/Toggle bold.md",
-    "config/templates/Insert wikilink from selection.md",
-    "config/templates/Insert markdown link from clipboard.md",
-    "config/templates/Open file in new pane.md"
+    "config/templates/Open file in new pane.md",
+    "config/templates/External link from clipboard.md",
+    "config/templates/Internal link from selection.md",
+    "config/templates/Toggle italic.md"
   ],
   "startup_templates": [
     ""

@@ -1,10 +1,9 @@
 ---
-categories:
+modules:
   - "[[Divide and Conquer]]"
 tags:
-  - categories
   - topic/divide-and-conquer
-  - topic/binary-search
+  - categories
 ---
 
 ## Decision Problems and Optimisation Problems

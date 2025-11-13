@@ -8,9 +8,7 @@ categories:
   - "[[Interval Scheduling#Unweighted]]"
   - "[[Optimal Selection]]"
 tags:
-  - source/lecture
-  - type/problem
-  - topic/dynamic-programming
+  - topic/greedy
 ---
 ## Greedy Algorithm: Unweighted Activity Selection
 

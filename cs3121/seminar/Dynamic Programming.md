@@ -1,5 +1,5 @@
 ---
-cssclasses: 
+cssclasses:
 ---
 
 ### Whitespace Insertion

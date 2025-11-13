@@ -1,10 +1,10 @@
 ---
-categories:
+modules:
   - "[[Divide and Conquer]]"
 tags:
-  - examples
   - topic/divide-and-conquer
-status: open
+  - topic/merge-sort
+  - examples
 ---
 
 # Counting the Number of Inversions
@@ -58,7 +58,7 @@ We will measure the difference between the users by counting the total number of
 > 
 > Then the rankings in A are out of order w.r.t B rankings since instead of `1 2 3 4 5` we have `4 1 5 2 3`, so the **"correct order" is an increasing order of values in A**. 
 
-![[counting_the_number_of_inversions_example.excalidraw.png]]
+![[counting_the_number_of_inversions_example.png]]
 
 
 ## How do we count the number of inversions?
@@ -78,7 +78,7 @@ The main idea is to tweak the [[merge sort]] algorithm, by extending it to recur
 
 **Algorithm (adapting mergesort to count inversions):**  
 
-![[counting-the-number-of-inversion-mergesort.excalidraw.png]]
+![[counting-the-number-of-inversion-mergesort.png]]
 We split the array $A$ into two (approximately) equal parts 
 
 > $\large {\color{cyan}A_{\text{lo}} = A[1..m]}$ and $\large {\color{pink}A_{\text{hi}} = A[m + 1..n]}$, where $\large m = \lfloor n/2 \rfloor$
@@ -108,4 +108,4 @@ On the other hand, when we add an element of $A_{\text{lo}}$ to $A$, all inversi
 
 **Time complexity.** Our modified merge still takes linear time, so this algorithm has the same complexity as merge sort, i.e. $\Theta(n \log n)$.
 
-![[counting-the-number-of-inversion-mergesort-2.excalidraw.png]]
+![[counting-the-number-of-inversion-mergesort-2.png]]

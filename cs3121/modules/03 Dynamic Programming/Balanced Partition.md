@@ -4,10 +4,8 @@ modules:
 categories:
   - "[[Knapsack Problem]]"
 tags:
-  - source/lecture
   - topic/dynamic-programming
-  - topic/optimization
-  - type/problem
+  - examples
 ---
 # Balanced Partition
 

@@ -2,10 +2,8 @@
 modules:
   - "[[mocs/Modules/Dynamic Programming|Module 3: Dynamic Programming]]"
 tags:
-  - source/lecture
-  - type/problem
   - topic/dynamic-programming
-  - topic/graph
+  - examples
 categories:
   - "[[Shortest Path Problem]]"
 ---
@@ -26,7 +24,7 @@ Assembly line scheduling is a manufacturing problem. In automobile industries, a
 > 
 > <b>Task</b>: Find the <u>fastest way (minimum total time)</u> to assemble a product, using both lines as necessary.
 
-|![[assembly-line-scheduling.excalidraw.png]]|
+|![[assembly-line-scheduling.png]]|
 | :-: |
 | The 2 regions shaded in blue represent the 2 assembly lines. Each workstation is represented as a node (vertex) with a value equal to the cost of its job. The directed edges represent the possible moves from one workstation to another. At each node $k$ we can only move in 2 directions: forward in the same line or diagonally onto the next line to reach the $(k+1)$th workstation. The cost of each move is indicated by the edge weights.|
 

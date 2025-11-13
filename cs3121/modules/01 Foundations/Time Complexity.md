@@ -1,10 +1,8 @@
 ---
 modules:
   - "[[Foundations|Module 1: Foundations]]"
-tags:
-  - type/concept
-  - source/lecture
 ---
+
 # Time Complexity
 
 > [!NOTE]

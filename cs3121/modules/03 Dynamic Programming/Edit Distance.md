@@ -2,11 +2,8 @@
 modules:
   - "[[mocs/Modules/Dynamic Programming|Module 3: Dynamic Programming]]"
 tags:
-  - source/lecture
   - topic/dynamic-programming
-  - topic/optimization
-  - topic/string
-  - type/problem
+  - examples
 ---
 
 # Edit Distance
@@ -163,7 +160,7 @@ There are several methods for measuring the similarity of two sequences by align
 
 In this representation, the number of editing steps is the number of columns that do not contain the same character twice.
 
-![[edit-distance_sequence-alignment-2.excalidraw.png|500]]
+![[edit-distance_sequence-alignment-2.png|500]]
 
 - FOOD and MONEY is at most 4
 - ALGORITHM and ALTRUISTIC is at most 6

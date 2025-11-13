@@ -4,6 +4,7 @@ filters:
     - /^\s*[a-zA-Z0-9]/.matches(file.path)
     - file.ext == "md"
     - '!file.path.containsAny("- personal", "- archives", "+ untitled", "+ inbox", "attachments", "bases", "config", "excalidraw", "files", "glossary")'
+    - '!file.tags.containsAny("categories", "index-pages")'
 formulas:
   LinksOverlap: formula.Related.length
   Related: list(this.file.links).filter(list(file.links).containsAny(value)).unique()
@@ -32,6 +33,8 @@ views:
       - file.name
       - formula.Related
     sort:
+      - property: formula.Related
+        direction: ASC
       - property: file.name
         direction: DESC
       - property: formula.LinksOverlap

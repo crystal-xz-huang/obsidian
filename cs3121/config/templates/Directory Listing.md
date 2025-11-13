@@ -14,7 +14,7 @@
   }
 
   if (confirm !== true) {
-    tp.user.notice('Error', 'Aborted: current file is not an index file.');
+    tp.user.notice('Error', 'Current file is not an index file.');
   } else {
     tR += await tp.user.generateDirectoryListing(tp, currentFile, false);
     const msg = [`Generated outline for the "${tp.file.folder(true)}" folder.`];

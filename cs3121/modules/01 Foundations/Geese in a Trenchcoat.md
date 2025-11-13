@@ -1,8 +1,6 @@
 ---
 modules:
   - "[[Foundations|Module 1: Foundations]]"
-tags:
-  - source/lecture
 ---
 # Problem: Geese in a Trenchcoat 
 

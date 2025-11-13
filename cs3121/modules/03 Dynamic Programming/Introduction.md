@@ -2,8 +2,6 @@
 modules:
   - "[[mocs/Modules/Dynamic Programming|Module 3: Dynamic Programming]]"
 tags:
-  - source/lecture
-  - type/concept
   - topic/dynamic-programming
 ---
 ## Introduction to Dynamic Programming

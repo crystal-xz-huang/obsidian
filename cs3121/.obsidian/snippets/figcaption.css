@@ -15,7 +15,7 @@ figcaption {
 }
 
 /* Option 2: Callouts */
-.callout[data-callout^="figure"] {
+/* .callout[data-callout^="figure"] {
   padding: .5em;
   margin: .5em;
 
@@ -45,7 +45,7 @@ figcaption {
 .callout[data-callout^="figure-left"] {
   float: left;
   width: 50%;
-}
+} */
 
 /* add alt-text of images as caption */
 /* .workspace-leaf-content p>.image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"], [alt$=".svg"])::after {
@@ -76,7 +76,7 @@ figcaption {
 }
 
 .workspace-leaf-content[data-type=markdown] .view-content thead:has(img, pre)+tbody tr:first-child td {
-  text-align: center;
+  /* text-align: center; */
   font-style: italic;
   color: var(--text-muted);
   font-size: var(--font-smaller);

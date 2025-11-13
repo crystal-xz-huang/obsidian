@@ -1,1 +1,0 @@
-<%* tR += await tp.user.generateLink.markdown(tp); %>

@@ -1,0 +1,762 @@
+body {
+  --titlebar-background: transparent;
+  --titlebar-background-focused: transparent;
+  --anim-speed-modifier: 1;
+  --anim-motion-baseline: cubic-bezier(0.1, 0, 0.1, 1.25);
+  --anim-duration-superfast: calc(80ms * var(--anim-speed-modifier));
+  --anim-duration-fast: calc(160ms * var(--anim-speed-modifier));
+  --anim-duration-moderate: calc(320ms * var(--anim-speed-modifier));
+  --anim-duration-slow: calc(640ms * var(--anim-speed-modifier));
+  --shadow-tactile: rgba(0, 0, 0, 0.04) 0px 2px 8px -2px, rgba(var(--mono-rgb-100), 0.04) 0px 2px 4px -2px;
+}
+
+/* ---------------------------------------------------------------
+  Serif Font
+--------------------------------------------------------------- */
+.font-serif {
+  --headings-font-family: var(--serif-font);
+  --font-text-theme: var(--serif-font);
+  --font-weight: 400;
+  --h1-weight: 600;
+  --h2-weight: 600;
+  --h3-weight: 600;
+  --h4-weight: 600;
+  --h5-weight: 600;
+  --h6-weight: 600;
+  --h1-size: 2.25rem;
+  --h2-size: 2rem;
+  --h3-size: 1.875rem;
+  --h4-size: 1.65rem;
+  --h5-size: 1.375rem;
+  --h6-size: 1.125rem;
+  --h1-variant: oldstyle-nums;
+  --h2-variant: oldstyle-nums;
+  --h3-variant: oldstyle-nums;
+  --h4-variant: oldstyle-nums;
+  --h5-variant: oldstyle-nums;
+  --h6-variant: oldstyle-nums;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.font-serif .cm-formatting-list-ol,
+.font-serif ol li::marker {
+  font-family: var(--serif-font);
+  font-variant: oldstyle-nums;
+}
+
+.font-serif.markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+.font-serif.markdown-source-view .HyperMD-header {
+  font-variant: oldstyle-nums;
+  font-variant-ligatures: normal;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+
+/* ---------------------------------------------------------------
+  Headings and Inline Titles
+--------------------------------------------------------------- */
+body {
+  --h1-size: 1.875rem;
+  --h2-size: 1.65rem;
+  --h3-size: 1.375rem;
+  --h4-size: 1.125rem;
+  --h5-size: 1.05rem;
+  --h6-size: 1rem;
+  --h1-weight: 900;
+  --h2-weight: 900;
+  --h3-weight: 900;
+  --h4-weight: 900;
+  --h5-weight: 900;
+  --h6-weight: 900;
+  --h5-line-height: 1.5rem;
+  --h6-line-height: 1.5rem;
+  --h1-variant: slashed-zero oldstyle-nums;
+  --h2-variant: slashed-zero oldstyle-nums;
+  --h3-variant: slashed-zero oldstyle-nums;
+  --h4-variant: slashed-zero oldstyle-nums;
+  --h5-variant: slashed-zero oldstyle-nums;
+  --h6-variant: slashed-zero oldstyle-nums;
+  --line-height-normal: 1.5rem;
+}
+
+/* ====== Headings ====== */
+.markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+.markdown-source-view .HyperMD-header {
+  font-family: var(--headings-font-family);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01" 1;
+  letter-spacing: .025em;
+
+}
+
+.markdown-source-view .HyperMD-header-6,
+.markdown-rendered h6 {
+  letter-spacing: .05em;
+}
+
+.markdown-preview-view {
+  /* Reading view */
+  :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--headings-font-family);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01" 1;
+    letter-spacing: .025em;
+  }
+}
+
+.markdown-source-view.is-live-preview.cm-s-obsidian {
+  /* Editing view - live preview mode */
+  .HyperMD-header {
+    font-family: var(--headings-font-family);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01" 1;
+    letter-spacing: .025em;
+  }
+}
+
+:is(h1, h2, h3, h4, h5, h6) :is(strong, b) {
+  font-weight: inherit;
+}
+
+/* Add spacing if preceded by a callout or blockquote */
+.markdown-rendered :is(p, pre, table, ul, ol)+ :is(h1, h2, h3, h4, h5, h6),
+.markdown-rendered div:is(.el-p, .el-pre, .el-table, .el-ul, .el-ol)+div> :is(h1, h2, h3, h4, h5, h6),
+.markdown-rendered div.el-div:has(.callout)+div> :is(h1, h2, h3, h4, h5, h6),
+.markdown-rendered div.el-blockquote+div> :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: var(--heading-spacing) !important;
+}
+
+/* Source View Heading Level Indicator */
+.markdown-source-view.mod-cm6 .HyperMD-header .cm-fold-indicator .collapse-indicator {
+  padding-inline-end: 15px;
+}
+
+.markdown-source-view:not(.is-live-preview).cm-s-obsidian {
+  & .HyperMD-header::before {
+    pointer-events: none;
+    float: right;
+    font-family: var(--font-monospace);
+    font-variant: tabular-nums;
+    padding-top: 2px;
+    font-size: 0.8rem;
+    font-style: normal;
+    line-height: 1em;
+    color: var(--text-muted);
+  }
+
+  & .cm-line {
+    &.HyperMD-header-1::before {
+      color: var(--colorful-red);
+      content: "H1"
+    }
+
+    &.HyperMD-header-2::before {
+      color: var(--colorful-orange);
+      content: "H2"
+    }
+
+    &.HyperMD-header-3::before {
+      color: var(--colorful-yellow);
+      content: "H3"
+    }
+
+    &.HyperMD-header-4::before {
+      color: var(--colorful-green);
+      content: "H4"
+    }
+
+    &.HyperMD-header-5::before {
+      color: var(--colorful-blue);
+      content: "H5"
+    }
+
+    &.HyperMD-header-6::before {
+      color: var(--colorful-purple);
+      content: "H6"
+    }
+  }
+}
+
+/* Live Preview Heading Level Indicator */
+body .is-live-preview .HyperMD-header .collapse-indicator.collapse-icon svg {
+  display: none !important;
+}
+
+body .is-live-preview {
+  & .HyperMD-header::before {
+    position: relative;
+    bottom: 1px;
+    left: -2px;
+    padding-right: 4px;
+    padding-left: 4px;
+    font-family: var(--font-monospace);
+    font-size: 0.8rem;
+    font-style: normal;
+    line-height: 1em;
+    color: var(--text-muted);
+  }
+
+  /* biome-ignore format: more condensed */
+  & .cm-line:not(.cm-active) {
+    &.HyperMD-header-1::before {
+      content: "H1"
+    }
+
+    &.HyperMD-header-2::before {
+      content: "H2"
+    }
+
+    &.HyperMD-header-3::before {
+      content: "H3"
+    }
+
+    &.HyperMD-header-4::before {
+      content: "H4"
+    }
+
+    &.HyperMD-header-5::before {
+      content: "H5"
+    }
+
+    &.HyperMD-header-6::before {
+      content: "H6"
+    }
+  }
+}
+
+/* ====== Inline Title, File Header ====== */
+body {
+  --file-header-font: var(--font-monospace);
+  --inline-title-font: var(--sans-serif-font);
+  --inline-title-margin-bottom: var(--heading-spacing);
+  --inline-title-size: 1.5em;
+  --inline-title-style: normal;
+  --inline-title-weight: 900;
+}
+
+.markdown-source-view.cm-s-obsidian.mod-cm6:not(.metadata-container[data-property-count="0"]),
+.markdown-preview-view .mod-header:not(.metadata-container[data-property-count="0"]) {
+  --inline-title-margin-bottom: 0;
+}
+
+/* Animation */
+.inline-title:not([data-level]) {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-feature-settings: "ss01" 1;
+}
+
+.inline-title:not([data-level]) {
+  padding-block: 8px;
+  position: relative;
+  transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
+  border: var(--border-width) solid rgba(0, 0, 0, 0);
+  border-radius: var(--radius-s)
+}
+
+.inline-title:not([data-level]):focus-within {
+  padding-inline: 8px;
+  border-color: var(--background-modifier-border)
+}
+
+.inline-title:not([data-level]):not(:focus-within) {
+  cursor: pointer
+}
+
+.inline-title:not([data-level]):not(:focus-within):hover {
+  padding-inline: 8px;
+  background-color: var(--background-modifier-hover)
+}
+
+/* ---------------------------------------------------------------
+  Typography
+--------------------------------------------------------------- */
+.theme-light {
+  --italic-color: hsla(208, 83%, 41%, 1);
+  --bold-color: hsla(360, 74%, 54%, 1);
+  --underline-color: hsla(162, 72%, 65%, 1);
+}
+
+.theme-dark {
+  --italic-color: hsla(208, 96%, 72%, 1);
+  --bold-color: hsla(360, 100%, 76%, 1);
+}
+
+/* ====== Bold ====== */
+b {
+  color: var(--full-contrast);
+}
+
+:is(.HyperMD-quote, blockquote) b {
+  color: var(--blockquote-color);
+}
+
+/* ====== Italics ====== */
+.cm-em,
+em,
+i {
+  letter-spacing: 0.01em;
+  font-weight: 500;
+}
+
+i {
+  color: var(--text-normal);
+}
+
+:is(strong, b) :is(.cm-em, em, i) {
+  font-weight: inherit;
+  color: var(--color-orange);
+}
+
+/* ====== Underline ====== */
+u {
+  text-underline-offset: 1.25px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--underline-color);
+}
+
+u:has(strong),
+u:has(b),
+:is(strong, b)>u {
+  text-decoration-color: var(--bold-color);
+  text-decoration-thickness: 0.115em;
+}
+
+/* ---------------------------------------------------------------
+  Highlights
+--------------------------------------------------------------- */
+body.theme-light {
+  --text-highlight-bg: hsla(50 85% 70%/40%);
+  --text-highlight-hover: rgba(255, 208, 0, 0.4);
+}
+
+body.theme-dark {
+  --highlight-green-dark: #3a692fd0;
+  --highlight-blue: #9fb6ff80;
+  --highlight-brown: rgba(209, 154, 102, 0.3);
+  --highlight-orange: rgba(223, 142, 29, 0.4);
+  --highlight-green: rgba(147, 185, 96, 0.3);
+  --highlight-purple: rgba(189, 147, 249, 0.35);
+  --text-highlight-bg: hsla(50 85% 40% / 40%; );
+  --text-highlight-hover: #3a692fd0;
+  --text-highlight: #d8dee9;
+}
+
+.markdown-reading-view mark,
+.markdown-source-view mark,
+.markdown-rendered mark {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  border-radius: var(--radius-s);
+  padding: 2px 4px;
+  color: inherit;
+}
+
+.cm-s-obsidian span.cm-highlight {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding-block: 2px
+}
+
+.cm-line .cm-highlight:nth-child(1 of .cm-highlight) {
+  border-top-left-radius: var(--radius-s);
+  border-bottom-left-radius: var(--radius-s);
+  padding-left: 4px
+}
+
+.cm-line .cm-highlight:nth-last-child(1 of .cm-highlight) {
+  border-top-right-radius: var(--radius-s);
+  border-bottom-right-radius: var(--radius-s);
+  padding-right: 4px
+}
+
+.markdown-preview-view mark:hover {
+  background-color: var(--text-highlight-hover, var(--text-highlight-bg));
+}
+
+/* ---------------------------------------------------------------
+  Codeblock
+--------------------------------------------------------------- */
+/* ====== Codeblocks ====== */
+.theme-dark {
+  /* Dracula theme colors */
+  --code-radius: 8px;
+  --code-background-dark: var(--background-primary-alt);
+  --code-border-dark: 1px solid var(--background-modifier-border);
+  --code-normal: #f8f8f2;
+  --code-comment: #6272a4;
+  --code-function: #f1fa8c;
+  --code-important: #ffb86c;
+  --code-keyword: #ff79c6;
+  --code-operator: #ff5555;
+  --code-property: #8be9fd;
+  --code-punctuation: #f8f8f2;
+  --code-string: #50fa7b;
+  --code-tag: #ff5555;
+  --code-value: #bd93f9;
+}
+
+body {
+  --code-size: var(--font-smallest);
+}
+
+/* inline code */
+.markdown-rendered code {
+  --code-radius: 8px;
+  --code-border-color: var(--background-modifier-border);
+  --code-background: var(--background-primary-alt);
+  --code-border-width: 1px;
+  --inline-code-background-light: var(--code-background);
+  --inline-code-normal: var(--text-normal);
+  --code-border-color: rgba(0, 0, 0, 0.075);
+}
+
+.markdown-rendered code {
+  padding: 2px 4px;
+}
+
+.markdown-rendered pre code {
+  white-space: var(--code-white-space)
+}
+
+/* codeblock scroll */
+body.code-scroll {
+  --code-white-space: pre
+}
+
+body.code-scroll .HyperMD-codeblock {
+  overflow-y: scroll;
+  white-space: pre
+}
+
+/* codeblock line numbers */
+body.code-line-numbers .HyperMD-codeblock-begin {
+  counter-reset: codeblock-line-numbers
+}
+
+body.code-line-numbers .HyperMD-codeblock:not(.HyperMD-codeblock-begin, .HyperMD-codeblock-end)::before {
+  counter-increment: codeblock-line-numbers;
+  content: counter(codeblock-line-numbers);
+  font-size: var(--font-smallest);
+  text-align: right;
+  color: var(--text-muted);
+  padding-right: 1em
+}
+
+/* ====== Keyboard Keys ====== */
+kbd {
+  box-shadow: var(--shadow-tactile);
+  border: 1px solid var(--background-modifier-border);
+  background: linear-gradient(var(--background-primary), var(--background-secondary));
+  padding: var(--tag-padding-y) var(--tag-padding-x);
+  font-family: var(--font-text)
+}
+
+.dataview .inline-field-standalone-value,
+body .dataview.inline-field-key,
+body .dataview.inline-field-value {
+  font-family: var(--font-text);
+  font-size: var(--font-smaller);
+  background: rgba(0, 0, 0, 0);
+  color: var(--text-faint);
+  padding: 0
+}
+
+/* ---------------------------------------------------------------
+  Links
+--------------------------------------------------------------- */
+.theme-light {
+  --link-color: hsl(184 79% 35%) !important;
+  --link-color-hover: hsl(328 70% 54%) !important;
+  --link-unresolved-color: #b183c3 !important;
+}
+
+.theme-dark {
+  --link-color: var(--electric-violet);
+  --link-color-hover: var(--vivid-pink);
+  --link-external-color: var(--bright-blue);
+  --link-external-color-hover: var(--vivid-pink);
+  --link-unresolved-color: hsl(101 42% 51%);
+}
+
+a:not(.tag, .raindrop-tag, .clickable-icon, :has(img:not(.link-favicon))):hover,
+.cm-s-obsidian .cm-line:not(.cm-active) span.cm-hmd-internal-link:hover,
+.external-link:not(:has(img:not(.link-favicon))):hover,
+.cm-s-obsidian .cm-line:not(.cm-active) span:is(.cm-link, .cm-url):hover {
+  --background-modifier-hover: none;
+  transition: transform .2s, opacity .2s, color .25s;
+}
+
+/* Don't wrap URLs onto multiple lines */
+.markdown-rendered p:has(.external-link:not(.metadata-link-inner, .multi-select-pill-content):not([aria-label])) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Add custom icon */
+.markdown-preview-view .external-link:not(.metadata-link-inner, .multi-select-pill-content)::after {
+  content: "↗";
+  color: var(--link-external-color);
+  margin-left: 0.2em;
+  margin-right: 0.1em;
+  font-size: 0.7em;
+  font-weight: 700;
+  display: inline-block;
+  transform: translateY(-0.3em);
+  transition: transform .2s, opacity .2s, color .25s;
+}
+
+/* Move icon up and right on hover */
+.markdown-preview-view .external-link:not(.metadata-link-inner, .multi-select-pill-content):hover::after {
+  transform: translate(.1em, -.5em);
+}
+
+u,
+.cm-underline,
+.internal-link,
+.external-link,
+.cm-url,
+.cm-link-alias {
+  text-decoration-skip-ink: none;
+  text-underline-offset: 2px;
+}
+
+.cm-hmd-internal-link .cm-underline.cm-underline,
+.markdown-preview-view .internal-link:not(.multi-select-pill, .metadata-link-inner) {
+  text-decoration: underline double 1.2px;
+}
+
+body .cm-string.cm-url {
+  color: var(--text-faint);
+}
+
+/* don't underline the formatting */
+.cm-s-obsidian .cm-url.cm-formatting,
+body:not(.show-urls) .cm-line:not(.cm-active) .cm-string.cm-url,
+.cm-link-alias-pipe.cm-link-alias-pipe.cm-link-alias-pipe.cm-link-alias-pipe.cm-link-alias-pipe,
+.cm-formatting-link.cm-formatting-link.cm-formatting-link {
+  color: var(--text-faint);
+  text-decoration: none;
+  cursor: default;
+}
+
+.markdown-source-view.mod-cm6 :is(.cm-link-alias, .cm-hmd-internal-link) .cm-underline:hover {
+  color: var(--link-external-color-hover);
+}
+
+/* ======  Fold external URLs (Source Mode) ====== */
+body:not(.show-urls) .cm-s-obsidian:not(.is-live-preview) .cm-line:not(.cm-active) .cm-string.cm-url:not(.cm-formatting) {
+  font-size: 0;
+  letter-spacing: 0;
+}
+
+body:not(.show-urls) .cm-s-obsidian:not(.is-live-preview) .cm-line:not(.cm-active) .cm-string.cm-url:not(.cm-formatting)::after {
+  position: relative;
+  top: 2px;
+  font-family: var(--icon-font);
+  font-size: calc(var(--font-text-size) * 0.9);
+  content: "link";
+}
+
+/* so quickly scrolling through a list of links does not expand the URLs */
+body:not(.show-urls) .cm-s-obsidian:not(.is-live-preview) .cm-line.cm-active .cm-string.cm-url:not(.cm-formatting)::after,
+body:not(.show-urls) .cm-s-obsidian:not(.is-live-preview) .cm-line.cm-active .cm-string.cm-url:not(.cm-formatting) {
+  transition-delay: .2s;
+}
+
+/* remove external link icon */
+.external-link {
+  background-image: none;
+  padding-right: 0;
+  transition: transform .2s, opacity .2s, color .25s;
+}
+
+
+/* ---------------------------------------------------------------
+  Lists
+--------------------------------------------------------------- */
+.cm-formatting-list-ol,
+ol li::marker {
+  font-variant: tabular-nums;
+}
+
+ol li li {
+  list-style-type: disc;
+}
+
+/* ---------------------------------------------------------------
+  Footnotes
+--------------------------------------------------------------- */
+.cm-footref,
+.footnote-link {
+  font-weight: 600;
+  text-rendering: geometricprecision;
+}
+
+body .HyperMD-footnote.cm-line.cm-line,
+.footnotes.footnotes li {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  line-height: 1.2;
+}
+
+/* separator line above the first footnote */
+.cm-line:not(.HyperMD-footnote)+.HyperMD-footnote.HyperMD-footnote,
+.footnotes hr {
+  padding-top: 12px;
+  border-top: 2px solid var(--color-base-30);
+}
+
+.footnotes hr {
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.cm-line.HyperMD-footnote.HyperMD-footnote {
+  padding-left: 0;
+}
+
+.footnote-link:hover {
+  color: var(--text-accent-hover);
+  text-decoration: none;
+}
+
+.footnote-backref {
+  margin-left: 2px;
+  font-family: inter, sans-serif;
+  font-size: 90%;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------------
+  Tables
+--------------------------------------------------------------- */
+/* FIX lists in tables looking off */
+.table-cell-wrapper .list-bullet {
+  float: none;
+}
+
+/* make lists in tables take up less space */
+.markdown-rendered table :is(ul, ol) {
+  line-height: 1.1;
+  margin-block: 0 0 !important;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------------
+  Images
+--------------------------------------------------------------- */
+/* add alt-text of images as caption */
+.image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"])::after {
+  content: attr(alt);
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: var(--font-smaller);
+}
+
+/* centers image caption */
+.image-embed[alt]::after {
+  text-align: center;
+  display: block;
+}
+
+/* center image itself */
+.view-content img:not(.emoji) {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* ---------------------------------------------------------------
+  Embeds
+--------------------------------------------------------------- */
+body {
+  --embed-max-height: none;
+  --embed-decoration-style: solid;
+  --embed-decoration-color: var(--background-modifier-border-hover);
+}
+
+.markdown-embed-title {
+  display: none;
+}
+
+.markdown-embed .markdown-preview-view .markdown-preview-sizer {
+  padding-bottom: 0 !important;
+}
+
+.markdown-preview-view.markdown-embed .markdown-preview-sizer,
+.markdown-preview-view.is-readable-line-width .markdown-embed .markdown-preview-sizer {
+  max-width: 100%;
+  width: 100%;
+  min-height: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.markdown-embed .markdown-preview-section div:last-child p,
+.markdown-embed .markdown-preview-section div:last-child ul {
+  margin-block-end: 2px;
+}
+
+.markdown-preview-view .markdown-embed {
+  margin-top: var(--nested-padding);
+  padding: 0 calc(var(--nested-padding) / 2) 0 var(--nested-padding);
+}
+
+.internal-embed:not([src*="#^"]) .markdown-embed-link {
+  right: 0;
+  width: 100%;
+}
+
+.markdown-embed-link,
+.file-embed-link {
+  top: 0px;
+  right: 0;
+  text-align: right;
+  justify-content: flex-end;
+}
+
+.file-embed-link svg,
+.markdown-embed-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+.markdown-embed .file-embed-link,
+.markdown-embed .markdown-embed-link {
+  opacity: 0.6;
+  transition: opacity 0.1s linear;
+}
+
+.markdown-embed .file-embed-link:hover,
+.markdown-embed .markdown-embed-link:hover {
+  opacity: 1;
+
+  &:hover {
+    background-color: transparent;
+    --icon-color: var(--text-accent);
+  }
+}
+
+.markdown-embed-link:hover,
+.file-embed-link:hover {
+  color: var(--text-muted);
+}
+
+.markdown-embed .markdown-preview-view {
+  padding: 0;
+}
+
+.internal-embed .markdown-embed {
+  border: 0;
+  border-left: 1px solid var(--background-modifier-border);
+  border-radius: 0;
+}

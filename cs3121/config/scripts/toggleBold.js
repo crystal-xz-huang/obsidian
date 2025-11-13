@@ -25,7 +25,8 @@ function toggleBold(tp) {
 
   // Get the selected text
   let selectedText = tp.file.selection();
-  let editorSelectedText = tp.app.workspace.activeLeaf.view.editor.getSelection();
+  let editorSelectedText =
+    tp.app.workspace.activeLeaf.view.editor.getSelection();
 
   // Get start and end positions of the selection
   let selectionStart = editor.getCursor('from');
@@ -73,9 +74,45 @@ function toggleBold(tp) {
   }
 
   editor.replaceSelection(replacement);
+}
 
-  // Return the replacement text to Templater
-  // return replacement;
+function toggleItalic(tp) {
+  // Similar implementation to toggleBold, but for italic formatting
+  const editor = tp.app.workspace.activeLeaf.view.editor;
+  if (!editor) {
+    console.error('Error: No active editor found.');
+    return '';
+  }
+
+  // Get the cursor position
+  let curPosition = editor.getCursor().line;
+
+  // Get the entire line of text at the cursor position
+  let lineText = editor.getLine(curPosition);
+
+  // Get the selected text
+  let selectedText = tp.file.selection();
+  selectedText = selectedText.trim();
+  if (!selectedText) {
+    selectedText = getWordAt(lineText, editor.getCursor().ch);
+  }
+
+  let replacement;
+
+  // CASE 1: already wrapped in <i>...</i> → strip the tags
+  if (/^<i>[\s\S]+<\/i>$/.test(selectedText)) {
+    replacement = selectedText.replace(/^<i>([\s\S]+)<\/i>$/, '$1');
+
+    // CASE 2: already wrapped in *...* → strip the *
+  } else if (/^\*[\s\S]+\*$/.test(selectedText)) {
+    replacement = selectedText.replace(/^\*([\s\S]+)\*$/, '$1');
+
+    // CASE 3: default: wrap in <i>...</i>
+  } else {
+    replacement = `<i>${selectedText}</i>`;
+  }
+
+  editor.replaceSelection(replacement);
 }
 
 function getWordAt(line, index) {

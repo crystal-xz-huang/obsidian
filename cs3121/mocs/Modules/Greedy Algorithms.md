@@ -4,6 +4,7 @@ aliases:
 tags:
   - index-pages
 ---
+
 # Module 2: Greedy Algorithms
 
 ## Module Learning Outcomes

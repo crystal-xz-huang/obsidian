@@ -2,10 +2,8 @@
 modules:
   - "[[mocs/Modules/Dynamic Programming|Module 3: Dynamic Programming]]"
 tags:
-  - source/lecture
-  - topic/counting
   - topic/dynamic-programming
-  - type/problem
+  - examples
 ---
 
 ## Hopscotch

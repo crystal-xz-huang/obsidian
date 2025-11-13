@@ -1,43 +1,92 @@
-mjx-container mjx-math {
-  font-size: 110%;
+mjx-container {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .theme-light mjx-container {
   /* make math more readable on light mode */
-  color: hsl(232, 15%, 20%);
+  /* color: hsl(232, 15%, 20%);
+  color: #161616; */
+  color: black;
 }
 
 .theme-dark mjx-container {
   /* make math more readable on dark mode */
-  color: hsl(232, 15%, 90%);
+  /* color: hsl(232, 15%, 90%); */
+  color: white;
 }
 
-strong mjx-container {
-  color: inherit !important;
-}
-
-em mjx-container {
+:is(i, em, strong, u, mark) mjx-container {
   color: inherit !important;
 }
 
 mjx-container [style="color: red;"] {
   color: var(--color-red) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
+
+mjx-container [style="color: yellow;"] {
+  color: var(--color-yellow) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
 mjx-container [style="color: blue;"] {
   color: var(--color-blue) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
+
 mjx-container [style="color: green;"] {
   color: var(--color-green) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
+
 mjx-container [style="color: orange;"] {
   color: var(--color-orange) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
+
 mjx-container [style="color: purple;"] {
   color: var(--color-purple) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
+
 mjx-container [style="color: pink;"] {
   color: var(--color-pink) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
+
 mjx-container [style="color: cyan;"] {
   color: var(--color-cyan) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+mjx-container [style="color: gray;"] {
+  color: var(--color-cyan) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.theme-light mjx-container :is([style="color: black;"], [style="color: white;"]) {
+  color: black !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.theme-dark mjx-container :is([style="color: black;"], [style="color: white;"]) {
+  color: white !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+mjx-container {
+  font-size: 110%;
+}
+
+.math-block {
+  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 1em 0 !important;
+}
+
+.math-inline {
+  margin: 0 0.05em;
 }

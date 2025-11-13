@@ -1,7 +1,9 @@
 ---
 categories:
   - "[[Divide and Conquer]]"
-tags: [examples, topic/divide-and-conquer]
+tags:
+  - topic/divide-and-conquer
+  - notes/theory
 status: open
 ---
 
@@ -26,12 +28,6 @@ procedure p(input x of size n):
 The algorithm divides the problem into a number ${\color{red}a}$ of subproblems recursively, each subproblem being of size ${\color{red}n / b}$. The factor by which the size of subproblems is reduced ($\color{red}{b}$) does not need to be the same as the number of subproblems (${\color{red}a}$). 
 
 > For example, in binary search we divide the problem into two halves ($b=2$) but we only recursively search one half of the subproblem ($a=1$ ).
-
-|![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Recursive_problem_solving.svg/359px-Recursive_problem_solving.svg.png)|
-| :-: |
-| Recurrence tree |
-
-Its solution tree has a node for each recursive call, with the children of that node being the other calls made from that call. The leaves of the tree are the base cases of the recursion — the subproblems (of size less than $k$) that do not recurse. The above example would have $a$ child nodes at each non-leaf node. Each node does an amount of work that corresponds to the size of the subproblem $n$ passed to that instance of the recursive call and given by $f(n)$. The total amount of work done by the entire algorithm is the sum of the work performed by all the nodes in the tree.
 
 The runtime of an algorithm such as the one above on an input of size $n$, usually denoted $T(n)$, can be expressed by the recurrence relation
 
@@ -113,7 +109,7 @@ A recursion tree is a tree where each node represents the cost of a certain recu
 
 A *recursion tree* is useful for visualizing what happens when a recurrence is iterated. It diagrams the tree of recursive calls and the amount of work done at each call.
 
-> [!example]+
+> [!example]-
 > For instance, consider the recurrence
 >
 > $$T(n) = 2T(n/2) + n^2$$
@@ -170,68 +166,8 @@ A *recursion tree* is useful for visualizing what happens when a recurrence is
 > 
 > The coefficients of $cn^2$ on line 2 is just the sum of a geometric series. So the sum of these coefficients is bounded from above by the constant $16/3$. Since the root contributes $cn^2$ to the total cost, the cost of the root dominates since functions in $\Theta(n^{\log_4 3})$ are also in $O(n^2)$. Therefore we can **guess** that $T(n) = O(n^2)$.
 
-### Master Theorem  
 
-
-Simply put, 
-
-1. If $f(n)$ is polynomially smaller than $n^{\log_b a}$, then $n^{\log_b a}$ dominates, and the runtime is $\Theta\!\left(n^{\log_b a}\right)$.  
-2. If $f(n)$ is instead polynomially larger than $n^{\log_b a}$, then $f(n)$ dominates, and the runtime is $\Theta\!\left(f(n)\right)$.  
-3. Finally, if $f(n)$ and $n^{\log_b a}$ are asymptotically the same, then $T(n) = \Theta\!\left(n^{\log_b a} \log n\right)$.
-
-If $T(n) = a\,T\!\left(\frac{n}{b}\right) + O(n^d)$ for constants $a \ge 1, b>1, d\geq0$, then
-
-$$
-T(n) =
-\begin{cases}
-O(n^d) & \text{if } d > \log_b a, \\[6pt]
-\Theta(n^d \log n) & \text{if } d = \log_b a, \\[6pt]
-\Omega(n^{\log_b a}) & \text{if } d < \log_b a.
-\end{cases}
-$$
-
-> [!theorem] Master Theorem
-> Given a recurrence of the form  
->
-> $$
-> T(n) = a\,T\!\left(\frac{n}{b}\right) + f(n),
-> $$  
->
-> for constants $a \ge 1$ and $b > 1$ with $f(n)$ asymptotically positive, the following statements are true:
-> 
-> **Case 1.** If $f(n) = O\!\left(n^{\log_b a - \varepsilon}\right)$ for some $\varepsilon > 0$, then $T(n) = \Theta\!\left(n^{\log_b a}\right).$
-> 
-> **Case 2.** If $f(n) = \Theta\!\left(n^{\log_b a}\right)$, then $T(n) = \Theta\!\left(n^{\log_b a} \log n\right).$
-> 
-> **Case 3.** If $f(n) = \Omega\!\left(n^{\log_b a + \varepsilon}\right)$ for some $\varepsilon > 0$ **and** if $a\,f(n/b) \le c\,f(n)$ for some constant $c < 1$ for all sufficiently large $n$, then $T(n) = \Theta\!\left(f(n)\right).$
-> 
-
-> [!def] Master Theorem
-> <b>Setup</b>
-> Let:
-> - $a \ge 1$ be an integer and $b>1$ be a real number;
-> - $f(n) > 0$ be a non-decreasing function defined on the positive integers;
-> - $T(n)$ be the solution of the recurrence $T(n) = a\,T\left(\frac{n}b\right) + f(n)$
-> 
-> Define the <u>critical exponent</u> be $c^\ast = \log_b a$ and the <u>critical polynomial</u> is $n^{c^\ast}$.
-> 
-> > Observe that $n^{c^\ast} = n^{\log_b a}$ is just the number of leaves in the tree.
-> 
-> <b>Theorem</b>
-> There are three main cases:
-> 1. If $f(n) = O\!\left(n^{c^\ast-\varepsilon}\right)$ for some $\varepsilon > 0$, then $T(n) = \Theta\!\left(n^{c^\ast}\right)$.
-> 2. If $f(n) = \Theta\!\left(n^{c^\ast}\right)$, then $T(n) = \Theta\!\left(n^{c^\ast} \log n\right)$.
->
-> 3. If $f(n) = \Omega\!\left(n^{c^\ast+\varepsilon}\right)$ for some $\varepsilon > 0$, **and** if there exist $k < 1$ and some $n_0$, such that $$a\,f\left(\frac{n}b\right) \leq k\, f(n) \quad \text{for all } n > n_0$$
-> (the **regularity condition**), then $T(n) = \Theta\!\left(f(n)\right)$.
-> 
-> <b>Remarks</b>
-> - Recall that for $a, b > 1$, $\log_a n = \Theta(\log_b n)$, so we can omit the base and simply write statements of the form $f(n) = \Theta\!\big(g(n)\log n\big)$. 
-> - However, $n^{\log_a x}$ is not interchangeable with $n^{\log_b x}$ — the base must be specified in such expressions.
-
-
-
-### Master Theorem  
+### Understanding the Master Theorem
 
 The **master theorem** provides a solution to recurrences of the form
 
@@ -241,24 +177,15 @@ $$
 
 for constants $a \ge 1$ and $b > 1$ with $f(n)$ asymptotically positive. (Asymptotically positive means that the function is positive for all sufficiently large $n$.)
 
-This recurrence describes an algorithm that divides a problem of size $n$ into $a$ subproblems, each of size $n/b$, and solves them recursively.
-
-![[general-recurrence-formula.excalidraw.png]]
-
-
-f(n) = cn
-
-
-![PPT - Recurrence: Master Theorem PowerPoint Presentation, free download -  ID:3197542](https://image1.slideserve.com/3197542/recurrence-master-theorem-l.jpg)
-
-
-The number of leaves $n^{\log_b a}$ is called the **critical term** — it tells you approximately how much total work the recursive part does if each leaf takes constant time.
-
->This recurrence breaks the input $n$ up into $a$ subproblems each of size $n/b$, recursively solves the subproblems, then recombines the results. The work to split the problem into subproblems and recombine the results is $f(n)$ and is done at the top level of the recursion.
+> Recall: This recurrence describes an algorithm that divides a problem of size $n$ into $a$ subproblems, each of size $n/b$, and solves them recursively.
 
 The master theorem tells you where most of the time is spent — at the **top** of the recursion (root), **bottom** (leaves), or **evenly across all levels**.
 
-### Explanations
+![[general-recurrence-formula.png]]
+
+![|300](https://image1.slideserve.com/3197542/recurrence-master-theorem-l.jpg)
+
+The number of leaves $n^{\log_b a}$ is called the **critical term** — it tells you approximately how much total work the recursive part does if each leaf takes constant time.
 
 #### Simple Explanation
 
@@ -273,7 +200,7 @@ where $a$ represents the number of children (subproblems) each node has, and the
 The total cost of this recurrence is the sum of of the time taken at each level.
 
 
-|                    ![[general-recurrence-tree.excalidraw.png\|500]]                     |
+|                    ![[general-recurrence-tree.png\|500]]                     |
 | :-: |
 | Recurrence tree for the general form $T(n) = a\,T\!\left(\frac{n}{b}\right) + f(n)$ |
 
@@ -347,7 +274,7 @@ There are three cases:
 
 #### Lecture Explanation
 
- ![[general-recurrence-tree.excalidraw.png\|500]]
+ ![[general-recurrence-tree.png\|500]]
  
 <b>Running time to solve the base cases:</b>
 - **What is the depth of the tree?**  
@@ -372,6 +299,8 @@ There are three main cases:
 1. If branching by a factor of $a$ outweighs the time saved by solving smaller instances, then nearly all the work is done in the **leaves**.  
 2. If the costs of branching and smaller instances are about equivalent, then **each level** requires about the same amount of work.  
 3. If branching is outweighed by the reduction in instance size, then nearly all the work is done at the **root**.
+
+
 
 
 ## Further Reading & Resources

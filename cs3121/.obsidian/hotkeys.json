@@ -230,6 +230,13 @@
   "obsidian-linter:paste-as-plain-text": [
     {
       "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "V"
+    },
+    {
+      "modifiers": [
         "Mod",
         "Shift"
       ],
@@ -315,6 +322,64 @@
         "Shift"
       ],
       "key": "O"
+    }
+  ],
+  "file-explorer:new-file-in-new-pane": [],
+  "templater-obsidian:config/templates/External link from clipboard.md": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "K"
+    }
+  ],
+  "templater-obsidian:config/templates/Internal link from selection.md": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "K"
+    }
+  ],
+  "templater-obsidian:config/templates/[editor] Toggle bold.md": [
+    {
+      "modifiers": [
+        "Ctrl"
+      ],
+      "key": "B"
+    }
+  ],
+  "templater-obsidian:config/templates/[editor] Toggle underline.md": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "U"
+    }
+  ],
+  "templater-obsidian:config/templates/actions/Open file in new pane.md": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "N"
+    }
+  ],
+  "templater-obsidian:config/templates/Toggle italic.md": [
+    {
+      "modifiers": [
+        "Ctrl"
+      ],
+      "key": "I"
+    }
+  ],
+  "editor:toggle-inline-math": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "M"
     }
   ]
 }

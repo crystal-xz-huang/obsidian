@@ -1,8 +1,9 @@
 {
   "pinned": [
-    "workspace:copy-path",
-    "workspace:copy-url",
+    "obsidian-excalidraw-plugin:excalidraw-autocreate-popout",
     "file-explorer:duplicate-file",
-    "file-explorer:reveal-active-file"
+    "editor:fold-all",
+    "editor:unfold-all",
+    "workspace:copy-url"
   ]
 }

@@ -1,96 +1,105 @@
 body {
   --bases-header-border-width: 0;
-  --bases-table-header-color: var(--text-faint)
+  --bases-toolbar-opacity: 0.2;
+  --bases-table-header-color: var(--text-faint);
+}
+
+.base-plain {
+  .bases-header {
+    display: none;
+  }
 }
 
 .bases-toolbar-menu-container {
-  --bases-property-menu-item-radius: calc(var(--radius-m) - 4px)
+  --bases-property-menu-item-radius: calc(var(--radius-m) - 4px);
 }
 
 .query-toolbar-menu,
 .bases-toolbar-menu,
 .cm-tooltip {
-  animation: none !important
+  animation: none !important;
 }
 
 .text-icon-button {
-  border-radius: var(--clickable-icon-radius)
+  border-radius: var(--clickable-icon-radius);
 }
 
-.menu.bases-toolbar-menu .bases-toolbar-menu-form {
-  padding: var(--menu-padding);
-  overflow: visible
-}
+.menu.bases-toolbar-menu {
+  .bases-toolbar-menu-form {
+    padding: var(--menu-padding);
+    overflow: visible;
+  }
 
-.menu.bases-toolbar-menu .search-input-container {
-  margin: var(--menu-padding) var(--menu-padding) 0;
-  padding-bottom: 0;
-  background: var(--background-modifier-form-field);
-  border: var(--input-border-width) solid var(--background-modifier-border);
-  border-radius: var(--input-radius)
+  .search-input-container {
+    margin: var(--menu-padding) var(--menu-padding) 0;
+    padding-bottom: 0;
+    background: var(--background-modifier-form-field);
+    border: var(--input-border-width) solid var(--background-modifier-border);
+    border-radius: var(--input-radius);
+  }
 }
 
 .menu.mod-filters {
-  padding: 4px
-}
+  padding: 4px;
 
-.menu.mod-filters .query-toolbar-section-header {
-  padding: 8px
+  .query-toolbar-section-header {
+    padding: 8px;
+  }
 }
 
 .bases-cards-label {
-  color: var(--text-faint)
+  color: var(--text-faint);
 }
 
 .bases-table-container.mod-multiline .bases-table-cell {
-  align-items: var(--bases-table-align-items, start)
+  align-items: var(--bases-table-align-items, start);
 }
 
 .bases-thead .bases-table-header {
-  overflow: hidden
+  overflow: hidden;
 }
 
 .bases-thead .bases-td {
   box-shadow: none;
   border-radius: var(--radius-s);
-  overflow: visible
+  overflow: visible;
 }
 
 .bases-thead .bases-td:hover {
-  --bases-table-header-color: var(--text-normal)
+  --bases-table-header-color: var(--text-normal);
 }
 
 .bases-table-header-resizer {
-  border-radius: var(--radius-s)
+  border-radius: var(--radius-s);
 }
 
 .bases-table-cell>* {
   text-overflow: ellipsis;
-  overflow: hidden
+  overflow: hidden;
 }
 
 body.bases-row-alt .bases-tbody .bases-tr:nth-child(odd) {
-  background-color: var(--background-secondary)
+  background-color: var(--background-secondary);
 }
 
-body.bases-col-alt .bases-tbody .bases-tr>.bases-td:nth-child(2n+2) {
-  background-color: var(--background-secondary)
+body.bases-col-alt .bases-tbody .bases-tr>.bases-td:nth-child(2n + 2) {
+  background-color: var(--background-secondary);
 }
 
-.workspace-leaf-content[data-type=markdown] .bases-embed .bases-view {
+.workspace-leaf-content[data-type="markdown"] .bases-embed .bases-view {
   border: none;
-  border-radius: 0
-}
+  border-radius: 0;
 
-.workspace-leaf-content[data-type=markdown] .bases-embed .bases-view .bases-thead,
-.workspace-leaf-content[data-type=markdown] .bases-embed .bases-view .bases-tbody,
-.workspace-leaf-content[data-type=markdown] .bases-embed .bases-view .bases-tbody>.bases-tr:first-child,
-.workspace-leaf-content[data-type=markdown] .bases-embed .bases-view .bases-tbody>.bases-tr>.bases-td:first-child {
-  box-shadow: none
-}
+  .bases-thead,
+  .bases-tbody,
+  .bases-tbody>.bases-tr:first-child,
+  .bases-tbody>.bases-tr>.bases-td:first-child {
+    box-shadow: none;
+  }
 
-.workspace-leaf-content[data-type=markdown] .bases-embed .bases-view .bases-tbody {
-  border: var(--bases-embed-border-width) solid var(--bases-embed-border-color);
-  border-radius: var(--bases-embed-border-radius);
-  overflow: hidden
+  .bases-tbody {
+    border: var(--bases-embed-border-width) solid var(--bases-embed-border-color);
+    border-radius: var(--bases-embed-border-radius);
+    overflow: hidden;
+  }
 }

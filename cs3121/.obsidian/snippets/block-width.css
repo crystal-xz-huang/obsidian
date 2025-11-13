@@ -1,0 +1,123 @@
+
+body:not(.block-width-off) {
+  --file-line-width: var(--line-width);
+  --line-width: 700px;
+  --line-width-wide: min(100cqw, 50rem)
+}
+
+body:not(.block-width-off).wide,
+body:not(.block-width-off) .wide {
+  --file-line-width: var(--line-width-wide)
+}
+
+body:not(.block-width-off).max,
+body:not(.block-width-off) .max {
+  --file-line-width: 100%
+}
+
+body:not(.block-width-off) .mod-root .markdown-preview-view,
+body:not(.block-width-off) .mod-root .cm-scroller {
+  container-type: inline-size
+}
+
+body:not(.block-width-off):is(.table-wide, .table-max, .table-100) div:is(.markdown-preview-sizer>.el-table, .markdown-preview-sizer>.el-pre .block-language-dataview, .markdown-preview-sizer>.el-pre .block-language-dataviewjs, .markdown-preview-sizer>.el-pre .block-language-datacorejsx, .cm-content>.cm-table-widget, .cm-content>.cm-lang-dataview, .cm-content>.cm-lang-dataviewjs, .cm-content>.cm-lang-datacorejsx),
+body:not(.block-width-off) div:is(.table-wide, .table-max, .table-100) div:is(.markdown-preview-sizer>.el-table, .markdown-preview-sizer>.el-pre .block-language-dataview, .markdown-preview-sizer>.el-pre .block-language-dataviewjs, .markdown-preview-sizer>.el-pre .block-language-datacorejsx, .cm-content>.cm-table-widget, .cm-content>.cm-lang-dataview, .cm-content>.cm-lang-dataviewjs, .cm-content>.cm-lang-datacorejsx) {
+  max-width: var(--table-line-width);
+  width: var(--table-line-width) !important;
+  justify-self: center
+}
+
+body:not(.block-width-off).table-wide,
+body:not(.block-width-off) .table-wide {
+  --table-line-width: var(--line-width-wide)
+}
+
+body:not(.block-width-off).table-max,
+body:not(.block-width-off) .table-max {
+  --table-line-width: 100cqw
+}
+
+body:not(.block-width-off).table-100,
+body:not(.block-width-off) .table-100 {
+  --table-line-width: calc(100cqw + (var(--file-margins-inline) * 2))
+}
+
+body:not(.block-width-off).table-100 div:is(.markdown-preview-sizer>.el-table, .cm-content>.cm-table-widget) tbody>tr>td,
+body:not(.block-width-off) .table-100 div:is(.markdown-preview-sizer>.el-table, .cm-content>.cm-table-widget) tbody>tr>td {
+  border-radius: 0
+}
+
+body:not(.block-width-off).table-100 div:is(.markdown-preview-sizer>.el-table, .cm-content>.cm-table-widget) tbody tr:first-child>td,
+body:not(.block-width-off) .table-100 div:is(.markdown-preview-sizer>.el-table, .cm-content>.cm-table-widget) tbody tr:first-child>td {
+  border-block-start-width: 0
+}
+
+body:not(.block-width-off).table-100 div:is(.markdown-preview-sizer>.el-table, .cm-content>.cm-table-widget) tbody tr>td:last-child,
+body:not(.block-width-off) .table-100 div:is(.markdown-preview-sizer>.el-table, .cm-content>.cm-table-widget) tbody tr>td:last-child {
+  border-inline-end-width: 0
+}
+
+body:not(.block-width-off).table-100 div:is(.markdown-preview-sizer>.el-table, .cm-content>.cm-table-widget) tbody tr>td:first-child,
+body:not(.block-width-off) .table-100 div:is(.markdown-preview-sizer>.el-table, .cm-content>.cm-table-widget) tbody tr>td:first-child {
+  border-inline-start-width: 0
+}
+
+body:not(.block-width-off).table-100 div:is(.markdown-preview-sizer>.el-table, .cm-content>.cm-table-widget) tbody tr:last-child>td,
+body:not(.block-width-off) .table-100 div:is(.markdown-preview-sizer>.el-table, .cm-content>.cm-table-widget) tbody tr:last-child>td {
+  border-block-end-width: 0
+}
+
+body:not(.block-width-off):is(.bases-wide, .bases-max, .bases-100) div:is(.markdown-preview-sizer>.el-pre .bases-embed, .markdown-preview-sizer>.el-p .bases-embed, .cm-content>.bases-embed, .cm-content>.cm-lang-base),
+body:not(.block-width-off) div:is(.bases-wide, .bases-max, .bases-100) div:is(.markdown-preview-sizer>.el-pre .bases-embed, .markdown-preview-sizer>.el-p .bases-embed, .cm-content>.bases-embed, .cm-content>.cm-lang-base) {
+  max-width: var(--bases-line-width);
+  width: var(--bases-line-width) !important;
+  justify-self: center
+}
+
+body:not(.block-width-off).bases-wide,
+body:not(.block-width-off) .bases-wide {
+  --bases-line-width: var(--line-width-wide)
+}
+
+body:not(.block-width-off).bases-max,
+body:not(.block-width-off) .bases-max {
+  --bases-line-width: 100cqw
+}
+
+body:not(.block-width-off).bases-100,
+body:not(.block-width-off) .bases-100 {
+  --bases-line-width: calc(100cqw + (var(--file-margins-inline) * 2))
+}
+
+body:not(.block-width-off):is(.img-wide, .img-max, .img-100) div:is(.markdown-preview-sizer>.el-p p:has(img), .markdown-preview-sizer>.el-iframe, .cm-content .image-embed),
+body:not(.block-width-off) div:is(.img-wide, .img-max, .img-100) div:is(.markdown-preview-sizer>.el-p p:has(img), .markdown-preview-sizer>.el-iframe, .cm-content .image-embed) {
+  max-width: var(--img-line-width);
+  width: var(--img-line-width) !important;
+  justify-self: center
+}
+
+body:not(.block-width-off).img-wide,
+body:not(.block-width-off) .img-wide {
+  --img-line-width: var(--line-width-wide)
+}
+
+body:not(.block-width-off).img-max,
+body:not(.block-width-off) .img-max {
+  --img-line-width: 100cqw
+}
+
+body:not(.block-width-off).img-100,
+body:not(.block-width-off) .img-100 {
+  --img-line-width: calc(100cqw + (var(--file-margins-inline) * 2))
+}
+
+body:not(.block-width-off).img-100 .markdown-preview-sizer img,
+body:not(.block-width-off).img-100 .cm-content img,
+body:not(.block-width-off) .img-100 .markdown-preview-sizer img,
+body:not(.block-width-off) .img-100 .cm-content img {
+  border-radius: 0 !important
+}
+
+body:not(.block-width-off) .cm-content .image-embed {
+  display: block
+}

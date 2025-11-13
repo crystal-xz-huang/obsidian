@@ -1,1 +1,0 @@
-<%* tR += tp.user.generateLink.wiki(tp); -%>

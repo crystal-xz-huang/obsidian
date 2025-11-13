@@ -2,10 +2,9 @@
 modules:
   - "[[Greedy Algorithms|Module 2: Greedy Algorithms]]"
 tags:
-  - type/problem
-  - source/lecture
   - topic/greedy
 ---
+
 ## Tape Storage
 
 ### Tape Storage I (Equal Probabilities)
@@ -26,7 +25,6 @@ Suppose we store the files in order $L_1, L_2, \dots, L_n$.
 Each file has probability $\tfrac{1}{n}$ of being chosen.
 
 So the expected retrieval time is:  
-{}
 
 $$
 \begin{align*}

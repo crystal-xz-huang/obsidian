@@ -3,7 +3,6 @@ categories:
   - "[[Divide and Conquer]]"
 tags:
   - topic/divide-and-conquer
-  - categories
 status: open
 ---
 
@@ -16,6 +15,24 @@ Steps:
 
 Recursion is $\log_2 n$ levels deep, with a total of $\Theta(n)$ time spent in each level.  
 Time complexity is $\Theta(n \log n)$.
+
+
+## Observations
+
+To apply merge sort, one key observation is that:
+
+> The smaller elements on the right of a number will **jump from its right to its left** during the sorting process.
+
+
+
+![tikz pgf - How to draw a merge sort algorithm figure? - TeX - LaTeX Stack  Exchange](https://i.sstatic.net/IKEHS.jpg)
+
+
+
+## Practice Problems
+
+- [Count of Smaller Numbers After Self - LeetCode](https://leetcode.com/problems/count-of-smaller-numbers-after-self/editorial/)
+
 
 ## Example Problems
 

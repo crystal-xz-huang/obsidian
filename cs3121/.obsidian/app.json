@@ -5,15 +5,18 @@
   "tabSize": 4,
   "alwaysUpdateLinks": true,
   "userIgnoreFilters": [
-    "config/"
+    "config/",
+    "files/",
+    "/^\\s*[^a-zA-Z0-9]/",
+    "assets/"
   ],
   "showInlineTitle": true,
   "vimMode": false,
   "useTab": true,
-  "attachmentFolderPath": "attachments",
+  "attachmentFolderPath": "assets/attachments",
   "showIndentGuide": false,
   "smartIndentList": true,
-  "showUnsupportedFiles": false,
+  "showUnsupportedFiles": true,
   "livePreview": false,
   "newFileLocation": "current",
   "newFileFolderPath": "",

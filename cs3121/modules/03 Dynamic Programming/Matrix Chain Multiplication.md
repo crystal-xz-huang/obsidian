@@ -1,3 +1,8 @@
+---
+tags:
+  - topic/dynamic-programming
+  - examples
+---
 # Matrix Chain Multiplication
 
 ## Definitions

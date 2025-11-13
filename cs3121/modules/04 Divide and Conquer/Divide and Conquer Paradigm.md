@@ -1,10 +1,9 @@
 ---
-categories:
+modules:
   - "[[Divide and Conquer]]"
 tags:
-  - notes
   - topic/divide-and-conquer
-status: open
+  - notes
 ---
 
 # Divide and Conquer Paradigm

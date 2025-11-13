@@ -1,12 +1,8 @@
 ---
 modules:
   - "[[Foundations|Module 1: Foundations]]"
-tags:
-  - source/lecture
-  - type/problem
-  - type/algorithm
-  - topic/combinatorics
 ---
+
 # Stable Matching
 
 The stable matching problem is the problem of finding a stable matching between two equally sized sets of elements given an ordering of preferences for each element

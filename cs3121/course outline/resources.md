@@ -34,6 +34,7 @@ Other Textbooks:
 - Steven Skienna’s [class](https://www3.cs.stonybrook.edu/~skiena/373/videos/) which includes lectures and video recordings
 - Williams College [Algorithms](https://williams-cs.github.io/cs256-s21-www/index.html)
 - Bowdoin College [csci 2200: Algorithms](https://bowdoin-algorithms-f23.github.io/usefullinks/)
+- Stanford [CS 161](https://stanford-cs161.github.io/winter2025/)
 
 ---
 

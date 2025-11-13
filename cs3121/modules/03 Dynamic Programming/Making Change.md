@@ -4,9 +4,8 @@ modules:
 categories:
   - "[[Knapsack Problem]]"
 tags:
-  - source/lecture
-  - type/problem
   - topic/dynamic-programming
+  - examples
 ---
 
 # Making Change
