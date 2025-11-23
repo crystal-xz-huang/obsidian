@@ -4,92 +4,37 @@
     "type": "split",
     "children": [
       {
-        "id": "64c4cbfaa7bedd33",
+        "id": "6c806d824cf35f66",
         "type": "tabs",
-        "dimension": 61.47291539866099,
         "children": [
           {
-            "id": "b479cc69b81036e5",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.10.3"
-              },
-              "pinned": true,
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.10.3"
-            }
-          },
-          {
-            "id": "3149ff04f29d4ce6",
+            "id": "95e485c834ae71f8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "modules/05 Flow Networks/Maximum Cuts.md",
-                "mode": "source",
-                "source": true,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Maximum Cuts"
-            },
-            "group": "b1c0cedee057bbf9"
-          },
-          {
-            "id": "29604f5a616c5a03",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "modules/05 Flow Networks/Maximum Flows.md",
+                "file": "modules/6 Intractable Problems/Decision Problems.md",
                 "mode": "preview",
-                "source": true,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Maximum Flows"
-            }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "3381afeac1767072",
-        "type": "tabs",
-        "dimension": 38.52708460133901,
-        "children": [
-          {
-            "id": "bf6581e2cba9f3d3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "modules/05 Flow Networks/Maximum Cuts.md",
-                "mode": "preview",
-                "source": true,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Maximum Cuts"
-            },
-            "group": "b1c0cedee057bbf9"
-          },
-          {
-            "id": "75e83fb5a0760eab",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "modules/05 Flow Networks/Flow Networks and Flows.md",
-                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Flow Networks and Flows"
+              "title": "Decision Problems"
+            }
+          },
+          {
+            "id": "032fbf1c79ed6db0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "modules/3 Dynamic Programming/0-1 Knapsack.md",
+                "mode": "preview",
+                "source": true,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "0-1 Knapsack"
             }
           }
         ]
@@ -102,24 +47,11 @@
     "type": "split",
     "children": [
       {
-        "id": "a123c3d39ccd498a",
+        "id": "0625db39bdfbf53a",
         "type": "tabs",
         "children": [
           {
-            "id": "fd9f62e213c26f07",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": true
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
-            }
-          },
-          {
-            "id": "843d83707d391193",
+            "id": "e9abd61a4f4f4081",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -139,7 +71,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 289.5,
+    "width": 200,
     "collapsed": true
   },
   "right": {
@@ -151,43 +83,27 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a2abe4066b6fee4a",
+            "id": "fd9f62e213c26f07",
             "type": "leaf",
             "state": {
-              "type": "outline",
+              "type": "file-explorer",
               "state": {
-                "file": "modules/05 Flow Networks/Maximum Cuts.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "sortOrder": "alphabetical",
+                "autoReveal": true
               },
-              "icon": "lucide-list",
-              "title": "Outline of Maximum Cuts"
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
-            "id": "9961edfda388061c",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "modules/05 Flow Networks/Maximum Cuts.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from Maximum Cuts"
-            }
-          },
-          {
-            "id": "38215b6979c11822",
+            "id": "65e5b2044aaeef33",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true,
-                "showSearch": true,
+                "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-tags",
@@ -195,21 +111,46 @@
             }
           },
           {
-            "id": "868dbd6813a3fbe9",
+            "id": "8e20d75e1698e0a9",
             "type": "leaf",
             "state": {
-              "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "type": "outgoing-link",
+              "state": {
+                "file": "modules/6 Intractable Problems/Decision Problems.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Decision Problems"
+            }
+          }
+        ],
+        "currentTab": 2
+      },
+      {
+        "id": "7561f206983faf73",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a2abe4066b6fee4a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "modules/6 Intractable Problems/Decision Problems.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Decision Problems"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 287.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -223,53 +164,53 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "3149ff04f29d4ce6",
+  "active": "95e485c834ae71f8",
   "lastOpenFiles": [
-    "assets/attachments/Cuts in a Flow Network example.png",
-    "modules/05 Flow Networks/Maximum Flows.md",
-    "modules/05 Flow Networks/Maximum Cuts.md",
-    "files/resources/lecture/5-flow.pdf.sb-2a5995ff-xAK4Yu",
-    "modules/05 Flow Networks/Flow Networks and Flows.md",
-    "assets/attachments/flow-cuts.png",
-    "modules/05 Flow Networks/Flow Networks and Flows 1.md",
-    "modules/00 Graphs/Graph Basics/Graph Definitions.md",
-    "mocs/Modules/Flow Networks.md",
-    "modules/05 Flow Networks/.md",
-    "portfolio/7.3 Delivering Pizzas.md",
-    "Untitled.md",
-    "portfolio/task sheets/delivering-pizzas.excalidraw.md",
-    "assets/excalidraw/ford-fulkerson-algorithm-example.excalidraw.md",
-    "assets/excalidraw/ford-fulkerson-algorithm-example.excalidraw.png",
-    "assets/excalidraw/flow-augmentation.excalidraw.md",
-    "assets/excalidraw/flow-augmentation.excalidraw.png",
-    "files/resources/lecture/5-flow.pdf",
-    "assets/attachments/augmenting-path-example-2.png",
-    "assets/attachments/augmenting-path-example-1.png",
-    "assets/attachments/augmenting-path-example.png",
-    "assets/excalidraw/residual-flow-network.excalidraw.md",
-    "config/scripts/insert_templates.js",
-    "config/templates/bases/Backlinks.base",
-    "mocs/Modules/Greedy Algorithms.md",
-    "mocs/Modules/Dynamic Programming.md",
-    "mocs/Modules/Foundations.md",
-    "mocs/Modules/Review of Prerequisite Material.md",
-    "mocs/Modules/Intractable Problems.md",
+    "modules/3 Dynamic Programming/Integer Knapsack.md",
+    "modules/6 Intractable Problems/Decision Problems.md",
+    "modules/3 Dynamic Programming/0-1 Knapsack.md",
+    "modules/3 Dynamic Programming/Job Scheduling.md",
+    "modules/6 Intractable Problems/About Module 6.md",
     "mocs/Modules/Divide and Conquer.md",
-    "assets/attachments/clrs-flow-fig24.4.png",
-    "assets/excalidraw/residual-flow-network.excalidraw.png",
-    "assets/attachments/clrs-flow-fig24.3.png",
-    "assets/attachments/clrs-flow-fig24.1.png",
-    "assets/excalidraw/flow-example-2.excalidraw.md",
-    "glossary/Glossary.md",
-    "modules/04 Divide and Conquer/Recurrences and the Master Theorem.md",
-    "files/resources/lecture/6-intractability.pdf",
-    "modules/06 Intractable Problems",
-    "modules/untitled folder",
-    "modules/00 Graphs/Graph Algorithms/Elementary Graph Algorithms/Elementary Graph Algorithms.md",
-    "modules/00 Graphs/Graph Algorithms/Elementary Graph Algorithms/Dijkstra's Algorithm.md",
-    "modules/00 Graphs/Graph Algorithms/Elementary Graph Algorithms/Depth-First Search.md",
-    "modules/00 Graphs/Graph Algorithms/Single-Source Shortest Paths",
-    "modules/00 Graphs/Graph Algorithms/Maximum Flow",
-    "modules/00 Graphs/Graph Algorithms/Elementary Graph Algorithms"
+    "mocs/Modules/Review of Prerequisite Material.md",
+    "portfolio/8.1 Water Testing.md",
+    "assets/attachments/Unconfirmed 441460.crdownload",
+    "assets/attachments/sydney-water.svg",
+    "assets/attachments/Unconfirmed 66305.crdownload",
+    "assets/attachments/Unconfirmed 251946.crdownload",
+    "assets/excalidraw/sydney-water.excalidraw.md",
+    "assets/attachments/sydney-water.png",
+    "modules/5 Flow Networks/Minimum Cuts.md",
+    "portfolio/8.3 AlgoCeption.md",
+    "portfolio/8.2 River Crossing.md",
+    "modules/5 Flow Networks/Applications/Vertex-Disjoint Paths.md",
+    "files/resources/seminar/w8-seminar-sols.pdf.sb-14811f78-3H3qbS",
+    "files/resources/seminar/w8-seminar-sols.pdf.sb-c110b9a7-QDpDJ5",
+    "assets/excalidraw/river-crossing-vertex-disjoint.excalidraw.md",
+    "assets/excalidraw/river-crossing-vertex-disjoint.excalidraw.png",
+    "modules/5 Flow Networks/Definitions.md",
+    "assets/excalidraw/river-crossing-residual-network.excalidraw.md",
+    "assets/excalidraw/river-crossing-residual-network.excalidraw.png",
+    "portfolio/task sheets/COMP3121_9101-8.6.pdf",
+    "portfolio/task sheets/COMP3121_9101-8.5.pdf",
+    "portfolio/task sheets/COMP3121_9101-8.4.pdf",
+    "portfolio/task sheets/COMP3121_9101-8.3.pdf",
+    "portfolio/task sheets/COMP3121_9101-8.2.pdf",
+    "modules/5 Flow Networks/Applications/Cargo Allocation.md",
+    "assets/excalidraw/cargo-allocation.excalidraw.md",
+    "assets/excalidraw/cargo-allocation.excalidraw.png",
+    "modules/5 Flow Networks/Applications/Applications of Network Flow.md",
+    "assets/excalidraw/drawing-20251119-045152.excalidraw.md",
+    "assets/excalidraw/cargo-allocation-table.png",
+    "modules/5 Flow Networks/Applications/Movie Rental.md",
+    "assets/excalidraw/movie-rental.excalidraw.md",
+    "assets/excalidraw/movie-rental.excalidraw.png",
+    "assets/attachments/movie-rental.png",
+    "modules/5 Flow Networks/The Ford-Fulkerson Algorithm.md",
+    "modules/5 Flow Networks/Applications/Bipartite Matching.md",
+    "modules/05 Flow Networks/Applications/.md",
+    "modules/5 Flow Networks/Maximum Flows.md",
+    "assets/excalidraw/flow-applications-vertex-capacities.excalidraw.png",
+    "assets/excalidraw/networks-multiple-source-sinks.png"
   ]
 }

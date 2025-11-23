@@ -57,7 +57,7 @@ To minimise $\lvert T-2S_B \rvert$, we want it close to 0 as possible, so we wan
 Therefore we want to find a subset $B$ whose sum $S_B$ as large as possible without exceeding $T/2$.
 
 > [!aside]
-> Adding this constraint, the problem of "finding a subset whose sum is closest to half the total sum **without going over**" then becomes an instance of the [[making change]] problem (in which all items have the same contribution to the total sum).
+> Adding this constraint, the problem of "finding a subset whose sum is closest to half the total sum **without going over**" then becomes an instance of the [[Making Change]] problem (in which all items have the same contribution to the total sum).
 
 <b>Goal:</b> Find a subset $S_B$ whose $S_B$ is as large as possible without exceeding $T/2$.
 
@@ -65,12 +65,12 @@ There are two objectives:
 - find a subset with sum $S \leq T/2$, and
 - maximise the sum $S$ in such a subset.
 
-This is equivalent [[0-1 knapsack]]:
+This is equivalent [[0-1 Knapsack]]:
 - each number can only be included once 
 - each number has a weight and value (how much it contributes to the total sum), 
   both equal to the number itself
 - knapsack capacity = half the total sum = T/2
 
-Therefore, we can reduce this problem to the [[0-1 knapsack]] problem where the items inside the knapsack are the numbers in $S_B$ and the items outside the knapsack (i.e. the complement of $S_B$) are the numbers in $S_A$.
+Therefore, we can reduce this problem to the [[0-1 Knapsack]] problem where the items inside the knapsack are the numbers in $S_B$ and the items outside the knapsack (i.e. the complement of $S_B$) are the numbers in $S_A$.
 
 

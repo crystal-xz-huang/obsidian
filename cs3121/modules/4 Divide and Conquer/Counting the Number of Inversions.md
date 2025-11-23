@@ -71,7 +71,7 @@ We now show that this can be done more efficiently, in time $O(n \log n)$, by ap
 Clearly, since the total number of pairs is quadratic in $n$, we cannot afford to count the inversions one-by-one. 
 
 **Divide and Conquer** 
-The main idea is to tweak the [[merge sort]] algorithm, by extending it to recursively both sort an array $A$ and determine the number of inversions in $A$.
+The main idea is to tweak the [[modules/4 Divide and Conquer/Merge Sort]] algorithm, by extending it to recursively both sort an array $A$ and determine the number of inversions in $A$.
 
 
 ## Algorithm (adapting merge-sort to count inversions)

@@ -441,7 +441,7 @@ body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split 
   z-index: -1;
   pointer-events: none;
   mask: linear-gradient(to top, hsl(0, 0%, 0%) 0%, hsla(0, 0%, 0%, 0.99) 18.4%, hsla(0, 0%, 0%, 0.963) 33.7%, hsla(0, 0%, 0%, 0.92) 46.4%, hsla(0, 0%, 0%, 0.864) 56.7%, hsla(0, 0%, 0%, 0.796) 64.8%, hsla(0, 0%, 0%, 0.72) 71.2%, hsla(0, 0%, 0%, 0.637) 76.1%, hsla(0, 0%, 0%, 0.55) 79.9%, hsla(0, 0%, 0%, 0.46) 82.8%, hsla(0, 0%, 0%, 0.37) 85.2%, hsla(0, 0%, 0%, 0.283) 87.3%, hsla(0, 0%, 0%, 0.2) 89.6%, hsla(0, 0%, 0%, 0.124) 92.3%, hsla(0, 0%, 0%, 0.056) 95.6%, hsla(0, 0%, 0%, 0) 100%);
-  background-color: var(--background-secondary)
+  /* background-color: var(--background-secondary); */
 }
 
 body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile:not(:hover) {
@@ -468,23 +468,6 @@ body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split 
 body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-leaf-content>.node-insert-event,
 body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-leaf-content>.view-content {
   padding-bottom: 64px
-}
-
-/* ====== Borders ====== */
-body {
-  --border-radius-activated-tab-header-light: 6px;
-  --border-radius-activated-tab-header-dark: 6px;
-  --color-activated-tab-header-light: var(--text-normal);
-  --background-activated-tab-header-light: var(--background-modifier-active-hover);
-  --background-activated-tab-header-dark: var(--background-modifier-active-hover);
-  /* modified */
-  --shadow-activated-tab-header-light: transparent;
-  --shadow-activated-tab-header-dark: transparent;
-  --color-activated-tab-header-dark: hsl(232, 15%, 90%);
-}
-
-.theme-dark.is-focused .workspace-leaf.mod-active .view-header-title {
-  color: var(--bright-blue);
 }
 
 /* ====== stack mod===== */

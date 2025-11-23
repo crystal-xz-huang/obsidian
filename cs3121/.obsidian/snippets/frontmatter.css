@@ -1,10 +1,12 @@
 /* ---------------------------------------------------------------
   Frontmatter, Metadata
 --------------------------------------------------------------- */
-.theme-light .mod-root .metadata-container,
-.theme-light .metadata-properties-title,
-.theme-light .metadata-properties {
-  font-family: var(--font-monospace);
+.metadata-container,
+.metadata-properties-title,
+.metadata-properties {
+  font-variation-settings: "wght" 250;
+  font-weight: 250;
+  -webkit-font-smoothing: auto;
 }
 
 .theme-light {
@@ -14,11 +16,10 @@
   --metadata-gap: 0px;
   --metadata-input-text-color: var(--text-muted);
   --metadata-input-font-size: var(--font-smallest);
-  --metadata-label-font: var(--font-monospace);
+  --metadata-label-font: var(--font-mono);
   --metadata-label-font-size: 0.75em;
-  --metadata-border-radius: var(--radius-s);
+  /* --metadata-border-radius: var(--radius-s); */
   --metadata-border-width: 1px;
-  --metadata-label-text-color: var(--text-muted);
   --metadata-label-text-color: var(--text-muted);
   --metadata-label-text-color-hover: var(--text-muted);
 }
@@ -28,7 +29,7 @@
   padding: 0;
   margin-left: 4px;
   margin-right: -4px;
-  background-color: var(--background-primary-alt);
+  /* background-color: var(--background-primary-alt); */
   margin-block-end: var(--heading-spacing);
   border: 1px solid var(--metadata-border-color);
   border-radius: var(--radius-s);

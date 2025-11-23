@@ -1,0 +1,50 @@
+.theme-dark {
+  --workspace-background-translucent: color(display-p3 0 0 0 / 5%) !important;
+  /* --background-underlying: color-mix(in oklab, rgba(40, 40, 40, 1) 47.1%, transparent) !important; */
+
+  .app-container {
+    -webkit-backdrop-filter: blur(10px) !important;
+    backdrop-filter: blur(10px) !important;
+    background: color-mix(in oklab, rgba(40, 40, 40, 1) 40%, transparent) !important;
+  }
+
+  .modal,
+  .prompt,
+  .suggestion-container,
+  .workspace-drawer .mod,
+  .workspace-drawer-inner {
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background: color-mix(in oklab, rgba(40, 40, 40, 1) 47.1%, transparent) !important;
+  }
+}
+
+.theme-light {
+  /* --color-activated-tab-header-underline-light: var(--background-modifier) !important; */
+  --background-underlying-CSS-light: linear-gradient(165deg, #efdeff 30%, #fdcfdf);
+  --metadata-border-radius: 8px;
+  --metadata-property-background: rgba(255, 255, 255, 0.1);
+  --metadata-border-color: var(--divider-color);
+
+  .mod-root .metadata-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(229, 229, 229, 1);
+  }
+
+  .modal,
+  .prompt,
+  .workspace-drawer .mod,
+  .workspace-drawer-inner {
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px) !important;
+    background: color-mix(in oklab, rgba(255, 255, 255, 1) 47.1%, transparent) !important;
+  }
+}
+
+/* ====== Window ====== */
+.workspace-split.mod-left-split>.workspace-leaf-resize-handle,
+.workspace-split.mod-right-split>.workspace-leaf-resize-handle {
+  cursor: ew-resize;
+  --cursor: ew-resize;
+}

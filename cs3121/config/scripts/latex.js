@@ -17,7 +17,8 @@ async function generateLatexEnvironment(tp) {
     },
     empheq: {
       label: '[empheq]: empheq with left and right braces',
-      start:'\\begin{empheq}[left=\\empheqlbrace, right=\\empheqrbrace]{align}\n',
+      start:
+        '\\begin{empheq}[left=\\empheqlbrace, right=\\empheqrbrace]{align}\n',
       end: '\n\\end{empheq}',
     },
     equation: {
@@ -29,6 +30,11 @@ async function generateLatexEnvironment(tp) {
       label: '[align]: multiple equations with alignment points (&)',
       start: '\\begin{align}\n',
       end: '\n\\end{align}',
+    },
+    flalign: {
+      label: '[flalign]: like align, use (&&) for left alignment',
+      start: '\\begin{flalign}\n',
+      end: '\n\\end{flalign}',
     },
     gather: {
       label: '[gather]: multiple equations centered, no alignment',
@@ -65,11 +71,11 @@ async function generateLatexEnvironment(tp) {
       start: '\\begin{tabular}{|c|c|}\n\\hline\n',
       end: '\n\\hline\n\\end{tabular}',
     },
-    "maths bold": {
+    'maths bold': {
       label: '[maths bold]: bold math expression',
       start: '\\pmb{',
       end: '}',
-    }
+    },
   };
 
   // sort options alphabetically by label
@@ -91,28 +97,6 @@ async function generateLatexEnvironment(tp) {
   }
 }
 
-
-async function alignEquations(tp, environment) {
-  const environments = ['align', 'gather', 'split', 'empheq', 'cases'];
-  const cases = ['empheq', 'cases'];
-
-  const delimiter = cases.includes(environment) ? '\\\\' : '&\\\\[6pt]';
-
-  let content = tp.file.selection();
-  if (!environments.includes(environment)) return content;
-
-  // Add \\ at the end of each line except the last
-  let lines = content.split('\n');
-  for (let i = 0; i < lines.length - 1; i++) {
-    if (lines[i].trim() !== '') {
-      lines[i] = lines[i] + ` ${delimiter}`;
-    }
-  }
-  content = lines.join('\n');
-
-  // Wrap with selected environment
-}
-
 async function generateLatexColor(tp) {
   let expresion = tp.file.selection();
   const colors = [
@@ -130,6 +114,26 @@ async function generateLatexColor(tp) {
   const color = await tp.system.suggester(colors, colors);
   if (color) {
     const replacement = `{\\color{${color}} ${expresion}}`;
+    tp.app.workspace.activeLeaf.view.editor.replaceSelection(replacement);
+  }
+}
+
+async function sizeChoice(tp) {
+  const sizes = [
+    'tiny',
+    'Tiny',
+    'scriptsize',
+    'small',
+    'large',
+    'Large',
+    'LARGE',
+    'huge',
+    'Huge',
+  ];
+  const size = await tp.system.suggester(sizes, sizes);
+  if (size) {
+    let expresion = tp.file.selection();
+    const replacement = `{\\${size} ${expresion}}`;
     tp.app.workspace.activeLeaf.view.editor.replaceSelection(replacement);
   }
 }

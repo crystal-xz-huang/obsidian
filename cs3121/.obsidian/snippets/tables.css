@@ -16,7 +16,7 @@ body {
 
 /* colors */
 .theme-light {
-  --table-border-color: #e7e7e7;
+  --table-border-color: color-mix(in oklab,#353535 10%,transparent);
 }
 
 .theme-dark {
@@ -35,6 +35,14 @@ thead tr>th {
 /** Hide table header if empty in reading view **/
 .markdown-preview-view table>thead:not(:has(th:not(:empty))) {
   display: none;
+}
+
+/***************************************************************
+  Center cells with only math content
+***************************************************************/
+.cm-html-embed td:has(.math-inline:only-child),
+.markdown-rendered td:has(.math-inline:only-child) {
+ --table-cell-vertical-alignment: middle;
 }
 
 /***************************************************************

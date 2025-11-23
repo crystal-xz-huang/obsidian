@@ -1,18 +1,9 @@
 <%*
-//=== Variables ===
+//=== State ===
 let content = '';
 let frontmatter = '---\n';
 
-//=== Helper Functions ===
-const initializeFrontmatterAndContent = () => {
-  content = '';
-  frontmatter = '---\n';
-}
-const finalizeFrontmatterAndContent = () => {
-  frontmatter += '---\n\n';
-  return frontmatter + content;
-}
-
+//=== General Utilities ===
 const isNullOrEmpty = (value) => {
   return (
     value === null ||
@@ -23,21 +14,40 @@ const isNullOrEmpty = (value) => {
   );
 };
 
+const isFile = (file) => file instanceof tp.obsidian.TFile;
+const isFolder = (file) => file instanceof tp.obsidian.TFolder;
+
 const generateLink = (file, sourcePath) => {
   if (!file) return null;
-  return app.fileManager.generateMarkdownLink(note, sourcePath);
+  return app.fileManager.generateMarkdownLink(file, sourcePath);
 };
 
-const appendContent = (text) => (content += text + '\n\n');
+//=== Frontmatter & Content Helpers ===
+const initializeFrontmatterAndContent = () => {
+  content = '';
+  frontmatter = '---\n';
+};
+
+const finalizeFrontmatterAndContent = () => {
+  frontmatter += '---\n\n';
+  return frontmatter + content;
+};
+
+const appendContent = (text) => {
+  content += text + '\n\n';
+};
+
 const appendFrontmatter = (field, value) => {
   if (isNullOrEmpty(value)) return;
-  if (value && Array.isArray(value)) {
+
+  if (Array.isArray(value)) {
     frontmatter += `${field}: [${value.join(', ')}]\n`;
-  } else if (value) {
+  } else {
     frontmatter += `${field}: ${value}\n`;
   }
 };
 
+//=== Feature: Rename File on Creation ===
 const promptRenameFile = async () => {
   let title = tp.file.title;
   if (!title.startsWith('Untitled')) return;
@@ -50,24 +60,30 @@ const promptRenameFile = async () => {
   if (!existing) {
     await tp.file.rename(title);
     return;
-  } else {
-    appendContent(`> WARNING: File named [[${existing.basename}]] already exists.`);
-    let counter = 1;
-    let newTitle = `${title} ${counter}`;
-    while (tp.file.find_tfile(newTitle)) {
-      counter += 1;
-      newTitle = `${title} ${counter}`;
-    }
-    await tp.file.rename(newTitle);
   }
+
+  appendContent(`> WARNING: File named [[${existing.basename}]] already exists.`);
+
+  let counter = 1;
+  let newTitle = `${title} ${counter}`;
+
+  while (tp.file.find_tfile(newTitle)) {
+    counter += 1;
+    newTitle = `${title} ${counter}`;
+  }
+
+  await tp.file.rename(newTitle);
 };
 
+//=== Feature: Tag Suggestions ===
 const suggestTags = async () => {
+  const allTags = Object.keys(tp.app.metadataCache.getTags())
+    .map((x) => x.replace('#', ''))
+    .sort();
+
   const selectedTags = await tp.system.multi_suggester(
     (item) => item,
-    Object.keys(tp.app.metadataCache.getTags())
-      .map((x) => x.replace('#', ''))
-      .sort(),
+    allTags,
     false,
     'Enter tags for this note (press ESC to cancel)'
   );
@@ -77,12 +93,10 @@ const suggestTags = async () => {
   }
 };
 
-const isFile = (file) => file instanceof tp.obsidian.TFile;
-const isFolder = (file) => file instanceof tp.obsidian.TFolder;
-
+//=== Feature: Module Suggestions ===
 const suggestModules = async () => {
-  const indexFolderPath = "mocs/Modules";
-  const modulesFolderPath = "modules";
+  const indexFolderPath = 'mocs/Modules';
+  const modulesFolderPath = 'modules';
 
   const indexTFolder = tp.app.vault.getAbstractFileByPath(indexFolderPath);
   const modulesTFolder = tp.app.vault.getAbstractFileByPath(modulesFolderPath);
@@ -91,28 +105,34 @@ const suggestModules = async () => {
     console.error(`Index folder not found at path: ${indexFolderPath}`);
     return;
   }
+
   if (!modulesTFolder || !isFolder(modulesTFolder)) {
     console.error(`Modules folder not found at path: ${modulesFolderPath}`);
     return;
   }
 
-  const indexes = modulesTFolder.children.filter((file) => isFile(file) && file.extension === 'md');
+  const indexes = modulesTFolder.children.filter(
+    (file) => isFile(file) && file.extension === 'md'
+  );
   const modules = modulesTFolder.children.filter((subfolder) => isFolder(subfolder));
 
   const indexModuleMap = {};
   indexes.forEach((indexFile) => {
-    let sanitizedIndexName =  indexFile.basename.toLowerCase();
+    const sanitizedIndexName = indexFile.basename.toLowerCase();
+
     const correspondingModule = modules.find((modFolder) => {
-      let sanitizedModuleName = modFolder.name.toLowerCase().replace(/^\d+\s*/, '');
+      const sanitizedModuleName = modFolder.name.toLowerCase().replace(/^\d+\s*/, '');
       return sanitizedIndexName.includes(sanitizedModuleName);
     });
+
     if (correspondingModule) {
       indexModuleMap[indexFile.path] = correspondingModule;
     }
   });
 
-  let selectedModule;
   const currentFilePath = tp.file.path;
+  let selectedModule;
+
   for (const [indexPath, moduleFolder] of Object.entries(indexModuleMap)) {
     if (currentFilePath.startsWith(moduleFolder.path)) {
       selectedModule = moduleFolder;
@@ -121,7 +141,7 @@ const suggestModules = async () => {
   }
 
   if (selectedModule) {
-    let modulesLink = generateLink(selectedModule, currentFilePath);
+    const modulesLink = generateLink(selectedModule, currentFilePath);
     appendFrontmatter('modules', [modulesLink]);
     return;
   }
@@ -135,14 +155,14 @@ const suggestModules = async () => {
 
   if (selectedIndexPath && indexModuleMap[selectedIndexPath]) {
     const moduleFolder = indexModuleMap[selectedIndexPath];
-    let modulesLink = generateLink(moduleFolder, currentFilePath);
+    const modulesLink = generateLink(moduleFolder, currentFilePath);
     appendFrontmatter('modules', [modulesLink]);
   } else if (selectedIndexPath) {
     console.error(`No corresponding module folder found: ${selectedIndexPath}`);
   }
-}
+};
 
-//=== Main Logic ===
+//=== Main Flow ===
 initializeFrontmatterAndContent();
 await promptRenameFile();
 await suggestTags();

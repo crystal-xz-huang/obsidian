@@ -10,12 +10,18 @@ body {
   --shadow-tactile: rgba(0, 0, 0, 0.04) 0px 2px 8px -2px, rgba(var(--mono-rgb-100), 0.04) 0px 2px 4px -2px;
 }
 
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* ---------------------------------------------------------------
   Serif Font
 --------------------------------------------------------------- */
 .font-serif {
-  --headings-font-family: var(--serif-font);
-  --font-text-theme: var(--serif-font);
+  --headings-font-family: var(--font-serif);
+  --font-text-theme: var(--font-serif);
   --font-weight: 400;
   --h1-weight: 600;
   --h2-weight: 600;
@@ -35,14 +41,13 @@ body {
   --h4-variant: oldstyle-nums;
   --h5-variant: oldstyle-nums;
   --h6-variant: oldstyle-nums;
-  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale
 }
 
 .font-serif .cm-formatting-list-ol,
 .font-serif ol li::marker {
-  font-family: var(--serif-font);
+  font-family: var(--font-serif);
   font-variant: oldstyle-nums;
 }
 
@@ -90,7 +95,6 @@ body {
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "ss01" 1;
   letter-spacing: .025em;
-
 }
 
 .markdown-source-view .HyperMD-header-6,
@@ -99,6 +103,7 @@ body {
 }
 
 .markdown-preview-view {
+
   /* Reading view */
   :is(h1, h2, h3, h4, h5, h6) {
     font-family: var(--headings-font-family);
@@ -110,6 +115,7 @@ body {
 }
 
 .markdown-source-view.is-live-preview.cm-s-obsidian {
+
   /* Editing view - live preview mode */
   .HyperMD-header {
     font-family: var(--headings-font-family);
@@ -230,10 +236,25 @@ body .is-live-preview {
   }
 }
 
-/* ====== Inline Title, File Header ====== */
+/* ====== File Header ====== */
+.view-header-title-container {
+  --file-header-font: var(--font-mono);
+  --file-header-font-size: var(--font-smaller);
+  text-transform: uppercase;
+  font-variation-settings: "wght" var(--file-header-font-weight);
+}
+
+.theme-dark {
+  --color-activated-tab-header-dark: var(--bright-blue);
+}
+
+.is-focused .workspace-leaf.mod-active .view-header-title {
+  color: var(--full-contrast);
+}
+
+/* ====== Inline Title ====== */
 body {
-  --file-header-font: var(--font-monospace);
-  --inline-title-font: var(--sans-serif-font);
+  --inline-title-font: var(--font-sans);
   --inline-title-margin-bottom: var(--heading-spacing);
   --inline-title-size: 1.5em;
   --inline-title-style: normal;
@@ -254,6 +275,7 @@ body {
 
 .inline-title:not([data-level]) {
   padding-block: 8px;
+  margin-block-end: 8px;
   position: relative;
   transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
   border: var(--border-width) solid rgba(0, 0, 0, 0);
@@ -274,18 +296,23 @@ body {
   background-color: var(--background-modifier-hover)
 }
 
+
 /* ---------------------------------------------------------------
   Typography
 --------------------------------------------------------------- */
 .theme-light {
   --italic-color: hsla(208, 83%, 41%, 1);
   --bold-color: hsla(360, 74%, 54%, 1);
-  --underline-color: hsla(162, 72%, 65%, 1);
+  --bold-color: #e83e8c;
+  --bold-color: #e91e63;
+  --underline-color: hsla(162, 72%, 65%, .75);
 }
 
 .theme-dark {
   --italic-color: hsla(208, 96%, 72%, 1);
   --bold-color: hsla(360, 100%, 76%, 1);
+  --underline-color: hsla(162, 85%, 35%, .75);
+  --underline-color: rgb(159, 234, 249, .75);
 }
 
 /* ====== Bold ====== */
@@ -298,9 +325,7 @@ b {
 }
 
 /* ====== Italics ====== */
-.cm-em,
-em,
-i {
+:is(.cm-em, em, i) {
   letter-spacing: 0.01em;
   font-weight: 500;
 }
@@ -316,8 +341,8 @@ i {
 
 /* ====== Underline ====== */
 u {
-  text-underline-offset: 1.25px;
-  text-decoration-thickness: 2px;
+  text-underline-offset: .25rem;
+  text-decoration-thickness: 1.3px;
   text-decoration-color: var(--underline-color);
 }
 
@@ -325,7 +350,7 @@ u:has(strong),
 u:has(b),
 :is(strong, b)>u {
   text-decoration-color: var(--bold-color);
-  text-decoration-thickness: 0.115em;
+  text-decoration-thickness: 1.3px;
 }
 
 /* ---------------------------------------------------------------
@@ -343,9 +368,9 @@ body.theme-dark {
   --highlight-orange: rgba(223, 142, 29, 0.4);
   --highlight-green: rgba(147, 185, 96, 0.3);
   --highlight-purple: rgba(189, 147, 249, 0.35);
-  --text-highlight-bg: hsla(50 85% 40% / 40%; );
-  --text-highlight-hover: #3a692fd0;
-  --text-highlight: #d8dee9;
+  --text-highlight-bg: var(--highlight-brown);
+  --text-highlight-hover: var(--highlight-orange);
+  --text-highlight-bg: #ffdcbc4d;
 }
 
 .markdown-reading-view mark,
@@ -381,14 +406,36 @@ body.theme-dark {
 }
 
 /* ---------------------------------------------------------------
+  Blockquote
+--------------------------------------------------------------- */
+.theme-light {
+  /* blockquotes */
+  --blockquote-border-color: var(--text-faint);
+  --blockquote-color: var(--text-muted);
+  --blockquote-border-color: hsl(230 25% 67%);
+  --blockquote-color: rgb(31, 41, 92);
+}
+
+/* Blockquotes nested inside lists */
+.markdown-rendered li blockquote {
+  margin-block: .25em;
+  font-size: var(--font-small);
+  opacity: 0.9;
+}
+
+/* ---------------------------------------------------------------
   Codeblock
 --------------------------------------------------------------- */
 /* ====== Codeblocks ====== */
+.theme-light {
+  --code-size: var(--font-smallest);
+}
+
 .theme-dark {
   /* Dracula theme colors */
   --code-radius: 8px;
-  --code-background-dark: var(--background-primary-alt);
-  --code-border-dark: 1px solid var(--background-modifier-border);
+  --code-background-dark: rgb(40, 40, 40, 0.5);
+  --code-border-dark: 1px solid rgb(68, 68, 68);
   --code-normal: #f8f8f2;
   --code-comment: #6272a4;
   --code-function: #f1fa8c;
@@ -402,27 +449,35 @@ body.theme-dark {
   --code-value: #bd93f9;
 }
 
-body {
-  --code-size: var(--font-smallest);
-}
-
 /* inline code */
 .markdown-rendered code {
   --code-radius: 8px;
   --code-border-color: var(--background-modifier-border);
-  --code-background: var(--background-primary-alt);
   --code-border-width: 1px;
-  --inline-code-background-light: var(--code-background);
   --inline-code-normal: var(--text-normal);
   --code-border-color: rgba(0, 0, 0, 0.075);
+}
+
+.cm-s-obsidian .HyperMD-header,
+.cm-s-obsidian .HyperMD-footnote,
+.cm-s-obsidian .HyperMD-codeblock,
+.cm-s-obsidian .HyperMD-hr,
+.cm-inline-code,
+.cm-formatting-code,
+code {
+  -webkit-font-smoothing: auto;
 }
 
 .markdown-rendered code {
   padding: 2px 4px;
 }
 
+.markdown-rendered pre {
+  transition: all var(--anim-duration-moderate) cubic-bezier(.4, 0, .2, 1);
+}
+
 .markdown-rendered pre code {
-  white-space: var(--code-white-space)
+  white-space: var(--code-white-space);
 }
 
 /* codeblock scroll */
@@ -449,23 +504,47 @@ body.code-line-numbers .HyperMD-codeblock:not(.HyperMD-codeblock-begin, .HyperMD
   padding-right: 1em
 }
 
+body .HyperMD-codeblock-begin {
+  counter-reset: codeblock-line-numbers
+}
+
+body .HyperMD-codeblock:not(.HyperMD-codeblock-begin, .HyperMD-codeblock-end)::before {
+  counter-increment: codeblock-line-numbers;
+  content: counter(codeblock-line-numbers);
+  font-size: var(--font-smallest);
+  text-align: right;
+  color: var(--text-muted);
+  padding-right: 1em;
+  font-variation-settings: "wght" 400;
+  font-weight: 400;
+}
+
+/* ===== PP Fraktion Mono Font ====== */
+/* .markdown-source-view.cm-s-obsidian .cm-line  */
+.markdown-source-view .cm-line.HyperMD-table-row,
+.cm-s-obsidian.markdown-source-view span.cm-math,
+.cm-s-obsidian.markdown-source-view span.hmd-fold-math-placeholder,
+code,
+kbd,
+pre,
+samp {
+  -webkit-font-smoothing: auto;
+  font-family: var(--font-mono);
+  font-feature-settings: normal;
+  font-variation-settings: "wght" 400;
+  font-weight: 400;
+}
+
+
 /* ====== Keyboard Keys ====== */
+.suggestion-item.mod-complex .suggestion-hotkey,
 kbd {
   box-shadow: var(--shadow-tactile);
   border: 1px solid var(--background-modifier-border);
-  background: linear-gradient(var(--background-primary), var(--background-secondary));
+  border: rgba(68, 68, 68, 1);
   padding: var(--tag-padding-y) var(--tag-padding-x);
-  font-family: var(--font-text)
-}
-
-.dataview .inline-field-standalone-value,
-body .dataview.inline-field-key,
-body .dataview.inline-field-value {
-  font-family: var(--font-text);
-  font-size: var(--font-smaller);
-  background: rgba(0, 0, 0, 0);
-  color: var(--text-faint);
-  padding: 0
+  font-family: var(--font-mono);
+  color: color(display-p3 0.706 0.706 0.706);
 }
 
 /* ---------------------------------------------------------------
@@ -490,7 +569,8 @@ a:not(.tag, .raindrop-tag, .clickable-icon, :has(img:not(.link-favicon))):hover,
 .external-link:not(:has(img:not(.link-favicon))):hover,
 .cm-s-obsidian .cm-line:not(.cm-active) span:is(.cm-link, .cm-url):hover {
   --background-modifier-hover: none;
-  transition: transform .2s, opacity .2s, color .25s;
+  transition-property: all;
+  /* transition: transform .2s, opacity .2s, color .25s; */
 }
 
 /* Don't wrap URLs onto multiple lines */
@@ -510,7 +590,7 @@ a:not(.tag, .raindrop-tag, .clickable-icon, :has(img:not(.link-favicon))):hover,
   font-weight: 700;
   display: inline-block;
   transform: translateY(-0.3em);
-  transition: transform .2s, opacity .2s, color .25s;
+  transition: all var(--anim-duration-fast) var(--ease-in-out);
 }
 
 /* Move icon up and right on hover */
@@ -524,8 +604,10 @@ u,
 .external-link,
 .cm-url,
 .cm-link-alias {
+  text-decoration-thickness: 1px;
   text-decoration-skip-ink: none;
   text-underline-offset: 2px;
+  text-underline-offset: .25rem;
 }
 
 .cm-hmd-internal-link .cm-underline.cm-underline,
@@ -575,9 +657,8 @@ body:not(.show-urls) .cm-s-obsidian:not(.is-live-preview) .cm-line.cm-active .cm
 .external-link {
   background-image: none;
   padding-right: 0;
-  transition: transform .2s, opacity .2s, color .25s;
+  transition: all var(--anim-duration-fast) var(--ease-in-out);
 }
-
 
 /* ---------------------------------------------------------------
   Lists
@@ -759,4 +840,149 @@ body {
   border: 0;
   border-left: 1px solid var(--background-modifier-border);
   border-radius: 0;
+}
+
+/* ---------------------------------------------------------------
+  Math
+--------------------------------------------------------------- */
+:is(i, em, strong, u, mark) mjx-container {
+  color: inherit !important;
+  background-color: inherit !important;
+}
+
+mjx-container [style="color: red;"] {
+  color: var(--color-red) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+mjx-container [style="color: yellow;"] {
+  color: var(--color-yellow) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+mjx-container [style="color: blue;"] {
+  color: var(--color-blue) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+mjx-container [style="color: green;"] {
+  color: var(--color-green) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+mjx-container [style="color: orange;"] {
+  color: var(--color-orange) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+mjx-container [style="color: purple;"] {
+  color: var(--color-purple) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+mjx-container [style="color: pink;"] {
+  color: var(--color-pink) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+mjx-container [style="color: cyan;"] {
+  color: var(--color-cyan) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+
+/* ====== Colorful folders in file explorer ====== */
+body .nav-files-container>div>.nav-folder {
+  border-radius: var(--radius-s);
+  --nav-item-color-hover: var(--nav-item-color);
+}
+
+body .nav-files-container>div>.nav-folder:nth-child(8n+2) {
+  --nav-collapse-icon-color: var(--colorful-red);
+  background-color: rgba(var(--colorful-red-rgb), 0.1)
+}
+
+body .nav-files-container>div>.nav-folder:nth-child(8n+3) {
+  --nav-collapse-icon-color: var(--colorful-orange);
+  background-color: rgba(var(--colorful-orange-rgb), 0.1)
+}
+
+body .nav-files-container>div>.nav-folder:nth-child(8n+4) {
+  --nav-collapse-icon-color: var(--colorful-yellow);
+  background-color: rgba(var(--colorful-yellow-rgb), 0.1)
+}
+
+body .nav-files-container>div>.nav-folder:nth-child(8n+5) {
+  --nav-collapse-icon-color: var(--colorful-green);
+  background-color: rgba(var(--colorful-green-rgb), 0.1)
+}
+
+body .nav-files-container>div>.nav-folder:nth-child(8n+6) {
+  --nav-collapse-icon-color: var(--colorful-cyan);
+  background-color: rgba(var(--colorful-cyan-rgb), 0.1)
+}
+
+body .nav-files-container>div>.nav-folder:nth-child(8n+7) {
+  --nav-collapse-icon-color: var(--colorful-blue);
+  background-color: rgba(var(--colorful-blue-rgb), 0.1)
+}
+
+body .nav-files-container>div>.nav-folder:nth-child(8n+8) {
+  --nav-collapse-icon-color: var(--colorful-purple);
+  background-color: rgba(var(--colorful-purple-rgb), 0.1)
+}
+
+body .nav-files-container>div>.nav-folder:nth-child(8n+9) {
+  --nav-collapse-icon-color: var(--colorful-pink);
+  background-color: rgba(var(--colorful-pink-rgb), 0.1)
+}
+
+body .nav-files-container>div>.nav-folder.is-collapsed {
+  background-color: transparent;
+}
+
+
+/* ====== Text background colors ====== */
+body {
+  /* Caret */
+  --caret-color: hsla(288, 85%, 78%, 1);
+  /* Selection */
+  --selection-color: var(--vivid-pink);
+  --text-selection: color-mix(in srgb, var(--selection-color) 15%, var(--octonary-contrast));
+}
+
+::selection {
+  background: var(--selection-background);
+  color: color-mix(in srgb, var(--selection-color) 40%, var(--primary-contrast))
+}
+
+.theme-dark {
+  --caret-color: oklch(69.02% .277 332.77);
+}
+
+
+/* ====== Scrollbars ====== */
+body {
+  --scrollbar-width: 12px;
+  --scrollbar-height: 12px;
+  --scrollbar-border-width: 3px 3px 3px 2px;
+  --scrollbar-radius: var(--radius-l);
+  --scrollbar-bg: #0000;
+  --scrollbar-active-thumb-bg: color-mix(in oklch, var(--text-accent) 35%, #0000);
+  --scrollbar-thumb-bg: color-mix(in oklch, var(--text-accent) 15%, #0000);
+}
+
+body:not(.restored-scrollbars) ::-webkit-scrollbar,
+body:not(.restored-scrollbars) .kanban-plugin__scroll-container::-webkit-scrollbar {
+  width: 13px;
+  height: 12px;
+}
+
+body:not(.restored-scrollbars) ::-webkit-scrollbar-thumb,
+body:not(.restored-scrollbars) .kanban-plugin__scroll-container::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  border-radius: 20px;
+  border: 3px solid transparent;
+  border-width: 3px 3px 3px 3px;
+  min-height: 15px;
 }

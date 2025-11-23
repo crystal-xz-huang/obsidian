@@ -145,9 +145,9 @@ Note that exponent is the "growth rate".
 > 
 > In this recurrence, there are three constants:
 > 
-> - **a** is the number of subproblems that we create from one problem, and must be an integer greater than or equal to 1.  
-> - **b** is the factor by which the input size shrinks (it must hold that $b > 1$).  
-> - **d** is the exponent of $n$ in the time it takes to generate the subproblems and combine their solutions.
+> - **$\pmb a$** is the number of subproblems that we create from one problem, and must be an integer greater than or equal to 1.  
+> - **$\pmb b$** is the factor by which the input size shrinks (it must hold that $b > 1$).  
+> - **$\pmb d$** is the exponent of $n$ in the time it takes to generate the subproblems and combine their solutions.
 > 
 > Then,
 > $$
@@ -181,17 +181,17 @@ Let $T(n) = aT(n/b) + f(n)$ be a recurrence where $a \geq 1, b > 1$. Then,
 > ---
 > Define  the **critical exponent** $c = \log_b a$. Then,
 > 
-> 1. If $f(n) = O\!\left(n^{c - \varepsilon}\right)$ for some constant $\varepsilon > 0$, then  
+> 4. If $f(n) = O\!\left(n^{c - \varepsilon}\right)$ for some constant $\varepsilon > 0$, then  
 >    $$
 >    T(n) = \Theta\!\left(n^{c}\right).
 >    $$
 > 
-> 2. If $f(n) = \Theta\!\left(n^{c}\right)$, then  
+> 5. If $f(n) = \Theta\!\left(n^{c}\right)$, then  
 >    $$
 >    T(n) = \Theta\!\left(n^{c} \log n\right).
 >    $$
 > 
-> 3. If $f(n) = \Omega\!\left(n^{c + \varepsilon}\right)$ for some constant $\varepsilon > 0$ and if  
+> 6. If $f(n) = \Omega\!\left(n^{c + \varepsilon}\right)$ for some constant $\varepsilon > 0$ and if  
 >    $a\,f(n/b) \le k\,f(n)$ for some $k < 1$ and all sufficiently large $n$, then  
 >    $$
 >    T(n) = \Theta\!\left(f(n)\right).
@@ -230,55 +230,90 @@ Let $T(n) = aT(n/b) + f(n)$ be a recurrence where $a \geq 1, b > 1$. Then,
 > [!summary]
 > Given a recurrence relation:
 > $$T(n) = a\,T(n/b) + f(n)$$
-> (where a and b are specified). 
+> (where $a$ and $b$ are specified). 
 > 
-> 0. Identify $a$ (number of subproblems), $b$ and $f(n)$ (work outside recursion)
+> 0. Identify the three constants in the recurrence:
+> 	- $a$ is the number of subproblems (must be an integer $\geq 1$)
+> 	- $b$ is the factor by which the input size shrinks (it must hold that $b > 1$), and 
+> 	- $f(n)$ is the time it takes to generate (split) the subproblems and combine their solutions—the non-recursive work done at the top level.
 > 1. Calculate the critical exponent $c = \log_b a$.
-> 2. Calculate the critical polynomial $n^{c}$ (recursion work)
-> 3. Compare $f(n)$ to $n^{c}$
-> 	1. compare the powers of $n$ 
-> 	2. determine the [[1.0 Asymptotic Notations#Asymptotic Notations O(), Ω(), and Θ()|asymptotic bounds]] of $n^{c}$: $O(), \Omega()$ or $\Theta()$.
+> 2. Calculate the critical polynomial $n^{c^\ast}$, the recursive work done at the leaves. 
+> 3. Compare $f(n)$ to $n^{c^\ast}$ to determine  $f(n)$'s  [[1.0 Asymptotic Notations#Asymptotic Notations O(), Ω(), and Θ()|asymptotic bounds]] $O(), \Theta()$ or $\Omega()$ with respect to $n^{c^\ast}$. 
+> 	- **Case 1.** $f(n)$ grows **slower** than the critical polynomial (Oh)
+> 	- **Case 2.** $f(n)$ grows **at the same rate** than the critical polynomial (Theta)
+> 	- **Case 3.**  $f(n)$ grows **faster** than the critical polynomial (Omega)
 > 4. See if one of the rules of the Master Theorem can be applied, and if so, apply it!
 
 > [!theorem]
 > <b>Setup</b>
-> Given the a recurrence of the form
+> Consider the recurrence
+> $$\begin{equation*}
+> T(n) = aT(n/b) + f(n),
+> \end{equation*}$$
+> where $a \geq 1$ is an integer and $b > 1$ is a real number with $f(n) > 0$ asymptotically positive.[^1] 
 > 
-> $$
-> T(n) = a\,T\!\left(\frac{n}{b}\right) + f(n),
-> $$  
+> Define the critical exponent $c^\ast = \log_b a$ and the critical polynomial $n^{c^\ast}$. 
 > 
-> for constants $a \ge 1$ and $b > 1$ with $f(n) > 0$ asymptotically positive.[^1]
-> 
-> Define the **critical exponent** $c^\ast = \log_b a$ and the **critical polynomial** $\displaystyle n^{c^\ast}$.
 > > Observe that $n^{c^\ast} = n^{\log_b a}$ is just the number of leaves in the tree.
 > 
+> Then we have the following result.
+> 
 > <b>Theorem</b>
-> 5. If $f(n) = O\!\left(n^{c^\ast-\varepsilon}\right)$ for some $\varepsilon > 0$, then $T(n) = \Theta\!\left(n^{c^\ast}\right)$.
-> 6. If $f(n) = \Theta\!\left(n^{c^\ast}\right)$, then $T(n) = \Theta\!\left(n^{c^\ast} \log n\right)$.
-> 7. If $f(n) = \Omega\!\left(n^{c^\ast+\varepsilon}\right)$ for some $\varepsilon > 0$, and if there exist $k < 1$ and some $n_0$ such that
->    $$a\,f(n/b) \le k\,f(n) \quad \text{for all } n > n_0$$
->    then $T(n) = \Theta\!\left(f(n)\right)$.
+> - **Case 1.** If $f(n) = O(n^{c^\ast-\varepsilon})$ for some $\varepsilon > 0$, then $T(n) = \Theta(n^{c^\ast})$. 
+> > If $f(n)$ is *slower (polynomially smaller)* than the critical polynomial, then $n^{c^\ast}$ dominates.
+> - **Case 2.** If $f(n) = \Theta(n^{c^\ast})$, then $T(n) = \Theta(n^{c^\ast} \log n)$.
+> >If $f(n)$ is *asymptotically the same* as the critical polynomial.
+> - **Case 3.** If $f(n) = \Omega(n^{c^\ast+\varepsilon})$ for some $\varepsilon > 0$ ***and*** if $f$ satisfies the regularity condition $af(n/b) \le kf(n)$ for some constant $k < 1$ and for all $n > n_0$, then $T(n) = \Theta(f(n))$
+> > If $f(n)$ is *faster (polynomially larger)* than the critical polynomial, then $f(n)$ dominates.
+> 
 
-> [!example] Example 1
-> Let $$T(n) = 4\,T\!\left(\frac{n}{2}\right) + n.$$
-> Then the critical exponent is $c^\ast = \log_b a = \log_2 4 = 2$, so the critical polynomial is $n^2$.  
-> Now, $f(n) = n = O(n^{2-\varepsilon})$ for suitable small $\varepsilon$.  
-> In this case any $\varepsilon$ with $0 < \varepsilon < 1$ works, e.g. $0.1$.  
-> This satisfies the condition for **case 1**, so $T(n) = \Theta(n^2)$.
+> [!important]
+> Recall that the critical exponent is computed by 
+> $$c^\ast = \log_b a \quad a \geq 1, \ b > 1.$$
+> If $a < b$, then we have $\log_b a < 1$ with $\log_b 1=0$ when $a=1$.
 
+### Case 1
 
-> [!example] Example 2
+> [!example|style-5] 
+> Consider the recurrence $$T(n) = 4\,T\!\left(\frac{n}{2}\right) + n.$$
+> Notice that $a=4$, $b=2$ and $f(n)= n$. The critical exponent $c^\ast = \log_b a$ is equal to $\log_2 4 = 2$, so the critical polynomial is $n^2$. 
+> 
+> Now, $f(n) = n$ is asymptotically slower than the critical polynomial $n^2$, so 
+> $$f(n) = n = O(n^{2-\varepsilon})$$ for suitable small $\varepsilon$.  In this case any $\varepsilon$ with $0 < \varepsilon < 1$ works, e.g. $0.1$.  
+> 
+> This satisfies the condition for **Case 1** of the Master Theorem, so $T(n) = \Theta(n^2)$.
+
+> [!example|style-5] 
+> Consider $T(n) = 4T(n/5) + 3\log n$.
+> 
+> The recurrence gives $a=4$, $b=5$ and $f(n) = 3\log n$.
+> The critical exponent is $\log_5 4 < 1$, so the critical polynomial is $n^{\log_5 4}$. 
+> 
+> Now, $f(n) = 3\log n$ is asymptotically slower than $n^{\log_5 4}$ (polynomials grow faster than logarithms), so we have that 
+> $$f(n) =  O(n^{\log_5 4 + \varepsilon})$$
+> for suitable small $0<\varepsilon<1$. This satisfies the condition for **Case 1**, so $T(n) = O(n^{\log_5 4})$.
+> 
+> > [!answer] Feedback
+> > The critical exponent is $\log_5 4 < 1$, we have that 
+> > $$f(n) = O(n^{c^{\ast\ast}})$$
+> > for $0<c^{\ast\ast}<c^{\ast}$  (polynomials grow faster than logarithms), so we fall into **Case 1** of the Master Theorem. Hence, $T(n) = O(n^{\log_5 4})$.
+
+### Case 2
+
+> [!example|style-5] Example 2
 > Consider the recurrence $$T(n) = 2\,T\!\left(\tfrac{n}{2}\right) + 5n.$$
 > 
 > The critical exponent is $c^* = \log_b a = \log_2 2 = 1$, so the critical polynomial is $n^{c^*} = n$.
 > 
 > Now, $f(n) = 5n = \Theta(n)$.
 > 
-> This satisfies the condition for **case 2**, so $T(n) = \Theta(n \log n)$.
-> 
+> This satisfies the condition for **Case 2**, so $T(n) = \Theta(n \log n)$.
 
-> [!example] Example 3
+### Case 3
+
+#### Case 3 with regularity condition satisfied
+
+> [!example|style-5] Example 3
 > Consider the recurrence $$T(n) = 3\,T\!\left(n/4\right) + n.$$
 > 
 > > The recurrence gives $a = 3$, $b = 4$ and $f(n) = n$.
@@ -295,6 +330,48 @@ Let $T(n) = aT(n/b) + f(n)$ be a recurrence where $a \geq 1, b > 1$. Then,
 > Therefore we can choose $k = 0.9$ and $n_0 = 0$, so that whenever $n > n_0$ we have
 > $$a f\!\left(\tfrac{n}{b}\right) = 3 f\!\left(\tfrac{n}{4}\right) = 3\,\tfrac{n}{4} < k\,n = k f(n).$$
 > This satisfies the conditions for case 3, so $T(n) = \Theta\!\big(f(n)\big) = \Theta(n)$.
+
+> [!example|style-5] 
+> Consider the recurrence $$T(n) = T(n/2) + \sqrt{n}.$$
+> 
+> The recurrence gives $a=1$, $b=2$ and $f(n) = n^{1/2}$.
+> The critical exponent is $\log_2 1 =0$, so the critical polynomial is $n^{0} =1$.
+> 
+> Now, $f(n) = n^{1/2}$ grows faster than a constant, so we have
+> 
+> $$f(n) = n^{1/2}= \Omega(n^{0 + ε})$$
+> 
+> for suitable small $\varepsilon$. For example,  $\varepsilon = 0.1$ is sufficient because $0.1 < 0.5$ so $n^{1/2} =\Omega(n^{0.1})$ holds.
+> 
+> Now check if $f$ satisfies the **regularity condition** $af(n/b) \le kf(n)$ for some constant $k < 1$ and for all $n > n_0$.
+> 
+> The LHS: 
+> $$af(n/b) = 1 \cdot (n/2)^{1/2} = \frac{n^{1/2}}{\sqrt{2}}.$$
+> 
+> Putting this altogether, 
+> $$
+> \begin{align}
+> \frac{n^{1/2}}{\sqrt{2}} &\le k \ n^{1/2} \\[4pt]
+> \frac{1}{\sqrt{2}} &\le k &&\text{divide both sides by }n^{1/2}
+> \end{align}
+> $$
+> For some constant $k<1$, does this hold for all sufficiently large $n$?
+> 
+> Choose any constant $k$ satisfying $\frac{1}{\sqrt{2}} \approx 0.7071 \leq k < 1$.
+> For example, $k = 0.8$ works. So the regularity condition holds.
+> 
+> Therefore, $T(n) = \Theta(\sqrt(n))$.
+> 
+> > [!answer] Feedback
+> > The critical exponent is $\log_2 1 = 0$, we have that $f(n) = \Omega(c^{\ast \ast})$ for $0<c^{\ast \ast} \leq \frac{1}2$, so we fall into Case 3 of the Master Theorem.
+> > 
+> > We are now required to check the **regularity condition**, i.e. $\frac{a}{\sqrt b} \sqrt{n} \le k \sqrt{n}$ for some constant $0<k < 1$ and large enough $n$.
+> > 
+> > Note that $\frac{a}{\sqrt b} = \frac{1}{\sqrt 2}$, so we can choose $k \in \left(\frac{1}{\sqrt 2}, 1 \right)$, and thus we satisfy the regularity condition.
+> > 
+> > Hence, $T(n) = \Theta(\sqrt(n))$.
+
+#### Case 3 with regularity condition not satisfied
 
 > [!example] Example 4
 > Let $$T(n) = 2\,T\!\left(\tfrac{n}{2}\right) + n \log_2(\log_2 n.)$$

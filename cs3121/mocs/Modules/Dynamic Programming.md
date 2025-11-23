@@ -17,7 +17,7 @@ tags:
 ## Table of Contents
 
 1. Introduction  
-	- [[modules/03 Dynamic Programming/Introduction|Introduction]]
+	- [[modules/3 Dynamic Programming/Introduction|Introduction]]
 	- [[Tower of Hanoi]]
 2. One Parameter, Constant Recurrence
 	- [[Hopscotch]]

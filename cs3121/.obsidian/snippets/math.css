@@ -6,19 +6,18 @@ mjx-container {
 
 .theme-light mjx-container {
   /* make math more readable on light mode */
-  /* color: hsl(232, 15%, 20%);
-  color: #161616; */
+  color: #161616;
   color: black;
 }
 
 .theme-dark mjx-container {
   /* make math more readable on dark mode */
-  /* color: hsl(232, 15%, 90%); */
   color: white;
 }
 
-:is(i, em, strong, u, mark) mjx-container {
+:is(i, em, strong, u, mark, .callout-title) mjx-container {
   color: inherit !important;
+  background-color: inherit !important;
 }
 
 mjx-container [style="color: red;"] {
@@ -62,7 +61,7 @@ mjx-container [style="color: cyan;"] {
 }
 
 mjx-container [style="color: gray;"] {
-  color: var(--color-cyan) !important;
+  color: var(--gray-500) !important;
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
@@ -76,15 +75,21 @@ mjx-container [style="color: gray;"] {
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
+/* .math-block>mjx-container[jax="CHTML"][display="true"] {
+  margin-block: 1em;
+} */
+
 mjx-container {
   font-size: 110%;
 }
 
-.math-block {
+.math-block>mjx-container {
+  /* wrap math blocks to full width to prevent line breaks */
   overflow: auto;
   overflow-x: auto;
   overflow-y: hidden;
-  margin: 1em 0 !important;
+  /* increase font-size */
+  font-size: 115%;
 }
 
 .math-inline {

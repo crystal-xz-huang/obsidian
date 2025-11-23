@@ -2207,7 +2207,7 @@
   "pdfFrame": false,
   "pdfGapSize": 20,
   "pdfGroupPages": false,
-  "pdfLockAfterImport": false,
+  "pdfLockAfterImport": true,
   "pdfNumColumns": 1,
   "pdfNumRows": 1,
   "pdfDirection": "right",

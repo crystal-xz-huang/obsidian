@@ -47,7 +47,7 @@ figcaption {
   width: 50%;
 } */
 
-/* add alt-text of images as caption */
+/* Option 2: Add alt-text of images as caption */
 /* .workspace-leaf-content p>.image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"], [alt$=".svg"])::after {
   content: attr(alt);
   font-style: italic;
@@ -60,64 +60,36 @@ figcaption {
 } */
 
 /* Option 3: Table */
-/* ====== image captions (embed images only) ====== */
-.workspace-leaf-content[data-type=markdown] .view-content thead tr:has(img, pre) {
-  background: none;
-  background-color: white;
-}
-
-.theme-dark .workspace-leaf-content[data-type=markdown] .view-content thead tr:has(img, pre) {
-  background: none;
-}
-
-.workspace-leaf-content[data-type=markdown] .view-content thead:has(img)+tbody td {
+.markdown-rendered table:has(thead > tr:first-child img) {
   --table-text-size: var(--font-smaller);
   --table-text-color: var(--text-muted);
-}
-
-.workspace-leaf-content[data-type=markdown] .view-content thead:has(img, pre)+tbody tr:first-child td {
-  /* text-align: center; */
-  font-style: italic;
-  color: var(--text-muted);
-  font-size: var(--font-smaller);
-}
-
-.markdown-preview-view thead:has(img)+tbody {
+  --table-header-background: white;
+  --table-cell-padding: 8px 8px;
   --table-border-width: 0;
-  & tr:first-child td {
-    padding: 4px;
+  --table-border-color: var(--divider-color);
+
+  /* italicize caption */
+  font-style: italic;
+
+  /* make table header background white */
+  thead>tr:first-child th {
+    background-color: white;
+    padding: 0;
+    margin: 0;
   }
-  & td {
-    padding-top: 0px;
+
+  /* remove padding inbetween rows */
+  tbody>tr:first-child td {
+    --table-cell-padding: 8px 8px 0px 8px; /* top right bottom left */
   }
-}
+  tbody>tr:not(:first-child) td {
+    --table-cell-padding: 0px 8px 8px 8px; /* top right bottom left */
+  }
 
-/* image in preview */
-.markdown-preview-view thead tr:first-child th {
-  padding: 4px;
-}
-
-/* shrink-wrap to image + text */
-body:not(.table-width-obsidian-default) .markdown-preview-view table:has(thead > tr:first-child img[alt*="figure"]) {
-  display: inline-table;
-  width: auto !important;
-}
-
-/* default center */
-.markdown-preview-view .el-table:has(thead > tr:first-child img[alt*="figure"]) {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* float table to the right */
-.markdown-preview-view .el-table:has(thead > tr:first-child img[alt*="figure-right"]) {
-  float: right;
-  margin-left: 1em;
-}
-
-/* float table to the left */
-.markdown-preview-view .el-table:has(thead > tr:first-child img[alt*="figure-left"]) {
-  float: left;
-  margin-right: 1em;
+  /* center image */
+  thead > tr:first-child img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

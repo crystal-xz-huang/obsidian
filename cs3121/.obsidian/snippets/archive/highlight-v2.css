@@ -1,0 +1,59 @@
+/* inspired by Medium  */
+/* .theme-light {
+  --green-highlighter: rgb(232, 243, 232);
+  --green-highlighter-hover: rgb(187, 219, 186);
+  --text-highlight-bg: var(--green-highlighter);
+} */
+
+/* .theme-light .markdown-preview-view mark:hover {
+  background-color: var(--text-highlighter-hover);
+  --text-highlighter-hover: #FFB86CA6;
+}
+
+mark,
+.markdown-rendered mark {
+  margin: 0 -0.05em;
+  padding: 0.125em 0.15em;
+  border-radius: .25em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+} */
+
+
+
+.highlighted-text {
+    border-radius: .28125rem;
+    padding: 0 .2rem
+}
+
+.highlight-purple {
+    background-color: rgba(154,118,255,.3)
+}
+
+.highlight-red {
+    background-color: rgba(232,13,47,.3)
+}
+
+.highlight-orange {
+    background-color: rgba(207,68,10,.3)
+}
+
+.highlight-yellow {
+    background-color: rgba(205,165,26,.3)
+}
+
+.highlight-green {
+    background-color: rgba(18,148,85,.3)
+}
+
+.highlight-sky {
+    background-color: rgba(61,138,166,.3)
+}
+
+.highlight-blue {
+    background-color: rgba(53,112,228,.3)
+}
+
+.highlight-magenta {
+    background-color: rgba(221,14,150,.3)
+}
